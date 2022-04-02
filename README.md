@@ -1,5 +1,6 @@
 # grupo8
 ecommerce
+
 NOSOTROS: 
  Desde "Tienda Orgánica” ofrecemos productos orgánicos libres de químicos, pesticidas, fertilizantes o aditivos sintéticos. Nuestros productos tienen muchas más vitaminas, minerales y antioxidantes que los productos convencionales. 
 
@@ -31,7 +32,7 @@ https://biomarket.com.ar -- Estética y la foto en la portada para acceso direct
 
 https://estilorganico.com/ -- Diseño sencillo, de fácil visualización para el cliente. 
 
-https://tienda.huertasdelpilar.com.ar/productos/tomate-redondo-x-kg/ --Referencia de diseño.
+https://tienda.huertasdelpilar.com.ar/productos/tomate-redondo-x-kg/ --Referencia de diseñoy funcionalidad.
 
  Enlaces
 

@@ -32,7 +32,7 @@ https://biomarket.com.ar -- Estética y la foto en la portada para acceso direct
 
 https://estilorganico.com/ -- Diseño sencillo, de fácil visualización para el cliente. 
 
-https://tienda.huertasdelpilar.com.ar/productos/tomate-redondo-x-kg/ --Referencia de diseñoy funcionalidad.
+https://tienda.huertasdelpilar.com.ar/ --Referencia de diseñoy funcionalidad.
 
  Enlace a WIREFRAMES: https://miro.com/app/board/uXjVOBWzAoQ=/
  

@@ -34,9 +34,7 @@ https://estilorganico.com/ -- Diseño sencillo, de fácil visualización para el
 
 https://tienda.huertasdelpilar.com.ar/productos/tomate-redondo-x-kg/ --Referencia de diseñoy funcionalidad.
 
- Enlaces
+ Enlace a WIREFRAMES: https://miro.com/app/board/uXjVOBWzAoQ=/
+ 
 
 
-Móvil:  
-
-Web:  

@@ -36,5 +36,7 @@ https://tienda.huertasdelpilar.com.ar/ --Referencia de diseñoy funcionalidad.
 
  Enlace a WIREFRAMES: https://miro.com/app/board/uXjVOBWzAoQ=/
  
+ Enlace a Logo, tipografias, colores: https://docs.google.com/document/d/1pjIBJ6jZ_Tm1dUQTXaButXnjj7LlnLnMGkQjl_eGFGc/edit?usp=sharing
+ 
 
 

@@ -1,0 +1,22 @@
+{
+  "name": "grupo_8_tiendaorganica",
+  "version": "1.0.0",
+  "description": "ecommerce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valeiba/grupo_8_TiendaOrganica.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valeiba/grupo_8_TiendaOrganica/issues"
+  },
+  "homepage": "https://github.com/valeiba/grupo_8_TiendaOrganica#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

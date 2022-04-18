@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/valeiba/grupo_8_TiendaOrganica#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "swiper": "^8.1.1"
   }
 }

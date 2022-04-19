@@ -62,6 +62,5 @@ select .cant{
   font-size: 16px;
 }
 @media (min-width:361px){
-display: flex;
-flex-wrap: ;
+
 }

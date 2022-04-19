@@ -1,3 +1,67 @@
 * {
   box-sizing: border-box;
 }
+/*carrito de compras*/
+.titulo{
+  font-size: 30px;
+  font-weight: bold;
+}
+ .carrito-compras{
+  height: 60%;
+  width: 70%;
+  border: solid 1px #BB8AC3;
+  padding: 30px;
+  margin: auto;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+
+
+}
+.seccion{
+  font-weight: lighter;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+select .cant{
+  position: relative;
+  right: 90px;
+  top:30px;
+  
+}
+.check{
+  position:relative;
+  top: 50px;
+  right: 100px;
+}
+.total{
+  position: relative;
+  left: 60%;
+  bottom: 50%;
+  font-size: 25px;
+}
+.finalizar{
+  display: flex;
+  justify-content: space-around
+ ;
+}
+.seguir button{
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin: 16px 0;
+  font-size: 16px;
+}
+.confirmar button{
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin: 16px 0;
+  font-size: 16px;
+}
+@media (min-width:361px){
+display: flex;
+flex-wrap: ;
+}

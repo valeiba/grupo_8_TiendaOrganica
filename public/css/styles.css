@@ -23,6 +23,24 @@ body {
   margin: 0 auto;
 }
 
+.slide {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.bg-celeste {
+  background-color: #a1aee4;
+}
+
+.bg-verde {
+  background-color: #d1e9a3;
+}
+
+.bg-naranja {
+  background-color: #e6be82;
+}
+
 .swiper-bg {
   background-size: cover;
   background-position: center;
@@ -178,6 +196,10 @@ body {
   color: white;
   margin: 16px 0;
   font-size: 16px;
+}
+
+footer {
+  border-top: 1px solid #333;
 }
 
 /* TABLET */

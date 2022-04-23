@@ -218,3 +218,116 @@ footer {
     display: block;
   }
 }
+/*carrito de compras*/
+.titulo{
+  font-size: 30px;
+  font-weight: bold;
+}
+ .carrito-compras{
+  height: 60%;
+  width: 70%;
+  border: solid 1px #BB8AC3;
+  padding: 30px;
+  margin: auto;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+
+
+}
+.seccion{
+  font-weight: lighter;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+select .cant{
+  position: relative;
+  right: 90px;
+  top:30px;
+  
+}
+.check{
+  position:relative;
+  top: 50px;
+  right: 100px;
+}
+.total{
+  position: relative;
+  left: 60%;
+  bottom: 50%;
+  font-size: 25px;
+
+}
+.finalizar{
+  display: flex;
+  justify-content: space-around
+ ;
+}
+.seguir button{
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin: 16px 0;
+  font-size: 16px;
+  transition: background-color 1s
+}
+.seguir button:hover{
+  background-color: tomato;
+}
+.confirmar button{
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin: 16px 0;
+  font-size: 16px;
+  transition: background-color 1s
+}
+.confirmar button:hover{
+  background-color:lightgreen
+}
+.iconocarro{
+  position: fixed;
+  bottom: 50px;
+  right: 90px;
+  color:darkviolet ;
+  font-size: 30px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: #FFF;
+ 
+
+}
+.iconocarro:hover{
+  animation-name: muevecarro;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+/*detalle de producto*/
+.detalle-producto{
+  display: flex;
+  flex-direction: row;
+}
+.titulo-produc {
+  display: flex;
+  flex-direction: column;
+}
+.fotoproducto{
+  width: 70%;
+}
+
+@keyframes muevecarro{
+  from{ transform: rotate(-90deg);}
+  to{transform: rotate(-360deg);}
+}
+
+@media (min-width:361px){
+.total{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+}

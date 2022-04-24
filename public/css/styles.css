@@ -128,7 +128,7 @@ body {
   overflow: hidden;
 }
 
-.product-card__img {
+img {
   display: block;
   max-width: 100%;
 }
@@ -218,6 +218,8 @@ footer {
     display: block;
   }
 }
+
+
 /*carrito de compras*/
 .titulo{
   font-size: 30px;
@@ -253,12 +255,13 @@ select .cant{
   right: 100px;
 }
 .total{
-  position: relative;
-  left: 60%;
-  bottom: 50%;
   font-size: 25px;
-
 }
+
+.total h1 {
+  text-align: right;
+}
+
 .finalizar{
   display: flex;
   justify-content: space-around
@@ -316,7 +319,7 @@ select .cant{
   flex-direction: column;
 }
 .fotoproducto{
-  width: 70%;
+  width: 50%;
 }
 
 @keyframes muevecarro{
@@ -325,9 +328,5 @@ select .cant{
 }
 
 @media (min-width:361px){
-.total{
-  display: flex;
-  flex-wrap: wrap;
-}
 
 }

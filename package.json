@@ -19,5 +19,8 @@
   "dependencies": {
     "express": "^4.17.3",
     "swiper": "^8.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }

@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/6bd1af9c32.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="swiper/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <title>Tienda Orgánica</title>
   </head>
@@ -14,10 +20,10 @@
       <nav class="navbar">
         <div class="navbar-wrapper">
           <a href="/">
-            <img src="img/logo.png" alt="" class="navbar__logo">
+            <img src="img/logo.png" alt="" class="navbar__logo" />
           </a>
           <div class="navbar__search-wrapper">
-            <input type="text" class="navbar__search-input">
+            <input type="text" class="navbar__search-input" />
             <i class="fa-solid fa-magnifying-glass navbar__search-icon"></i>
           </div>
           <div class="navbar__menu">
@@ -85,37 +91,34 @@
         <h2 class="">Destacados</h2>
         <div class="products">
           <div class="product-card">
-            <img src="img/canasta-de-frutas.jpg" alt="" class="product-card__img">
+            <div class="product-card__img-wrapper">
+              <img src="img/canasta-de-frutas.jpg" alt="" class="product-card__img" />
+            </div>
             <div class="product-card__details">
               <h2 class="product-card__title">Canasta de Frutas</h2>
               <span class="product-card__price">$99</span>
-              <div class="product-card__controls">
-                <input type="number" name="" value="0">
-                <input type="submit" class="" value="añadir"></button>
-              </div>
             </div>
+            <button class="product-card__button">Comprar</button>
           </div>
           <div class="product-card">
-            <img src="img/canasta-de-verduras1.jpg" alt="" class="product-card__img">
-            <div class="product-card__details">
-              <h2 class="product-card__title">Canasta de Verduras</h2>
-              <span class="product-card__price">$99</span>
-              <div class="product-card__controls">
-                <input type="number" name="" value="0">
-                <input type="submit" class="" value="añadir"></button>
-              </div>
+            <div class="product-card__img-wrapper">
+              <img src="img/canasta-de-verduras1.jpg" alt="" class="product-card__img" />
             </div>
+            <div class="product-card__details">
+              <h2 class="product-card__title">Canasta de Frutas</h2>
+              <span class="product-card__price">$99</span>
+            </div>
+            <button class="product-card__button">Comprar</button>
           </div>
           <div class="product-card">
-            <img src="img/canasta-familiar.jpg" alt="" class="product-card__img">
-            <div class="product-card__details">
-              <h2 class="product-card__title">Canasta Familiar</h2>
-              <span class="product-card__price">$99</span>
-              <div class="product-card__controls">
-                <input type="number" name="" value="0">
-                <input type="submit" class="" value="añadir"></button>
-              </div>
+            <div class="product-card__img-wrapper">
+              <img src="img/canasta-familiar.jpg" alt="" class="product-card__img" />
             </div>
+            <div class="product-card__details">
+              <h2 class="product-card__title">Canasta de Frutas</h2>
+              <span class="product-card__price">$99</span>
+            </div>
+            <button class="product-card__button">Comprar</button>
           </div>
         </div>
       </div>

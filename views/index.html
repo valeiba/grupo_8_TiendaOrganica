@@ -17,49 +17,15 @@
   </head>
   <body>
     <header class="hero">
-      <!-- <nav class="navbar">
-        <div class="navbar-wrapper">
-          <a href="/">
-            <img src="img/logo.png" alt="" class="navbar__logo" />
-          </a>
-          <div class="navbar__search-wrapper">
-            <input type="text" class="navbar__search-input" />
-            <i class="fa-solid fa-magnifying-glass navbar__search-icon"></i>
-          </div>
-          <div class="navbar__menu">
-            <a href="/register" class="navbar__icon-wrapper">
-              <i class="fa-solid fa-user-plus"></i>
-              <span>Registrate</span>
-            </a>
-            <a href="/login" class="navbar__icon-wrapper">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              <span>Iniciar Sesión</span>
-            </a>
-            <a href="/productcart" class="navbar__icon-wrapper">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span>Compras</span>
-            </a>
-            <a href="#" class="navbar__icon-wrapper">
-              <i class="fa-solid fa-bars"></i>
-              <span>Menu</span>
-            </a>
-          </div>
-        </div>
-        <ul class="mobile-menu">
-          <li><a href="#" class="">Inicio</a></li>
-          <li><a href="#" class="">Acerca de nosotros</a></li>
-          <li><a href="#" class="">Servicios</a></li>
-        </ul>
-      </nav> -->
       <nav class="navbar">
         <div class="container navbar-wrapper">
           <a href="/">
             <img src="img/logo.png" alt="" class="navbar__logo" />
           </a>
-          <div class="navbar__search-wrapper">
+          <form class="navbar__search-wrapper" action="/" method="get">
             <input type="text" class="navbar__search-input" />
             <i class="fa-solid fa-magnifying-glass navbar__search-icon"></i>
-          </div>
+          </form>
           <div class="navbar__menu">
             <a href="/register" class="navbar__icon-wrapper">
               <i class="fa-solid fa-user-plus"></i>
@@ -73,9 +39,47 @@
               <i class="fa-solid fa-cart-shopping"></i>
               <span>Compras</span>
             </a>
-            <a href="#" class="navbar__icon-wrapper">
+            <div class="btn-open">
               <i class="fa-solid fa-bars"></i>
-              <span>Menu</span>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-menu">
+          <div class="btn-close">
+            <i class="fa-solid fa-times"></i>
+          </div>
+          <h3 class="mobile-menu__title">
+            Categorías
+          </h3>
+          <div class="mobile-menu__links">
+            <a href="#" class="mobile-menu__link">
+              Todos los productos
+            </a>
+            <a href="#" class="mobile-menu__link">
+              Frutas
+            </a>
+            <a href="#" class="mobile-menu__link">
+              Verduras
+            </a>
+            <a href="#" class="mobile-menu__link">
+              Frutos secos
+            </a>
+            <a href="#" class="mobile-menu__link">
+              Canastas
+            </a>
+          </div>
+          <h3 class="mobile-menu__title">
+            Nosotros
+          </h3>
+          <div class="mobile-menu__links">
+            <a href="#" class="mobile-menu__link">
+              Nuestra propuesta
+            </a>
+            <a href="#" class="mobile-menu__link">
+              Preguntas frecuentes
+            </a>
+            <a href="#" class="mobile-menu__link">
+              Contacto
             </a>
           </div>
         </div>
@@ -117,7 +121,7 @@
 
     <section class="">
       <div class="container">
-        <h2 class="">Destacados</h2>
+        <h2 class="section__title">Destacados</h2>
         <div class="products">
           <div class="product-card">
             <img src="img/canasta-de-frutas.jpg" alt="" class="product-card__img" />
@@ -155,5 +159,6 @@
 
     <script src="swiper/swiper-bundle.min.js"></script>
     <script src="js/carousel.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

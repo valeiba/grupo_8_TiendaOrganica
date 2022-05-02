@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/6bd1af9c32.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Tienda Orgánica</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="navbar">
+        <div class="container navbar-wrapper">
+          <a href="/">
+            <img src="img/logo.png" alt="" class="navbar__logo" />
+          </a>
+          <form class="navbar__search-wrapper" action="/" method="get">
+            <input type="text" class="navbar__search-input" />
+            <i class="fa-solid fa-magnifying-glass navbar__search-icon"></i>
+          </form>
+          <ul class="navbar__menu">
+            <li>
+              <a href="/register" class="navbar__icon-wrapper">
+                <i class="fa-solid fa-user-plus"></i>
+                <span>Registrate</span>
+              </a>
+            </li>
+            <li>
+              <a href="/login" class="navbar__icon-wrapper">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>Iniciá Sesión</span>
+              </a>
+            </li>
+            <li>
+              <a href="/productcart" class="navbar__icon-wrapper">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Compras</span>
+              </a>
+            </li>
+            <div class="btn-open">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </ul>
+        </div>
+        <div class="mobile-menu">
+          <div class="btn-close">
+            <i class="fa-solid fa-times"></i>
+          </div>
+          <ul class="mobile-menu__user">
+            <li>
+              <a href="/register" class=""><i class="fa-solid fa-user-plus"></i> Registrate</a>
+            </li>
+            <li>
+              <a href="/login" class=""><i class="fa-solid fa-right-to-bracket"></i> Iniciá Sesión</a>
+            </li>
+          </ul>
+          <h3 class="mobile-menu__title">Categorías</h3>
+          <ul class="mobile-menu__links">
+            <li><a href="#" class="mobile-menu__link"> Todos los productos </a></li>
+            <li><a href="#" class="mobile-menu__link"> Frutas </a></li>
+            <li><a href="#" class="mobile-menu__link"> Verduras </a></li>
+            <li><a href="#" class="mobile-menu__link"> Frutos secos </a></li>
+            <li><a href="#" class="mobile-menu__link"> Canastas </a></li>
+          </ul>
+          <h3 class="mobile-menu__title">Nosotros</h3>
+          <ul class="mobile-menu__links">
+            <li><a href="#" class="mobile-menu__link"> Nuestra propuesta </a></li>
+            <li><a href="#" class="mobile-menu__link"> Preguntas frecuentes </a></li>
+            <li><a href="#" class="mobile-menu__link"> Contacto </a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide bg-verde">
+          <div class="container slide">
+            <h1 class="slide__title">Productos frescos todo el año</h1>
+          </div>
+        </div>
+        <div class="swiper-slide bg-naranja">
+          <div class="container slide">
+            <h1 class="slide__title">Suscribite a nuestras ofertas</h1>
+          </div>
+        </div>
+        <div class="swiper-slide bg-celeste">
+          <div class="container slide">
+            <h1 class="slide__title">Envíos a todo el país</h1>
+          </div>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Destacados</h2>
+        <section class="products">
+          <article class="product-card">
+            <img src="img/canasta-de-frutas.jpg" alt="" class="product-card__img" />
+            <div class="product-card__details">
+              <h2 class="product-card__title">Canasta de Frutas</h2>
+              <span class="product-card__price">$99</span>
+            </div>
+            <button class="product-card__button">Comprar</button>
+          </article>
+          <article class="product-card">
+            <img src="img/canasta-de-verduras1.jpg" alt="" class="product-card__img" />
+            <div class="product-card__details">
+              <h2 class="product-card__title">Canasta de Frutas</h2>
+              <span class="product-card__price">$99</span>
+            </div>
+            <button class="product-card__button">Comprar</button>
+          </article>
+          <article class="product-card">
+            <img src="img/canasta-familiar.jpg" alt="" class="product-card__img" />
+            <div class="product-card__details">
+              <h2 class="product-card__title">Canasta de Frutas</h2>
+              <span class="product-card__price">$99</span>
+            </div>
+            <button class="product-card__button">Comprar</button>
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <a href="/">
+          <img src="img/logo.png" alt="" class="footer__logo" />
+        </a>
+        <div class="footer-wrapper">
+          <div class="">
+            <h3 class="footer__title">Nosotros</h3>
+            <ul class="footer__links">
+              <li><a href="#" class="footer__link">Nuestra propuesta</a></li>
+              <li><a href="#" class="footer__link">Preguntas frecuentes</a></li>
+              <li><a href="#" class="footer__link">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <h3 class="footer__title">Categorías</h3>
+            <ul class="footer__links">
+              <li><a href="#" class="footer__link">Todos los productos</a></li>
+              <li><a href="#" class="footer__link">Frutas</a></li>
+              <li><a href="#" class="footer__link">Verduras</a></li>
+              <li><a href="#" class="footer__link">Frutos secos</a></li>
+              <li><a href="#" class="footer__link">Canastas</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <h3 class="footer__title">Categorías</h3>
+            <ul class="footer__links">
+              <li><a href="#" class="footer__link">Todos los productos</a></li>
+              <li><a href="#" class="footer__link">Frutas</a></li>
+              <li><a href="#" class="footer__link">Verduras</a></li>
+              <li><a href="#" class="footer__link">Frutos secos</a></li>
+              <li><a href="#" class="footer__link">Canastas</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__copyright-and-social-media">
+          <p class="footer__copyright">Copyright &copy2022 - Tienda Orgánica S.R.L.</p>
+          <ul class="footer__social-media-links">
+            <li>
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="swiper/swiper-bundle.min.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

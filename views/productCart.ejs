@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/6bd1af9c32.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Tienda Orgánica</title>
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="navbar">
+        <div class="container navbar-wrapper">
+          <a href="/">
+            <img src="img/logo.png" alt="" class="navbar__logo" />
+          </a>
+          <form class="navbar__search-wrapper" action="/" method="get">
+            <input type="text" class="navbar__search-input" />
+            <i class="fa-solid fa-magnifying-glass navbar__search-icon"></i>
+          </form>
+          <div class="navbar__menu">
+            <a href="/register" class="navbar__icon-wrapper">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Registrate</span>
+            </a>
+            <a href="/login" class="navbar__icon-wrapper">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <span>Iniciá Sesión</span>
+            </a>
+            <a href="/productcart" class="navbar__icon-wrapper">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span>Compras</span>
+            </a>
+            <div class="btn-open">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </div>
+        </div>
+        <ul class="mobile-menu">
+          <li><a href="#" class="">Inicio</a></li>
+          <li><a href="#" class="">Acerca de nosotros</a></li>
+          <li><a href="#" class="">Servicios</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <article class="carrito-compras">
+          <h1 class="titulo">Detalle de tu carrito</h1>
+          <div class="seccion carrito">
+            <div>
+              <h3 class="seccion">Producto</h3>
+            </div>
+            <div>
+              <h3 class="seccion"><label>Cantidad</label></h3>
+            </div>
+            <div>
+              <h5>
+                <select class="cant" name="can">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </h5>
+            </div>
+
+            <div>
+              <h3 class="seccion">Precio</h3>
+            </div>
+            <div>
+              <h3 class="seccion">Subtotal</h3>
+            </div>
+            <div>
+              <h3 class="seccion">Eliminar</h3>
+            </div>
+            <div class="check">
+              <input type="checkbox" />
+            </div>
+          </div>
+          <div class="total">
+            <h1>Total:$0.00</h1>
+          </div>
+          <div class="finalizar">
+            <div class="seguir">
+              <button type="submit">Seguir comprando</button>
+            </div>
+            <div class="confirmar">
+              <button type="submit">Confirmar pedido</button>
+            </div>
+          </div>
+        </article>
+      </section>
+      <div class="iconocarro">
+        <i class="fas fa-shopping-cart"></i>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <p class="">Copyright &copy2022 - Tienda Orgánica S.R.L.</p>
+      </div>
+    </footer>
+  </body>
+</html>

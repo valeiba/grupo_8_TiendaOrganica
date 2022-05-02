@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/6bd1af9c32.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Formulario de registro</title>
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="navbar">
+        <div class="container navbar-wrapper">
+          <a href="/">
+            <img src="img/logo.png" alt="" class="navbar__logo" />
+          </a>
+          <form class="navbar__search-wrapper" action="/" method="get">
+            <input type="text" class="navbar__search-input" />
+            <i class="fa-solid fa-magnifying-glass navbar__search-icon"></i>
+          </form>
+          <div class="navbar__menu">
+            <a href="/register" class="navbar__icon-wrapper">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Registrate</span>
+            </a>
+            <a href="/login" class="navbar__icon-wrapper">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <span>Iniciá Sesión</span>
+            </a>
+            <a href="/productcart" class="navbar__icon-wrapper">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span>Compras</span>
+            </a>
+            <div class="btn-open">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </div>
+        </div>
+        <ul class="mobile-menu">
+          <li><a href="#" class="">Inicio</a></li>
+          <li><a href="#" class="">Acerca de nosotros</a></li>
+          <li><a href="#" class="">Servicios</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="form-register">
+      <form action="/" method="GET">
+        <h4>Registrate en Tienda Organica en 1'!</h4>
+        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" />
+        <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingresa tu apellido" />
+        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingresa tu e-mail" />
+        <input class="controls" type="password" name="pass" id="pass" placeholder="Ingresa tu contraseña" />
+        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+        <input class="bottons" type="submit" value="REGISTRARME" />
+        <p><a href="#">Ya estoy registrado</a></p>
+      </form>
+    </section>
+    <footer>
+      <div class="container">
+        <p class="">Copyright &copy2022 - Tienda Orgánica S.R.L.</p>
+      </div>
+    </footer>
+  </body>
+</html>

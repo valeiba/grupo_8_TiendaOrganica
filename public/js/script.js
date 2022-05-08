@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener('scroll', () => {
     const navbarHeight = navbar.clientHeight; 
-    if (window.scrollY > navbarHeight) {
+    if (window.scrollY > navbarHeight * 4) {
       navbar.classList.add('is-scrolled');
     } else {
       navbar.classList.remove('is-scrolled')

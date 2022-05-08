@@ -1,8 +1,8 @@
 :root {
-  --color-verde: #d1e9a3;
-  --color-naranja: #e6be82;
-  --color-celeste: #a1aee4;
-  --color-texto-negro: #2d2d2d;
+  --color-light-green: #d1e9a3;
+  --color-dark-green: #2b8652;
+  --color-orange: #e6be82;
+  --color-text-black: #2d2d2d;
 }
 
 * {
@@ -17,6 +17,7 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--color-text-black);
 }
 
 ul {
@@ -53,15 +54,15 @@ img {
 }
 
 .bg-celeste {
-  background-color: var(--color-celeste);
+  background-color: var(--color-dark-green);
 }
 
 .bg-verde {
-  background-color: var(--color-verde);
+  background-color: var(--color-light-green);
 }
 
 .bg-naranja {
-  background-color: var(--color-naranja)
+  background-color: var(--color-orange);
 }
 
 .swiper-bg {
@@ -89,11 +90,13 @@ img {
   right: 0;
   z-index: 10;
   transition: all 0.3s ease-in-out;
+  background-color: rgba(255,255,255,.1);
 }
 
 .navbar.is-scrolled {
   position: fixed;
-  background-color: var(--color-verde);
+  background-color: #edffcb;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .navbar-wrapper {
@@ -103,7 +106,7 @@ img {
 }
 
 .navbar__logo {
-  width: 4rem;
+  width: 6rem;
 }
 
 .navbar__search-wrapper {
@@ -118,7 +121,7 @@ img {
 
 .navbar a,
 .btn-open {
-  color: var(--color-texto-negro);
+  color: #000;
 }
 
 .navbar__search-icon {
@@ -131,13 +134,72 @@ img {
 .navbar__menu {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
+}
+
+.navbar__menu .navbar-cta {
+  border-radius: 4rem;
+  padding: .8rem 1.8rem;
+  background-color: var(--color-orange);
+  color: #000;
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: bold;
+}
+
+.navbar__menu .navbar-cta:hover  {
+  transform: scale(1.1);
+  color: #000;
+}
+
+.dropdown {
+  position: relative;
+  display: none;
+}
+
+.dropdown:hover .dropdown__list {
+  border: 2px solid;
+  transform: scale(1);
+}
+
+.dropdown__list {
+  position: absolute;
+  z-index: -1;
+  top: 2rem;
+  left: 0;
+  width: 16rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5em;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transform: scale(0);
+  transform-origin: top left;
+  transition: all 0.3s ease-in-out;
+  background-color: #edffcb;
+}
+
+.dropdown__list a:hover {
+  background-color: var(--color-light-green);
+}
+
+.dropdown__list a {
+  border-radius: 5rem;
+  padding: 1rem;
+}
+
+.navbar__icon-wrapper {
+  transition: all .2s ease-in-out;
+}
+
+.navbar__icon-wrapper:hover {
+  color: var(--color-orange);
 }
 
 .navbar__icon-wrapper i,
 .btn-open {
   font-size: 1.25em;
 }
+
 
 .navbar__icon-wrapper span {
   display: none;
@@ -147,6 +209,7 @@ img {
   cursor: pointer;
 }
 
+.navbar-cta ,
 .navbar__menu li:nth-child(1),
 .navbar__menu li:nth-child(2) {
   display: none;
@@ -161,7 +224,7 @@ img {
   flex-direction: column;
   gap: 2rem;
   padding: 4rem 2rem;
-  background-color: var(--color-naranja);
+  background-color: var(--color-orange);
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
 }
@@ -210,11 +273,20 @@ img {
 
 .swiper-button-prev,
 .swiper-button-next {
+  color: var(--color-dark-green);
   display: none;
 }
 
+.swiper-pagination-bullet {
+  color: var(--color-light-green);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--color-dark-green);
+}
+
 .section__title {
-  color: var(--color-naranja);
+  color: var(--color-orange);
 }
 
 .products {
@@ -238,7 +310,7 @@ img {
 }
 
 .product-card:hover .product-card__button {
-  background-color: var(--color-verde);
+  background-color: var(--color-light-green);
   color: #fff;
 }
 
@@ -376,7 +448,11 @@ footer {
   font-size: 2em;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: .5rem;
+}
+
+.footer__social-media-links a {
+  padding: 1rem;
 }
 
 /* TABLET */
@@ -389,6 +465,10 @@ footer {
     display: none;
   }
 
+  .navbar__logo {
+    width: 10rem;
+  }
+
   .swiper:hover .swiper-button-prev,
   .swiper:hover .swiper-button-next {
     display: block;
@@ -398,22 +478,28 @@ footer {
     display: block;
   }
 
+  .dropdown {
+    position: relative;
+    display: block;
+  }
+
   .navbar__icon-wrapper {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
   }
 
   .navbar__icon-wrapper i,
   .btn-open {
-    font-size: 1em;
+    font-size: 1.2em;
   }
 
   .navbar__icon-wrapper span {
     display: block;
-    font-size: 0.8em;
+    font-size: 1em;
   }
 
+  .navbar__menu div:nth-child(2),
   .navbar__menu li:nth-child(1),
   .navbar__menu li:nth-child(2) {
     display: block;

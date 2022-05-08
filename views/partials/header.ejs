@@ -1,30 +1,38 @@
 <header class="main-header">
   <nav class="navbar">
     <div class="container navbar-wrapper">
-      <a href="/">
-        <img src="img/logo.png" alt="" class="navbar__logo" />
-      </a>
-      <form class="navbar__search-wrapper" action="/" method="get">
+      <div class="navbar__menu">
+        <a href="/" class="navbar__logo">
+          <img src="img/logo-mobile.png" alt="" />
+        </a>
+        <div>
+          <a href="/products" class="navbar__icon-wrapper navbar-cta">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span>Ver productos</span>
+          </a>
+        </div>
+      </div>
+      <!-- <form class="navbar__search-wrapper" action="/" method="get">
         <input type="text" class="navbar__search-input" />
         <i class="fa-solid fa-magnifying-glass navbar__search-icon"></i>
-      </form>
+      </form> -->
       <ul class="navbar__menu">
         <li>
-          <a href="/register" class="navbar__icon-wrapper">
-            <i class="fa-solid fa-user-plus"></i>
-            <span>Registrate</span>
+          <a href="/login" class="navbar__icon-wrapper">
+            <i class="fa-solid fa-user"></i>
+            <span>Iniciá sesión</span>
           </a>
         </li>
         <li>
-          <a href="/login" class="navbar__icon-wrapper">
+          <a href="/register" class="navbar__icon-wrapper">
             <i class="fa-solid fa-right-to-bracket"></i>
-            <span>Iniciá Sesión</span>
+            <span>Registrate</span>
           </a>
         </li>
         <li>
           <a href="/productcart" class="navbar__icon-wrapper">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span>Compras</span>
+            <span>Carrito</span>
           </a>
         </li>
         <div class="btn-open">
@@ -38,10 +46,16 @@
       </div>
       <ul class="mobile-menu__user">
         <li>
-          <a href="/register" class=""><i class="fa-solid fa-user-plus"></i> Registrate</a>
+          <a href="/login" class="navbar__icon-wrapper">
+            <i class="fa-solid fa-user"></i>
+            <span>Iniciá sesión</span>
+          </a>
         </li>
         <li>
-          <a href="/login" class=""><i class="fa-solid fa-right-to-bracket"></i> Iniciá Sesión</a>
+          <a href="/register" class="navbar__icon-wrapper">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <span>Registrate</span>
+          </a>
         </li>
       </ul>
       <ul class="mobile-menu__links">

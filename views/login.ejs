@@ -9,41 +9,9 @@
     <title>Tienda Orgánica</title>
   </head>
   <body>
-    <header class="hero">
-      <nav class="navbar">
-        <div class="container navbar-wrapper">
-          <a href="/">
-            <img src="img/logo.png" alt="" class="navbar__logo" />
-          </a>
-          <form class="navbar__search-wrapper" action="/" method="get">
-            <input type="text" class="navbar__search-input" />
-            <i class="fa-solid fa-magnifying-glass navbar__search-icon"></i>
-          </form>
-          <div class="navbar__menu">
-            <a href="/register" class="navbar__icon-wrapper">
-              <i class="fa-solid fa-user-plus"></i>
-              <span>Registrate</span>
-            </a>
-            <a href="/login" class="navbar__icon-wrapper">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              <span>Iniciá Sesión</span>
-            </a>
-            <a href="/productcart" class="navbar__icon-wrapper">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span>Compras</span>
-            </a>
-            <div class="btn-open">
-              <i class="fa-solid fa-bars"></i>
-            </div>
-          </div>
-        </div>
-        <ul class="mobile-menu">
-          <li><a href="#" class="">Inicio</a></li>
-          <li><a href="#" class="">Acerca de nosotros</a></li>
-          <li><a href="#" class="">Servicios</a></li>
-        </ul>
-      </nav>
-    </header>
+    
+    <%- include('./partials/header') %>
+
     <section class="form-register">
       <form action="/" method="GET">
         <h4>¡Qué gusto volver a verte!</h4>
@@ -53,45 +21,9 @@
         <input class="bottons" type="submit" value="Iniciar sesión" />
       </form>
     </section>
-    <footer>
-      <div class="container">
-        <div class="footer-wrapper">
-          <a href="/">
-            <img src="img/logo.png" alt="" class="footer__logo" />
-          </a>
-          <div class="footer__columns">
-            <div class="">
-              <h3 class="footer__title">Nosotros</h3>
-              <ul class="footer__links">
-                <li><a href="#" class="footer__link">Nuestra propuesta</a></li>
-                <li><a href="#" class="footer__link">Preguntas frecuentes</a></li>
-                <li><a href="#" class="footer__link">Contacto</a></li>
-              </ul>
-            </div>
-            <div class="">
-              <h3 class="footer__title">Categorías</h3>
-              <ul class="footer__links">
-                <li><a href="#" class="footer__link">Todos los productos</a></li>
-                <li><a href="#" class="footer__link">Frutas</a></li>
-                <li><a href="#" class="footer__link">Verduras</a></li>
-                <li><a href="#" class="footer__link">Frutos secos</a></li>
-                <li><a href="#" class="footer__link">Canastas</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer__copyright-and-social-media">
-          <p class="footer__copyright">Copyright &copy2022 - Tienda Orgánica S.R.L.</p>
-          <ul class="footer__social-media-links">
-            <li>
-              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+
+    <%- include('./partials/footer') %>
+
+    <script src="js/script.js"></script>
   </body>
 </html>

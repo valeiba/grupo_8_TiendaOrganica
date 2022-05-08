@@ -9,24 +9,34 @@
     <title>Formulario de registro</title>
   </head>
   <body>
-    
     <%- include('./partials/header') %>
 
-    <section class="form-register">
-      <form action="/" method="GET">
-        <h4>Registrate en Tienda Organica en 1'!</h4>
-        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" />
-        <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingresa tu apellido" />
-        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingresa tu e-mail" />
-        <input class="controls" type="password" name="pass" id="pass" placeholder="Ingresa tu contraseña" />
-        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-        <input class="bottons" type="submit" value="REGISTRARME" />
-        <p><a href="#">Ya estoy registrado</a></p>
-      </form>
+    <section class="section">
+      <div class="divided-screen">
+        <div>
+          <div class="container">
+            <form class="main-form" action="/" method="get">
+              <h4>Registrate en Tienda Organica en 1'!</h4>
+              <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" />
+              <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingresa tu apellido" />
+              <input class="controls" type="email" name="correo" id="correo" placeholder="Ingresa tu e-mail" />
+              <input class="controls" type="password" name="pass" id="pass" placeholder="Ingresa tu contraseña" />
+              <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+              <input class="bottons" type="submit" value="REGISTRARME" />
+              <p><a href="#">Ya estoy registrado</a></p>
+            </form>
+          </div>
+        </div>
+        <div class="">
+          <div class="container">
+            
+          </div>
+        </div>
+      </div>
     </section>
 
     <%- include('./partials/footer') %>
-    
+
     <script src="js/script.js"></script>
   </body>
 </html>

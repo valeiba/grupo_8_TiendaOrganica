@@ -12,14 +12,16 @@
     
     <%- include('./partials/header') %>
 
-    <section class="form-register">
-      <form action="/" method="GET">
-        <h4>¡Qué gusto volver a verte!</h4>
-        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingresa tu e-mail" />
-        <input class="controls" type="password" name="pass" id="pass" placeholder="Ingresa tu contraseña" />
-        <span>Olvidé mi contraseña</span>
-        <input class="bottons" type="submit" value="Iniciar sesión" />
-      </form>
+    <section class="main-form">
+      <div class="container">
+        <form action="/" method="GET">
+          <h4>¡Qué gusto volver a verte!</h4>
+          <input class="controls" type="email" name="correo" id="correo" placeholder="Ingresa tu e-mail" />
+          <input class="controls" type="password" name="pass" id="pass" placeholder="Ingresa tu contraseña" />
+          <span>Olvidé mi contraseña</span>
+          <input class="bottons" type="submit" value="Iniciar sesión" />
+        </form>
+      </div>
     </section>
 
     <%- include('./partials/footer') %>

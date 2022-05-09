@@ -1,9 +1,12 @@
 const controller = {
-  productCart: (req, res) => {
-    res.render('productCart')
-  },
   productDetail: (req, res) => {
-    res.render('productDetail')
+    res.render('./products/productDetail')
+  },
+  addProduct: (req, res) => {
+    res.render('./products/addProduct')
+  },
+  editProduct: (req, res) => {
+    res.render('./products/editProduct')
   }
 };
 

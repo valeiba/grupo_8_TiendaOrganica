@@ -335,10 +335,13 @@ img {
 
 .divided-screen > div {
   width: 100%;
-} 
+}
+
+.container-form {
+  padding: 10rem 0;
+}
 
 .main-form {
-  margin: 8rem auto;
   padding: 2rem 4rem;
   background-color: var(--green);
   border-radius: 4px;
@@ -391,6 +394,7 @@ img {
 
 footer {
   border-top: 1px solid rgb(220, 220, 220);
+  padding-bottom: 1rem;
   background-color: var(--light-orange);
 }
 
@@ -506,6 +510,7 @@ footer {
 
   .footer-wrapper {
     flex-direction: row;
+    justify-content: center;
     gap: 3rem;
   }
 
@@ -521,7 +526,7 @@ footer {
 
   .divided-screen > div {
     width: 50%;
-  } 
+  }
 }
 
 /*carrito de compras*/
@@ -530,30 +535,59 @@ footer {
   font-weight: bold;
 }
 .carrito-compras {
-  height: 60%;
+  height: 40%;
   width: 70%;
-  border: solid 1px #bb8ac3;
+  border: solid 1px #a1aee4;
   padding: 30px;
   margin: auto;
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
-.seccion {
-  font-weight: lighter;
-  font-size: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+.contenedorsecciones {
+  overflow-x: auto;
+  min-height: 0.01%;
 }
-select .cant {
-  position: relative;
-  right: 90px;
-  top: 30px;
+.contenedorsecciones table {
+  border-collapse: collapse;
+  width: 50%;
+
+  display: table;
 }
-.check {
-  position: relative;
-  top: 50px;
-  right: 100px;
+.contenedorsecciones table thead {
+  font-weight: 700;
+}
+.contenedorsecciones table thead {
+  background: #a1aee4;
+  color: #fff;
+  padding: 6px 0;
+  border: none;
+  text-align: center;
+}
+.contenedorsecciones table tbody {
+  background: white;
+  color: black;
+  text-align: center;
+}
+.contenedorsecciones table input {
+  width: 40px;
+  padding-left: 1px;
+}
+.contenedorsecciones table td:nth-child(1),
+.contenedorsecciones table td:nth-child(2) {
+  width: 150px;
+}
+.contenedorsecciones table td:nth-child(3),
+.contenedorsecciones table td:nth-child(4),
+.contenedorsecciones table td:nth-child(5) {
+  width: 150px;
+}
+
+.contenedorsecciones table td:nth-child(6) {
+  width: 100px;
+}
+.contenedorsecciones table tbody img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
 }
 .total {
   font-size: 25px;
@@ -607,6 +641,7 @@ select .cant {
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
+
 /*detalle de producto*/
 .detalle-producto {
   display: flex;
@@ -629,5 +664,9 @@ select .cant {
   }
 }
 
-@media (min-width: 361px) {
+@media (min-width: 480px) {
+  .contenedorsecciones table {
+    width: 100%;
+    table-layout: initial;
+  }
 }

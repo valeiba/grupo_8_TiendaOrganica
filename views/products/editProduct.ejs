@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/6bd1af9c32.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Tienda Orgánica</title>
+  </head>
+  <body>
+    
+    <%- include('./../partials/header') %>
+
+    <section>
+        <form action="/" method="GET" class="main-form">
+          <h4>Formulario de edición de productos</h4>
+          <input class="controls" type="text" name="nombre" id="nombre" placeholder="nombre del producto" />
+          <input class="controls" type="text" name="description" id="description" placeholder="Descripción del producto" />
+          <br>
+         <label >Selecionar categoria</label>
+          <select name="categorias">
+              <option>Frutas</option>
+              <option>Verduras</option>
+              <option>Canasta familiar</option>
+          </select>
+          <br>
+            <label>Foto de producto</label>
+            <input   type="file" name="avatar" accept=".jpg">
+          
+          <input class="bottons" type="submit" value="MODIFICAR" />
+          
+        </form>
+      </section>
+      <%- include('./../partials/footer') %>
+
+    </body>
+  </html>

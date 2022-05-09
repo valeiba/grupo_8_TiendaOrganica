@@ -3,21 +3,22 @@
 ## Retro Sprint 2
 
 ### **Comenzar a hacer**
-- Crear grupo de WhatsApp
-- Programar reuniones
+- poner fechas limites para no postergar tareas, asu vez estas fechas deben ser corto plazo
+- definir temas principales de las reuniones
 
 ### **Hacer más**
-- Reuniones :)
-- Revisar el trabajo del compañero para complementar la propia
+- buscar informacion de los temas en diferentes fuentes
+
 
 ### **Continuar haciendo**
-- Ayudar al otro
-- Compartir información
-- Asignar tareas
+- reuniones
+- comunicarnos por whatsapp
+- ayudarnos entre todos
 
 ### **Hacer menos**
-- Trabajo en solitario
-- No definir puntos principales de las reuniones
+- trabajar en solitario
+- no pedir ayuda cuando estamos bloqueados con una tarea
 
 ### **Dejar de hacer**
-- Postergar tareas pendientes
+- postergar tareas pendientes
+- no poner tiempo limite de reuniones, para q sea mas productiva.

@@ -35,16 +35,33 @@ const controller = {
   },
   edit: (req, res) => {
     let productToEdit = products.find((product) => product.id == req.params.id);
-    res.render("./products/edit", {productToEdit});
+    res.render("./products/edit", { productToEdit });
   },
   update: (req, res) => {
-    res.send('update')
+    let productToUpdate = products.find(
+      (product) => product.id == req.params.id
+    );
+
+    productToUpdate.name = req.body.name;
+    productToUpdate.price = req.body.price;
+    productToUpdate.description = req.body.description;
+    productToUpdate.available = req.body.available;
+    productToUpdate.image = req.body.image;
+    productToUpdate.category = req.body.category;
+
+    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
+    res.send("update");
   },
   delete: (req, res) => {
-    let filteredProducts = products.filter(product => product.id != req.params.id);
-    fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, " "));
+    let filteredProducts = products.filter(
+      (product) => product.id != req.params.id
+    );
+    fs.writeFileSync(
+      productsFilePath,
+      JSON.stringify(filteredProducts, null, " ")
+    );
     res.redirect("../../products");
-  }
+  },
 };
 
 module.exports = controller;

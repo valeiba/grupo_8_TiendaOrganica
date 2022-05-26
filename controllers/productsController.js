@@ -38,9 +38,7 @@ const controller = {
     res.render("./products/edit", { productToEdit });
   },
   update: (req, res) => {
-    let productToUpdate = products.find(
-      (product) => product.id == req.params.id
-    );
+    let productToUpdate = products.find((product) => product.id == req.body.id);
 
     productToUpdate.name = req.body.name;
     productToUpdate.price = req.body.price;

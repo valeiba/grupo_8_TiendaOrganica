@@ -15,21 +15,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // /products (GET) Listado de productos OK
 router.get("/", controller.products);
 
@@ -48,7 +33,7 @@ router.get("/:id/edit", upload.single("avatar"), controller.edit);
 // /products/:id (PUT) Acción de edición (a donde se envía el formulario) PENDIENTE
 router.put("/:id/edit", controller.update);
 
-// /products/:id (DELETE) Acción de borrado
-router.delete("/:id/delete", controller.delete);
+// /products/:id (DELETE) Acción de borrado PENDIENTE
+router.get("/:id/delete", controller.delete);
 
 module.exports = router;

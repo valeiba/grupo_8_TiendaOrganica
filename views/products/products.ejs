@@ -21,11 +21,11 @@
         <% products.forEach(product => { %> 
         <article class="product-card">
           <img src="img/products/<%= product.image %>" alt="" class="product-card__img" />
-          <div class="product-card__details">
+          <a href="/products/<%= product.id %>/detail" class="product-card__details">
             <h2 class="product-card__title"><%= product.name %> </h2>
             <span class="product-card__price">$<%= product.price %> </span>
-          </div>
-          <button class="product-card__button">Comprar</button>
+          </a>
+          <a href="/productcart" class="product-card__button">Comprar</a>
         </article>
         <% }) %> 
       </div>

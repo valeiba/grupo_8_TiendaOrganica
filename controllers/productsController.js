@@ -41,7 +41,9 @@ const controller = {
     res.send('update')
   },
   delete: (req, res) => {
-    res.send('delete')
+    let filteredProducts = products.filter(product => product.id != req.params.id);
+    fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, " "));
+    res.redirect("../../products");
   }
 };
 

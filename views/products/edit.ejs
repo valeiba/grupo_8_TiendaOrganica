@@ -3,7 +3,7 @@
   <%- include('./../partials/head') %>
   <body>
     <%- include('./../partials/header') %>
-    
+
     <!-- action="/products/<%= productToEdit.id %>/edit?_method=PUT" -->
     <section>
       <div class="container-form">
@@ -14,14 +14,7 @@
           enctype="multipart/form-data"
         >
           <h4>Formulario de edición de <%= productToEdit.name %></h4>
-          <input
-            class="controls"
-            type="text"
-            name="name"
-            id="name"
-            placeholder="<%= productToEdit.name %>"
-            value=""
-          />
+          <input class="controls" type="text" name="name" id="name" placeholder="<%= productToEdit.name %>" value="" />
           <input
             class="controls"
             type="number"

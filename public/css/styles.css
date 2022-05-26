@@ -15,6 +15,7 @@ body {
   margin: 0;
   font-family: "Nunito", sans-serif;
   color: var(--black);
+  min-height: 100vh;
 }
 
 a {
@@ -35,7 +36,7 @@ img {
 
 .container {
   width: 100%;
-  max-width: 72rem;
+  max-width: 92rem;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -271,8 +272,37 @@ img {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  padding: 1rem;
   gap: 1rem;
+}
+
+.products__grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-top: 4rem;
+}
+
+.products__categories {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.products__categories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products__categories-links {
+  display: none;
+}
+
+.products__categories-links.is-open {
+  transform: translateX(0);
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card {
@@ -396,6 +426,7 @@ footer {
   border-top: 1px solid rgb(220, 220, 220);
   padding-bottom: 1rem;
   background-color: var(--light-orange);
+  margin-top: auto;
 }
 
 .footer__logo {
@@ -504,8 +535,9 @@ footer {
     display: none;
   }
 
-  .products {
-    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  .products__grid-layout {
+    padding-top: 7rem;
+    grid-template-columns: minmax(10rem, 25%) 1fr;
   }
 
   .footer-wrapper {

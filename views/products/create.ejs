@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/header') %>
+
+    <section>
+      <div class="container-form">
+        <form class="main-form" action="/products" method="POST" enctype="multipart/form-data">
+          <h4>Formulario de creación de productos</h4>
+          <input class="controls" type="text" name="name" id="name" placeholder="nombre del producto" />
+          <input class="controls" type="number" name="price" id="price" placeholder="precio del producto" />
+          <input
+            class="controls"
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Descripción del producto"
+          />
+          <br />
+          <label>Selecionar categoria</label>
+          <select name="category">
+            <option value="fruits">Frutas</option>
+            <option value="vegetables">Verduras</option>
+            <option value="baskets">Canasta familiar</option>
+          </select>
+          <br />
+          <label>Foto de producto</label>
+          <input type="file" name="avatar" accept=".jpg" />
+          <input class="bottons" type="submit" value="AGREGAR" />
+        </form>
+      </div>
+    </section>
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+  </body>
+</html>

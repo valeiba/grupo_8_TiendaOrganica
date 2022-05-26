@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/6bd1af9c32.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/styles.css" />
-    <title>Formulario de registro</title>
-  </head>
+  <%- include('./../partials/head') %>
   <body>
     <%- include('./../partials/header') %>
 
     <section class="section">
       <div class="divided-screen">
         <div>
-          <div class="container">
-            <form class="main-form" action="/" method="get">
+          <div class="container-form">
+            <form class="main-form" action="/" method="GET">
               <h4>Registrate en Tienda Organica en 1'!</h4>
               <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" />
               <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingresa tu apellido" />
@@ -28,15 +21,12 @@
           </div>
         </div>
         <div class="">
-          <div class="container">
-            
-          </div>
+          <div class="container"></div>
         </div>
       </div>
     </section>
 
-    <%- include('./../partials/footer') %>
-
-    <script src="js/script.js"></script>
+    <%- include('./../partials/footer') %> 
+    <%- include('./../partials/scripts') %>
   </body>
 </html>

@@ -1,8 +1,8 @@
 // Toggle Mobile Menu
 
 document.addEventListener("DOMContentLoaded", () => {
-  const openBtn = document.querySelector(".btn-open");
-  const closeBtn = document.querySelector(".btn-close");
+  const btnOpen = document.querySelector(".btn-open");
+  const btnClose = document.querySelector(".btn-close");
   const mobileMenu = document.querySelector(".mobile-menu");
   const navbar = document.querySelector(".navbar");
 
@@ -10,8 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileMenu.classList.toggle("is-open");
   };
 
-  openBtn.addEventListener("click", toggleMobileMenu);
-  closeBtn.addEventListener("click", toggleMobileMenu);
+  btnOpen.addEventListener("click", toggleMobileMenu);
+  btnClose.addEventListener("click", toggleMobileMenu);
+
+  const btnCollapse = document.querySelector("#btn-collapse");
+  const categoriesLinks = document.querySelector("#categories-links");
+
+  const toggleCategoriesLinks = () => {
+    categoriesLinks.classList.toggle("is-open")
+  }
+  
+  btnCollapse.addEventListener("click", toggleCategoriesLinks);
 
   window.addEventListener('scroll', () => {
     const navbarHeight = navbar.clientHeight; 

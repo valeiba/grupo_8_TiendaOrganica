@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/header') %>
+    
+    <!-- action="/products/<%= productToEdit.id %>/edit?_method=PUT" -->
+    <section>
+      <div class="container-form">
+        <form
+          class="main-form"
+          action="/products/<%= productToEdit.id %>/edit?_method=PUT"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <h4>Formulario de edición de <%= productToEdit.name %></h4>
+          <input
+            class="controls"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="<%= productToEdit.name %>"
+            value=""
+          />
+          <input
+            class="controls"
+            type="number"
+            name="price"
+            id="price"
+            placeholder="<%= productToEdit.price %>"
+            value=""
+          />
+          <input
+            class="controls"
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Descripción del producto"
+            value=""
+          />
+          <br />
+          <label>Selecionar categoria</label>
+          <select name="category">
+            <option value="fruits">Frutas</option>
+            <option value="vegetables">Verduras</option>
+            <option value="baskets">Canasta familiar</option>
+          </select>
+          <br />
+          <label>Foto de producto</label>
+          <input type="file" name="avatar" accept=".jpg" />
+          <input class="bottons" type="submit" value="MODIFICAR" />
+        </form>
+      </div>
+    </section>
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+  </body>
+</html>

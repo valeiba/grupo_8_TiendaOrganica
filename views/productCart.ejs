@@ -13,36 +13,37 @@
 
     <main>
       <section>
-        <div class="contenedorcarro">
-       
+        <div class="banner-carro" style="background: url(img/bannerdetalle.jpg)">
+          <div class="titulo">
+            <h1>Detalle de tu carrito</h1>
+          </div>
+        </div>
         <div class="carrito-compras">
-          <h1 class="titulo">Detalle de tu carrito</h1>
           <div class="contenedorsecciones" class="contenedor my-5">
             <table width="100%">
               <thead>
                 <tr>
-                  <td>Producto</td>
-                  <td>imagen</td>
-                  <td>Cantidad</td>
-                  <td>Precio</td>
-                  <td>Subtotal</td>
-                  <td>Eliminar</td>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Subtotal</th>
+                  <th>Eliminar</th>
                 </tr>
               </thead>
+            </div>
               <tbody>
                 <tr>
-                  <td><h5>Canasta familiar 1</h5></td>
-                  <td>><img src="img/canasta-familiar.jpg" alt="imagenproducto"></td>
+                  <td>
+                    <div class="dentrode-carro">
+                     <img src="img/canasta-familiar.jpg" alt="imagenproducto">
+                    <div>
+                      <p>Canasta familiar 1</p>
+                      <small>$1200</small>
+                      </div>
+                      </div>
+                      </td>
                   <td><input value="1" type="number"></td>
-                  <td>
-                    <h5>$1200</h5>
-                  </td>
-                  <td>
-                    <h5>$1200</h5>
-                  </td>
+                  <td>$1200</td>
                   <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                  
-
                 </tr>>
               </tbody>
             </table>
@@ -58,6 +59,44 @@
             </div>
           </div>
           </div>
+      </section>
+      <section id="abajo-carro" class="contenedor-abajocarro">
+        <div class="row">
+          <div class="cupon">
+            <div>
+              <h5>Cupón</h5>
+              <P>Ingresar codigo de cupón</P>
+              <input type="text" placeholder="codigo de cupón">
+            </div>
+            <div class="confirmar">
+              <button type="submit">Aplicar cupón</button>
+            </div>
+          </div>
+          <div class="total">
+            <div>
+              <h5>Total de carrito</h5>
+              <div class="d-flex justify-content-between">
+                <h6>Subtotal</h6>
+                <p>$1200</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <h6>Descuento</h6>
+                <p>$120</p>
+              </div>
+              <hr class="segundo-hr">
+              <div class="d-flex juntify-content-between">
+                <h6>Total</h6>
+                <p>$1200</p>
+              </div>
+                <div class="confirmar">
+                  <button type="submit">Confirmar pedido</button>
+                </div>
+              </div>
+           
+
+            </div>
+          </div>
+        </div>
       </section>
       <div class="iconocarro">
         <i class="fas fa-shopping-cart"></i>

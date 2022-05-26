@@ -1,5 +1,8 @@
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
-  productDetail: (req, res) => {
+ // Detail - Detail from one product
+ 
+  detail: (req, res) => {
     res.render('./products/productDetail')
   },
   addProduct: (req, res) => {

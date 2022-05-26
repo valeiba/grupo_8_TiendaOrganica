@@ -1,6 +1,6 @@
 :root {
   --light-green: #eeffcc;
-  --green: #d1e9a3;
+  --green:  #d1e9a3;
   --dark-green: #2b8652;
   --light-orange: #ffebcc;
   --orange: #e6be82;
@@ -531,24 +531,26 @@ footer {
 
 /*carrito de compras*/
 .titulo {
+  color: white;
   font-size: 30px;
   font-weight: bold;
+  padding-top: 120px;
+  margin-left: 30px;
+  background-image: url('.\img\bannerdetalle.jpg');
 }
 .carrito-compras {
-  height: 40%;
-  width: 70%;
-  border: solid 1px #a1aee4;
-  padding: 30px;
-  margin: auto;
-  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  width: 90%;
+  border:none;
+  margin: 80px auto;
+  box-shadow: -2px 4px 12px 10px rgba(230,190,130,0.86);
 }
 .contenedorsecciones {
   overflow-x: auto;
-  min-height: 0.01%;
+ 
 }
 .contenedorsecciones table {
   border-collapse: collapse;
-  width: 50%;
+  width: 100%;
 
   display: table;
 }
@@ -556,7 +558,7 @@ footer {
   font-weight: 700;
 }
 .contenedorsecciones table thead {
-  background: #a1aee4;
+  background:#e6be82;
   color: #fff;
   padding: 6px 0;
   border: none;
@@ -576,18 +578,19 @@ footer {
   width: 150px;
 }
 .contenedorsecciones table td:nth-child(3),
-.contenedorsecciones table td:nth-child(4),
-.contenedorsecciones table td:nth-child(5) {
+.contenedorsecciones table td:nth-child(4) {
   width: 150px;
 }
 
-.contenedorsecciones table td:nth-child(6) {
-  width: 100px;
-}
+
 .contenedorsecciones table tbody img {
-  width: 100px;
+  width: 80px;
   height: 80px;
   object-fit: cover;
+  margin:auto
+}
+.contenedorsecciones table tbody a{
+  color: #e6be82;
 }
 .total {
   font-size: 25px;
@@ -602,7 +605,7 @@ footer {
   justify-content: space-around;
 }
 .seguir button {
-  background-color: red;
+  background-color: tomato;
   color: white;
   border: none;
   padding: 12px;
@@ -611,10 +614,10 @@ footer {
   transition: background-color 1s;
 }
 .seguir button:hover {
-  background-color: tomato;
+  background-color: #e6be82;
 }
 .confirmar button {
-  background-color: green;
+  background-color: #2b8652;
   color: white;
   border: none;
   padding: 12px;
@@ -624,6 +627,43 @@ footer {
 }
 .confirmar button:hover {
   background-color: lightgreen;
+}
+#abajo-carro .cupon>div,
+#abajo-carro .total>div{
+  border: 1px solid #b6b3b3;
+}
+#abajo-carro .cupon h5, 
+#abajo-carro .total h5{
+  background:#e6be82;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  text-align: center;
+  font-weight: 700;
+}
+
+#abajo-carro .cupon, 
+#abajo-carro .total{
+  width: 70%;
+  margin: 10px 50px;
+ padding-top:10px
+ }
+
+ #abajo-carro .row{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   
+ }
+#abajo-carro .cupon p, input,
+#abajo-carro .cupon h6{
+  padding: 0 12px;
+}
+#abajo-carro .cupon input,
+#abajo-carro .cupon button,
+#abajo-carro .total button{
+  height: 44px;
+  margin: 0 0 20px 12px;
 }
 .iconocarro {
   position: fixed;
@@ -643,16 +683,93 @@ footer {
 }
 
 /*detalle de producto*/
+.contenedor-detalleproducto {
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+}
 .detalle-producto {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 30px;
 }
-.titulo-produc {
+.detalle-producto h3, h2{
+  font-weight: 30px;
+  line-height: 10px;
+}
+.detalle-producto select{
+  display: block;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  width: 100px;
+}
+.detalle-producto button{
+  background-color:#e6be82;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin: 16px 0;
+  font-size: 16px;
+  width: 200px;
+}
+.detalle-producto button:hover {
+  background-color: tomato;
+}
+.detalle-producto .description{
+font-style: italic;
+}
+.fotoproducto {
+  width: 100%;
+  margin-right:0px;
+}
+.contenedor-productos{
+  display: flex;
+  flex-direction: row;
+  margin: 5px auto;
+  padding-bottom: 5px;
+  
+
+}
+.titulo-productos h2{
+  text-align: center;
+  margin-top: 5px;
+  padding-left: 10px;
+ line-height: 20px;
+}
+.contenedor-productos .imagenes-productos{
   display: flex;
   flex-direction: column;
 }
-.fotoproducto {
-  width: 50%;
+.contenedor-productos .imagenes-productos h4{
+font-weight: bold;
+line-height: 5px;
+margin-left: 15px;
+  
+}
+.producto-relacionado{
+  cursor: pointer;
+
+
+}
+.contenedor-productos .producto-relacionado img {
+  width: 80%;
+  transition: 0.3s all;
+  
+  
+}
+
+.producto-relacionado button{
+  background-color:tomato;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin: 16px 0;
+  font-size: 16px;
+  transform: translateY(20px);
+  opacity: 1;
+  transition: 0.3 all;
+
 }
 
 @keyframes muevecarro {
@@ -665,8 +782,48 @@ footer {
 }
 
 @media (min-width: 480px) {
-  .contenedorsecciones table {
-    width: 100%;
-    table-layout: initial;
+  #abajo-carro .row{
+    flex-direction: row;
+ 
   }
+  #abajo-carro .cupon, 
+#abajo-carro .total{
+  width: 70%;
+  
+}
+/*detalle de producto*/
+.contenedor-detalleproducto {
+  display: flex;
+  flex-direction: row;
+
+}
+ .fotoproducto {
+  width: 40%;
+  margin-right:50px;
+}
+.detalle-producto{
+  width: 50%;
+}
+.contenedor-productos .imagenes-productos{
+  flex-direction: row;
+  
+}
+.contenedor-productos{
+  flex-direction: column;
+  padding-left: 200px;
+}
+.titulo-productos{
+  text-align: left;
+}
+
+.producto-relacionado button{
+  opacity: 0;
+}
+.producto-relacionado:hover button {
+  transform: translateY(0);
+  opacity: 1;
+}
+.contenedor-productos .producto-relacionado:hover img{
+  opacity: 0.7;
+}
 }

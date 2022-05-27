@@ -3,8 +3,6 @@
   <%- include('./../partials/head') %>
   <body>
     <%- include('./../partials/header') %>
-
-    <!-- action="/products/<%= productToEdit.id %>/edit?_method=PUT" -->
     <section>
       <div class="container-form">
         <form
@@ -40,8 +38,9 @@
           </select>
           <br />
           <label>Foto de producto</label>
-          <input type="file" name="avatar" accept=".jpg" />
-          <input class="bottons" type="submit" value="MODIFICAR" />
+          <input type="file" name="image" id="image" />
+          <!-- <input class="bottons" type="submit" value="MODIFICAR" /> -->
+          <button class="bottons" type="submit">MODIFICAR</button>
         </form>
       </div>
     </section>

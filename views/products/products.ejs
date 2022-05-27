@@ -19,14 +19,15 @@
       </div>
       <div class="products">
         <% products.forEach(product => { %> 
-        <article class="product-card">
-          <img src="img/products/<%= product.image %>" alt="" class="product-card__img" />
+        <!-- <article class="product-card">
+          <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
           <a href="/products/<%= product.id %>/detail" class="product-card__details">
             <h2 class="product-card__title"><%= product.name %> </h2>
             <span class="product-card__price">$<%= product.price %> </span>
           </a>
           <a href="/productcart" class="product-card__button">Comprar</a>
-        </article>
+        </article> -->
+        <%- include('./../partials/productCard', {product} ) %>
         <% }) %> 
       </div>
     </section>

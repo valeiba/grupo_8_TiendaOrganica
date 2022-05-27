@@ -568,7 +568,7 @@ footer {
   font-size: 30px;
   font-weight: bold;
   padding-top: 120px;
-  background: linear-gradient(to right, rgba(0,0,0,.2), rgba(0,0,0,.2)), url("/img/bannerdetalle.jpg");
+  background: linear-gradient(to right, rgba(0,0,0,.2), rgba(0,0,0,.2)), url("/images/bannerdetalle.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;

@@ -11,8 +11,11 @@ const controller = {
     });
   },
   detail: (req, res) => {
+    const basketProducts = products.filter(product => product.category === 'baskets');
+    console.log(basketProducts);
     const product = products.find((product) => product.id == req.params.id);
     res.render("./products/detail", {
+      basketProducts,
       product,
     });
   },
@@ -38,13 +41,38 @@ const controller = {
     res.render("./products/edit", {productToEdit});
   },
   update: (req, res) => {
-    res.send('update')
+    let id = req.params.id;
+    let productToEdit = products.find((product) => product.id == id);
+    let image;
+
+    if (req.file != undefined) {
+      image = req.file.filename;
+    } else {
+      image = productToEdit.image;
+    }
+
+    console.log(image);
+    productToEdit = {
+      id: productToEdit.id,
+      ...req.body,
+      image: image,
+    };
+
+    let newProducts = products.map((product) => {
+      if (product.id == productToEdit.id) {
+        return (product = {...productToEdit});
+      }
+      return product;
+    });
+
+    fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, " "));
+    res.redirect("../../products");
   },
   delete: (req, res) => {
-    let filteredProducts = products.filter(product => product.id != req.params.id);
+    let filteredProducts = products.filter((product) => product.id != req.params.id);
     fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, " "));
     res.redirect("../../products");
-  }
+  },
 };
 
 module.exports = controller;

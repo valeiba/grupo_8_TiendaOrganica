@@ -12,23 +12,24 @@
         </div>
         <ul id="categories-links" class="products__categories-links is-open">
           <li><a href="/products/" class="">Todos los productos</a></li>
-          <li><a href="#" class="">Frutas</a></li>
+          <li><a href="/products/" class="">Frutas</a></li>
           <li><a href="#" class="">Verduras</a></li>
           <li><a href="#" class="">Canastas</a></li>
         </ul>
       </div>
       <div class="products">
         <% products.forEach(product => { %> 
-        <!-- <article class="product-card">
-          <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
+        <article class="product-card">
           <a href="/products/<%= product.id %>/detail" class="product-card__details">
+          <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
             <h2 class="product-card__title"><%= product.name %> </h2>
-            <span class="product-card__price">$<%= product.price %> </span>
+            <span class="product-card__price">$<%= product.price %></span>
+           <h5> <%= product.presentation %></h5>
           </a>
           <a href="/productcart" class="product-card__button">Comprar</a>
-        </article> -->
-        <%- include('./../partials/productCard', {product} ) %>
+        </article> 
         <% }) %> 
+        
       </div>
     </section>
 

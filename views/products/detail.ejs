@@ -13,7 +13,7 @@
           <h3><%= product.name %></h3>
           <h3>Precio</h3>
           <h2>$<%= product.price %></h2>
-          <p>por kg</p>
+          <p><%= product.presentation %></p>
           <select>
             <option>Cantidad</option>
             <option>1</option>
@@ -21,13 +21,9 @@
             <option>3</option>
             <option>4</option>
           </select>
-          <button>Añadir a carrito</button>
+          <a href="/productcart" class="product-card__button"><button>Añadir a carrito</button></a>
           <p class="description">
-            La manzana es el fruto ideal para tomar a cualquier hora y participa positivamente en la consecución del
-            equilibrio alimentario. A la manzana se le atribuyen muchas propiedades curativas, aparte de su reconocido
-            poder diurético. Como su nombre indica, su piel es de un color verdoso y es una de las manzanas más ácidas
-            que hay. Su pulpa es verdosa, muy densa y crujiente, con un punto efervescente. Se recomienda comer en crudo
-            y dar un toque de frescor.
+            <%= product.description %>
           </p>
         </div>
       </article>

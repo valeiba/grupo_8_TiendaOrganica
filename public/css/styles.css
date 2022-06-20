@@ -663,20 +663,23 @@ footer {
 }
 #abajo-carro .cupon > div,
 #abajo-carro .total > div {
+  
   border: 1px solid #b6b3b3;
 }
-#abajo-carro .cupon h5,
-#abajo-carro .total h5 {
+#abajo-carro  h5 {
   background: #e6be82;
   color: #fff;
   padding: 6px 12px;
   border: none;
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: large;
+
 }
 
 #abajo-carro .cupon,
 #abajo-carro .total {
+ 
   width: 70%;
   margin: 10px 50px;
   padding-top: 10px;
@@ -691,6 +694,14 @@ footer {
 input,
 #abajo-carro .cupon h6 {
   padding: 0 12px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 400;
+  font-size: medium;
 }
 #abajo-carro .cupon input,
 #abajo-carro .cupon button,

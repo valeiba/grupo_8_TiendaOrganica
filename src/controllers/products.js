@@ -1,14 +1,16 @@
 const fs = require("fs");
 const path = require("path");
-
-const productsFilePath = path.join(__dirname, "/../data/products.json");
+const productsFilePath = path.join(__dirname, "/../database/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const controller = {
   products: async (req, res) => {
     try {
-      const products = await JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-      res.render("./products/products", {
+      let products = await JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+      if (req.query.category) {
+        products = products.filter(product => product.category === req.query.category);
+      };
+      res.render("./products/index", {
         products,
       });
     } catch (error) {

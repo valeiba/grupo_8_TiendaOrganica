@@ -19,10 +19,10 @@
 - weekly del sprint 5
 - carga de productos en json
 - Implementar la entidad de usuarios
--Implementar el registro de usuarios
--Implementar el login de usuarios
--(Opcional) Implementar la función de recordar al usuario
--Implementar rutas de huéspedes y de usuarios
+- Implementar el registro de usuarios
+- Implementar el login de usuarios
+- (Opcional) Implementar la función de recordar al usuario
+- Implementar rutas de huéspedes y de usuarios
 
 
 ### ** semana 2° **
@@ -62,7 +62,6 @@
 ## **si se encontraron con algún impedimento*
 - reunirnos
 - reorganizar las carpetas
-- 
 
 ## **Que se va a hacer la siguiente semana*
 - entrega del sprint5

@@ -2,7 +2,7 @@
  {
   "id": 1,
   "name": "Manzana roja",
-  "price": 240,
+  "price": "240",
   "presentation":"1kg",
   "description": "La manzana es el fruto ideal para tomar a cualquier hora y participa positivamente en la consecución del equilibrio alimentario. A la manzana se le atribuyen muchas propiedades curativas, aparte de su reconocido poder diurético. Como su nombre indica, tiene una piel roja oscura con un dulzor medio, entre la manzana golden y la manzana verde. Es aromática y tiene una carne jugosa. Este tipo de manzanas es el más utilizado para acompañar las ensaladas",
   "available": true,
@@ -12,7 +12,7 @@
  {
   "id": 2,
   "name": "Manzana verde",
-  "price": 250,
+  "price": "250",
   "presentation":"1kg",
   "description": "La manzana es el fruto ideal para tomar a cualquier hora y participa positivamente en la consecución del equilibrio alimentario. A la manzana se le atribuyen muchas propiedades curativas, aparte de su reconocido poder diurético. Como su nombre indica, su piel es de un color verdoso y es una de las manzanas más ácidas que hay. Su pulpa es verdosa, muy densa y crujiente, con un punto efervescente. Se recomienda comer en crudo y dar un toque de frescor",
   "available": true,
@@ -32,7 +32,7 @@
  {
   "id": 4,
   "name": "Pomelo Rosado",
-  "price": "150",
+  "price": 150,
   "presentation":"1kg",
   "description": "El pomelo se consume principalmente como fruta fresca, y posee numerosas cualidades digestivas, estomacales y antisépticas. Previene las enfermedades cardiovasculares, fortalece el sistema inmunológico, previene los resfriados, estabiliza la flora intestinal, activa el metabolismo y el crecimiento celular, y contribuye a la pérdida de peso. La vitamina C y los beta-carotenos presentes en cantidades elevadas en el zumo de esta fruta actúan como antioxidantes",
   "available": true,
@@ -142,11 +142,11 @@
  {
   "id": 15,
   "name": "Cebolla",
-  "price": 90,
+  "price": "90",
   "presentation":"1kg",
   "description": "La cebolla es el bulbo subterráneo y comestible que crece en la planta del mismo nombre. La cebolla ha sido usada desde hace mucho tiempo como planta medicinal, por lo que existen muchas recetas y remedios para combatir diversas dolencias y patologías. Su riqueza en minerales y vitaminas es relativamente baja, pero es rica en aceites esenciales que contienen azufre. La cebolla se consume cruda, frita, hervida y asada, casi siempre como condimento",
   "available": true,
-  "image": "Cebolla2.png",
+  "image": "cebolla.png",
   "category": "vegetables"
  },
  {

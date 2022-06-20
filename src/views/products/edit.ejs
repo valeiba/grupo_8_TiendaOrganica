@@ -12,14 +12,21 @@
           enctype="multipart/form-data"
         >
           <h4>Formulario de edición de <%= productToEdit.name %></h4>
-          <input class="controls" type="text" name="name" id="name" placeholder="<%= productToEdit.name %>" value="" />
+          <input
+            class="controls"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="<%= productToEdit.name %>"
+            value="<%= productToEdit.name %>"
+          />
           <input
             class="controls"
             type="number"
             name="price"
             id="price"
             placeholder="<%= productToEdit.price %>"
-            value=""
+            value="<%= productToEdit.price %>"
           />
           <input
             class="controls"
@@ -27,7 +34,7 @@
             name="description"
             id="description"
             placeholder="Descripción del producto"
-            value=""
+            value="<%= productToEdit.description %>"
           />
           <br />
           <label>Selecionar categoria</label>
@@ -39,7 +46,6 @@
           <br />
           <label>Foto de producto</label>
           <input type="file" name="image" id="image" />
-          <!-- <input class="bottons" type="submit" value="MODIFICAR" /> -->
           <button class="bottons" type="submit">MODIFICAR</button>
         </form>
       </div>

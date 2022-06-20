@@ -2,12 +2,13 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
-const mainRoutes = require("./routes/main");
-const productRoutes = require("./routes/products");
-const userRoutes = require("./routes/users");
+const mainRoutes = require("./src/routes/main");
+const productRoutes = require("./src/routes/products");
+const userRoutes = require("./src/routes/users");
 
 // Config
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, '/src/views'));
 
 // Middlewares
 app.use(express.static(path.join(__dirname, "public")));

@@ -3,7 +3,7 @@
   <%- include('./../partials/head') %>
   <body>
     <%- include('./../partials/header') %>
-    
+
     <section class="products__grid-layout container">
       <div class="products__categories">
         <div class="products__categories-header">
@@ -18,22 +18,20 @@
         </ul>
       </div>
       <div class="products">
-        <% products.forEach(product => { %> 
+        <% products.forEach(product => { %>
         <article class="product-card">
           <a href="/products/<%= product.id %>/detail" class="product-card__details">
-          <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
-            <h2 class="product-card__title"><%= product.name %> </h2>
-            <span class="product-card__price">$<%= product.price %></span>
-           <h5> <%= product.presentation %></h5>
+            <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
+            <h2 class="product-card__title"><%= product.name %></h2>
+            <p class="product-card__price">$<%= product.price %></p>
+            <p class=""><%= product.presentation %></p>
           </a>
           <a href="/productcart" class="product-card__button">Comprar</a>
-        </article> 
-        <% }) %> 
-        
+        </article>
+        <% }) %>
       </div>
     </section>
 
-    <%- include('./../partials/footer') %>
-    <%- include('./../partials/scripts') %>
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
   </body>
 </html>

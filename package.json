@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/valeiba/grupo_8_TiendaOrganica#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.7",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "multer": "^1.4.4",
     "swiper": "^8.1.1"

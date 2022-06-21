@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/header') %>
+    <section>
+      <article class="contenedor-detalleproducto">
+        <div class="fotoproducto">
+          <img src="images/products/<%= product.image %>" width="100%" alt="foto de producto" />
+        </div>
+        <div class="detalle-producto">
+          <h6>Home/frutas/manzana-verde</h6>
+          <h3><%= product.name %></h3>
+          <h3>Precio</h3>
+          <h2>$<%= product.price %></h2>
+          <p><%= product.presentation %></p>
+          <select>
+            <option>Cantidad</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+          <a href="/productcart" class=""><button>Añadir a carrito</button></a>
+          <p class="description">
+            <%= product.description %>
+          </p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <div class="titulo-productos">
+        <h2>Productos Relacionados</h2>
+      </div>
+      <div class="contenedor-productos">
+        <ul>
+          <% basketProducts.forEach(product => { %>
+          <li><%- include('./../partials/productCard', {product}) %></li>
+          <% }) %>
+        </ul>
+      </div>
+    </section>
+    <div class="iconocarro">
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+  </body>
+</html>

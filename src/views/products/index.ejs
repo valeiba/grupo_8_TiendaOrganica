@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/header') %>
+
+    <section class="products__grid-layout container">
+      <div class="products__categories">
+        <div class="products__categories-header">
+          <h2 class="">Categorías</h2>
+          <div id="btn-collapse"><i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+        <ul id="categories-links" class="products__categories-links is-open">
+          <li><a href="/products/" class="">Todos los productos</a></li>
+          <li><a href="/products/?category=fruits" class="">Frutas</a></li>
+          <li><a href="/products/?category=vegetables" class="">Verduras</a></li>
+          <li><a href="/products/?category=baskets" class="">Canastas</a></li>
+        </ul>
+      </div>
+      <div class="products">
+        <% products.forEach(product => { %>
+        <article class="product-card">
+          <a href="/products/<%= product.id %>/detail" class="product-card__details">
+            <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
+            <h2 class="product-card__title"><%= product.name %></h2>
+            <p class="product-card__price">$<%= product.price %></p>
+            <p class=""><%= product.presentation %></p>
+          </a>
+          <a href="/productcart" class="product-card__button">Comprar</a>
+        </article>
+        <% }) %>
+      </div>
+    </section>
+
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+  </body>
+</html>

@@ -9,21 +9,20 @@ const userRoutes = require("./src/routes/users");
 
 // Config
 app.set("view engine", "ejs");
-app.set('views', path.join(__dirname, '/src/views'));
+app.set("views", path.join(__dirname, "/src/views"));
 
 // Middlewares
 app.use(express.static("public"));
 app.use(express.static("node_modules"));
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
 // Routes
 app.use("/", mainRoutes);
 app.use("/products", productRoutes);
 app.use("/users", userRoutes);
-
 
 app.listen(3000, () => {
   console.log("Servidor funcionando");

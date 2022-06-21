@@ -4,5 +4,11 @@
   "lastname": "Test",
   "email": "user@test.com",
   "password": "$2b$10$R9fUyzcpXi.l0AjXE42UFu55U.9liBtWdQQxvFelmGQyhZ2/epbqm"
+ },
+ {
+  "name": "jesus david",
+  "lastname": "leal parada",
+  "email": "david01.jdlp@gmail.com",
+  "password": "$2b$10$RenGbelavHizjgdanjn57eRiuUYRnG4Q7L1D6IGcxDx1TWjLQAtR."
  }
 ]

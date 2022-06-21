@@ -5,6 +5,7 @@
     "price": "240",
     "presentation": "1kg",
     "description": "La manzana es el fruto ideal para tomar a cualquier hora y participa positivamente en la consecución del equilibrio alimentario. A la manzana se le atribuyen muchas propiedades curativas, aparte de su reconocido poder diurético. Como su nombre indica, tiene una piel roja oscura con un dulzor medio, entre la manzana golden y la manzana verde. Es aromática y tiene una carne jugosa. Este tipo de manzanas es el más utilizado para acompañar las ensaladas",
+    "available": true,
     "category": "fruits",
     "image": "manzana-roja.png"
   },

@@ -7,8 +7,6 @@
 ##  **Qué se hizo esta semana*
 - carga en trello de entregables del sprint5
 
-
-
 ## **si se encontraron con algún impedimento*
 - hacer reuniones por zoom
 - encontrar tiempo para dedicarnos al sprint 
@@ -24,13 +22,11 @@
 - (Opcional) Implementar la función de recordar al usuario
 - Implementar rutas de huéspedes y de usuarios
 
-
 ### ** semana 2° **
 
 ##  **Qué se hizo esta semana*
 - asignar tareas
 - 1 reunion por zoom
-
 
 ## **si se encontraron con algún impedimento*
 - tener tiempo entre clases para dedicarnos al sprint

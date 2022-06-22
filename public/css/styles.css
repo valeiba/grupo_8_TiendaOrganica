@@ -663,6 +663,7 @@ footer {
 }
 #abajo-carro .cupon > div,
 #abajo-carro .total > div {
+  
   border: 1px solid #b6b3b3;
 }
 #abajo-carro h5 {
@@ -677,6 +678,7 @@ footer {
 
 #abajo-carro .cupon,
 #abajo-carro .total {
+ 
   width: 70%;
   margin: 10px 50px;
   padding-top: 10px;
@@ -780,6 +782,7 @@ input,
 }
 .producto-relacionado {
   cursor: pointer;
+
 }
 .contenedor-productos .producto-relacionado img {
   width: 80%;
@@ -830,6 +833,7 @@ input,
 
   .contenedor-productos ul {
     flex-direction: row;
+   
   }
   .titulo-productos {
     text-align: left;

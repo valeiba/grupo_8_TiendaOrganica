@@ -1,28 +1,30 @@
-# grupo8
-ecommerce
+# **Grupo 8 - Tienda Orgánica**
+e-commerce
 
-NOSOTROS: 
+### INTEGRANTES: 
+
+- Valeria Ibañez Nogales // Diseño web. 
+
+- Mariano Andrés Baliño // Manejo de lenguaje HTML y resolución de problemas. 
+
+- Fernando Poch // Diseño y estética web, marketing.
+
+- Jesus David Leal // Diseño y maquetación web.
+
+## NOSOTROS: 
  Desde "Tienda Orgánica” ofrecemos productos orgánicos libres de químicos, pesticidas, fertilizantes o aditivos sintéticos. Nuestros productos tienen muchas más vitaminas, minerales y antioxidantes que los productos convencionales. 
 
   
 
-A quien está dirigido:  
+## A QUIEN ESTA DIRIGIDO:  
 
 Dirigido a todo consumidor responsable, ya que promovemos el desarrollo económico de pequeños productores, la protección del medio ambiente y el cuidado de la salud humana. 
 
  
 
-INTEGRANTES DEL GRUPO 8: 
 
-Valeria Ibañez // Diseño web. 
 
-Mariano Andrés Baliño // Manejo de lenguaje HTLM y resolución de problemas. 
-
-Fernando Poch /Diseño y estética web/marketing 
-
-Camila Ramírez /Buscadora de referentes/estética  
-
-REFERENTES QUE NOS INSPIRAN . 
+## REFERENTES QUE NOS INSPIRAN:
 
 https://lacomunidaddelbienestar.com.ar -- Productos que ofrecen. Diseño sencillo 
 
@@ -32,13 +34,15 @@ https://biomarket.com.ar -- Estética y la foto en la portada para acceso direct
 
 https://estilorganico.com/ -- Diseño sencillo, de fácil visualización para el cliente. 
 
-https://tienda.huertasdelpilar.com.ar/ --Referencia de diseñoy funcionalidad.
+https://tienda.huertasdelpilar.com.ar/ -- Referencia de diseño y funcionalidad.
 
- Enlace a WIREFRAMES: https://miro.com/app/board/uXjVOBWzAoQ=/
+## LINKS:
+
+Wireframes: https://miro.com/app/board/uXjVOBWzAoQ=/
  
- Enlace a Logo, tipografias, colores: https://docs.google.com/document/d/1pjIBJ6jZ_Tm1dUQTXaButXnjj7LlnLnMGkQjl_eGFGc/edit?usp=sharing
+Logo, tipografias, colores: https://docs.google.com/document/d/1pjIBJ6jZ_Tm1dUQTXaButXnjj7LlnLnMGkQjl_eGFGc/edit?usp=sharing
  
- Enlace a Trello: https://trello.com/b/DgptEg3a/grupo-8-proyecto-integrador
+Trello: https://trello.com/b/DgptEg3a/grupo-8-proyecto-integrador
  
 
 

@@ -7,26 +7,56 @@
       <div class="divided-screen">
         <div>
           <div class="container-form">
-            <form id="form" class="main-form" action="#" method="post" enctype="multipart/form-data">
+            <form id="form" class="main-form" action="users/register" method="POST" enctype="multipart/form-data">
               <h4>Registrate en Tienda Organica en 1'!</h4>
-              <input class="controls" type="text" name="name" id="name" placeholder="Ingresa tu nombre" />
+              <input class="controls <%= locals.errors && errors.name?'is-invalid':null%>" type="text" name="name" id="name" placeholder="Ingresa tu nombre" 
+              value="<% locals.oldData? oldData.name:null %>" />
+              <% if (locals.errors&& errors.name) { %>
+                <div class="text-danger">
+                  <%= errors.name.msg %> 
+                </div>
+               
+              <% } %>
+              
+           
               <input
-                class="controls"
+                class="controls <%= locals.errors && errors.lastname?'is-invalid':null%>"
                 type="text"
                 name="lastname"
                 id="lastname"
                 placeholder="Ingresa tu apellido"
+                value="<% locals.oldData? oldData.lastname:null %>"
               
               />
-              <input class="controls" type="email" name="email" id="email" placeholder="Ingresa tu e-mail" />
+              <% if (locals.errors&& errors.lastname) { %>
+                <div class="text-danger">
+                  <%= errors.lastname.msg %> 
+                </div>
+               
+              <% } %>
+              <input class="controls <%= locals.errors && errors.email?'is-invalid':null%>" type="email" name="email" id="email" placeholder="Ingresa tu e-mail"
+              value="<% locals.oldData? oldData.email:null %>" />
+              <% if (locals.errors&& errors.email) { %>
+                <div class="text-danger">
+                  <%= errors.email.msg %> 
+                </div>
+               
+              <% } %>
               <input
-                class="controls"
+                class="controls <%= locals.errors && errors.password?'is-invalid':null%>"
                 type="password"
                 name="password"
                 id="password"
                 placeholder="Ingresa tu contraseña"
+                value="<% locals.oldData? oldData.password:null %>"
               
               />
+              <% if (locals.errors&& errors.password) { %>
+                <div class="text-danger">
+                  <%= errors.password.msg %> 
+                </div>
+               
+              <% } %>
               <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
               <input id="buttonSend" class="bottons" type="submit" value="REGISTRARME" />
               <p><a href="#">Ya estoy registrado</a></p>

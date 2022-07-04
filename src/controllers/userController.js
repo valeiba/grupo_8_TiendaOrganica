@@ -4,9 +4,9 @@ const fs = require("fs");
 const path = require("path");
 const usersFilePath = path.join(__dirname, "/../database/users.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const {validationResult}= require ('express-validator');
+const user =require('../models/UserModel');
+const bcryptjs= require('bcryptjs');
 
 const controller = {
   register: (req, res) => {
@@ -14,81 +14,60 @@ const controller = {
   },
   processRegister: (req,res)=>{
     const resultValidation= validationResult(req);
-    if(resultValidation.errors.length>0)
+    if(resultValidation.errors.length>0){
     return res.render('users/register', {
       errors:resultValidation.mapped(),
       oldData:req.body
+      
+    });
+  }
+  let userInDB= user.findByField('email',req.body.email);
+  if(userInDB){
+    return res.render('users/register',{
+      errors:{
+        email:{
+          msg:'Este email ya está registrado'
+        }
+      },
+      oldData:req.body
     })
+  }
 
+  let userToCreate={
+    ...req.body,
+    password:bcryptjs.hashSync(req.body.password,10)
+  }
+  let userCreated=user.create(userToCreate);
+  return res.redirect('../views/users/login')
 
   },
-  createUser: async (req, res) => {
-    const {name, lastname, email, password, role} = req.body;
-    // hash password
-    const salt = await bcrypt.genSalt(10);
-    const passwordBcrypt = await bcrypt.hash(password.trim(), salt);
-
-    try {
-      // const saveUser = await User.create({
-      //   name: req.body.name.trim(),
-      //   lastname: req.body.lastname.trim(),
-      //   email: req.body.email.trim(),
-      //   password,
-      //   role: req.body.role,
-      // });
-
-      let newUser = {
-        role,
-        name,
-        lastname,
-        email,
-        password: passwordBcrypt,
-      };
-
-      users.push(newUser);
-
-      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-      res.send("update");
-    } catch (error) {
-      // const errors = error.errors.map((err) => err.message);
-      // res.status(200).json({
-      //   error: true,
-      //   message: "Los datos enviados son invalidos",
-      //   errors,
-      // });
-      console.error(error)
+  login:(req,res)=>{
+    return res.render('users/login')
+  },
+  processLogin:(req,res)=>{
+    let userToLogin=user.findByField('email',req.body.email)
+    if(userToLogin){
+      let passWordIsOk= bcryptjs.compareSync(req.body.password,userToLogin.password);
+      if(passWordIsOk){
+        return res.redirect('../views/users/login')
+      }
+      return res.render('users/login',{
+        errors:{
+          email:{
+          msg:'no se encuentra el usuario, por favor verifique sus datos'
+          }
+        }
+      })
     }
-  },
-  login: (req, res) => {
-    res.render("./users/login");
-  },
-  processLogin: async (req, res) => {
-    try {
-      const {user} = req;
-      // Create token
-      const token = jwt.sign(
-        {
-          email: user.email,
-          role: user.role,
-          id: user.id,
-        },
-        process.env.TOKEN_SECRET
-      );
-
-      const {id, name, lastname, email, role} = user;
-
-      res.json({
-        error: false,
-        message: "Usuario logueado correctamente",
-        user: {id, name, lastname, email, role},
-        token,
-      });
-
-      console.log('Hello world')
-    } catch (error) {
-      return res.status(500).json({error: error || "Error al devolver el usuario logueado"});
-    }
-  },
+    return res.render('users/login',{
+      errors:{
+        email:{
+          msg:'email invalido'
+        }
+      }
+    })
+  }
+  
 };
 
 module.exports = controller;

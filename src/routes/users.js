@@ -13,6 +13,6 @@ const validations=[
 router.get("/register", controller.register);
 router.post("/register", validations, controller.processRegister)
 router.get("/login", controller.login);
-router.post("/login", validateLogin, controller.processLogin);
+router.post("/login", controller.processLogin);
 
 module.exports = router;

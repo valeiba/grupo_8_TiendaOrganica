@@ -8,12 +8,18 @@
         <form id="form" class="main-form" action="/users/login" method="POST">
           <h4>¡Qué gusto volver a verte!</h4>
           <input class="controls" type="email" name="email" id="email" placeholder="Ingresa tu e-mail" />
+          <% if (locals.errors&& errors.email) { %>
+            <div class="text-danger">
+              <%= errors.email.msg %> 
+            </div>
+           
+          <% } %>
           <input class="controls" type="password" name="password" id="password" placeholder="Ingresa tu contraseña" />
           <span>Olvidé mi contraseña</span>
           <input class="bottons" type="submit" value="Iniciar sesión" />
         </form>
       </div>
     </section>
-    <script type="module" src="/js/login.js"></script>
+    
   </body>
 </html>

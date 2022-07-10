@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("../controllers/userController");
-const { validateRegister, validateLogin } = require("../middlewares/auth.js");
 const {body}= require ('express-validator');
 const validations=[
     body('name').notEmpty().withMessage('tiene que ingresar un nombre'),

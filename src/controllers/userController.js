@@ -1,16 +1,14 @@
 // const { User } = require('../database');
 
-const fs = require("fs");
-const path = require("path");
-const usersFilePath = path.join(__dirname, "/../database/users.json");
-const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+
+
 const {validationResult}= require ('express-validator');
 const user =require('../models/UserModel');
 const bcryptjs= require('bcryptjs');
 
 const controller = {
   register: (req, res) => {
-    res.render("users/register");
+    return res.render("users/register");
   },
   processRegister: (req,res)=>{
     const resultValidation= validationResult(req);

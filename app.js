@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const session = require('express-session');
+const cookies = require('cookie-parser');
 const path = require("path");
 const cors = require("cors");
 const methodOverride = require("method-override");
@@ -18,6 +20,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+app.use(session({
+	secret: "Shhh, It's a secret",
+	resave: false,
+	saveUninitialized: false,
+}));
+app.use(cookies());
 
 // Routes
 app.use("/", mainRoutes);

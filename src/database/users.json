@@ -1,14 +1,14 @@
 [
  {
-  "name": "User",
-  "lastname": "Test",
-  "email": "user@test.com",
-  "password": "$2b$10$R9fUyzcpXi.l0AjXE42UFu55U.9liBtWdQQxvFelmGQyhZ2/epbqm"
- },
- {
   "name": "jesus david",
   "lastname": "leal parada",
   "email": "david01.jdlp@gmail.com",
-  "password": "$2b$10$RenGbelavHizjgdanjn57eRiuUYRnG4Q7L1D6IGcxDx1TWjLQAtR."
+  "password": "$2b$10$BDd3G47CVvxl3z23vufKDuJ8i4Eq8kGuspsXCGt4M6YEc6lzFcuM2"
+ },
+ {
+  "name": "asd",
+  "lastname": "asdf",
+  "email": "rb5133@hotmail.com",
+  "password": "$2b$10$fcv78PKPb5FuP3AzuvSGEesiJLpQsnCx5AOtiJppuABrbUum87XtO"
  }
 ]

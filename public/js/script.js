@@ -13,21 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
   btnOpen.addEventListener("click", toggleMobileMenu);
   btnClose.addEventListener("click", toggleMobileMenu);
 
-  const btnCollapse = document.querySelector("#btn-collapse");
+  // const btnCollapse = document.querySelector("#btn-collapse");
   const categoriesLinks = document.querySelector("#categories-links");
 
-  const toggleCategoriesLinks = () => {
-    categoriesLinks.classList.toggle("is-open")
-  }
-  
-  btnCollapse.addEventListener("click", toggleCategoriesLinks);
+  // const toggleCategoriesLinks = () => {
+  //   categoriesLinks.classList.toggle("is-open")
+  // }
 
-  window.addEventListener('scroll', () => {
-    const navbarHeight = navbar.clientHeight; 
+  // btnCollapse.addEventListener("click", toggleCategoriesLinks);
+
+  window.addEventListener("scroll", () => {
+    const navbarHeight = navbar.clientHeight;
     if (window.scrollY > navbarHeight * 4) {
-      navbar.classList.add('is-scrolled');
+      navbar.classList.add("is-scrolled");
     } else {
-      navbar.classList.remove('is-scrolled')
+      navbar.classList.remove("is-scrolled");
     }
-  })
+  });
 });

@@ -568,7 +568,8 @@ footer {
   font-size: 30px;
   font-weight: bold;
   padding-top: 120px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/images/bannerdetalle.jpg");
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/images/bannerdetalle.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -796,6 +797,10 @@ input,
   transform: translateY(20px);
   opacity: 1;
   transition: 0.3 all;
+}
+
+.form-profile {
+  padding-top: 100px;
 }
 
 @keyframes muevecarro {

@@ -18,13 +18,13 @@
       </form> -->
       <ul class="navbar__menu">
         <li>
-          <a href="/users/login" class="navbar__icon-wrapper">
+          <a href="/users/login" id="login" class="navbar__icon-wrapper">
             <i class="fa-solid fa-user"></i>
             <span>Iniciá sesión</span>
           </a>
         </li>
         <li>
-          <a href="/users/register" class="navbar__icon-wrapper">
+          <a href="/users/register" id="register" class="navbar__icon-wrapper">
             <i class="fa-solid fa-right-to-bracket"></i>
             <span>Registrate</span>
           </a>
@@ -35,9 +35,29 @@
             <span>Carrito</span>
           </a>
         </li>
-        <div class="btn-open">
-          <i class="fa-solid fa-bars"></i>
-        </div>
+        <li>
+          <div id="avatarProfile" class="px-4 d-flex">
+            <a href="/users/profile">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp"
+                class="rounded-circle me-2"
+                height="42"
+                alt="Avatar"
+                loading="lazy"
+              />
+            </a>
+
+            <div class="d-flex flex-column">
+              <p id="nameProfile" class="m-0"></p>
+              <p id="emailProfile" class="m-0"></p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="btn-open">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </li>
       </ul>
     </div>
     <div class="mobile-menu">
@@ -60,7 +80,9 @@
       </ul>
       <ul class="mobile-menu__links">
         <h3 class="mobile-menu__title">Categorías</h3>
-        <li><a href="/products" class="mobile-menu__link">Todos los productos </a></li>
+        <li>
+          <a href="/products" class="mobile-menu__link">Todos los productos </a>
+        </li>
         <li><a href="#" class="mobile-menu__link"> Frutas </a></li>
         <li><a href="#" class="mobile-menu__link"> Verduras </a></li>
         <li><a href="#" class="mobile-menu__link"> Canastas </a></li>
@@ -68,7 +90,9 @@
       <ul class="mobile-menu__links">
         <h3 class="mobile-menu__title">Nosotros</h3>
         <li><a href="#" class="mobile-menu__link"> Nuestra propuesta </a></li>
-        <li><a href="#" class="mobile-menu__link"> Preguntas frecuentes </a></li>
+        <li>
+          <a href="#" class="mobile-menu__link"> Preguntas frecuentes </a>
+        </li>
         <li><a href="#" class="mobile-menu__link"> Contacto </a></li>
       </ul>
     </div>

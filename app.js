@@ -6,6 +6,7 @@ const methodOverride = require("method-override");
 const mainRoutes = require("./src/routes/main");
 const productRoutes = require("./src/routes/products");
 const userRoutes = require("./src/routes/users");
+require("dotenv").config();
 
 // Config
 app.set("view engine", "ejs");

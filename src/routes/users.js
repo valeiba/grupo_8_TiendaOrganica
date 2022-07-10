@@ -7,5 +7,7 @@ router.get("/register", controller.register);
 router.post("/register", validateRegister, controller.createUser);
 router.get("/login", controller.login);
 router.post("/login", validateLogin, controller.processLogin);
+router.get("/profile", controller.profile);
+router.get("/infoUser", controller.getUser);
 
 module.exports = router;

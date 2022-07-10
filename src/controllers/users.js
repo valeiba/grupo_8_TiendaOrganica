@@ -12,7 +12,7 @@ const controller = {
     res.render("./users/register");
   },
   createUser: async (req, res) => {
-    const {name, lastname, email, password, role} = req.body;
+    const { name, lastname, email, password, role } = req.body;
     // hash password
     const salt = await bcrypt.genSalt(10);
     const passwordBcrypt = await bcrypt.hash(password.trim(), salt);
@@ -45,15 +45,17 @@ const controller = {
       //   message: "Los datos enviados son invalidos",
       //   errors,
       // });
-      console.error(error)
+      console.error(error);
     }
   },
   login: (req, res) => {
     res.render("./users/login");
   },
   processLogin: async (req, res) => {
+    console.log(req.body);
+
     try {
-      const {user} = req;
+      const { user } = req;
       // Create token
       const token = jwt.sign(
         {
@@ -64,19 +66,27 @@ const controller = {
         process.env.TOKEN_SECRET
       );
 
-      const {id, name, lastname, email, role} = user;
+      const { id, name, lastname, email, role } = user;
 
       res.json({
         error: false,
         message: "Usuario logueado correctamente",
-        user: {id, name, lastname, email, role},
+        user: { id, name, lastname, email, role },
         token,
       });
-
-      console.log('Hello world')
     } catch (error) {
-      return res.status(500).json({error: error || "Error al devolver el usuario logueado"});
+      return res
+        .status(500)
+        .json({ error: error || "Error al devolver el usuario logueado" });
     }
+  },
+  profile: (req, res) => {
+    res.render("./users/profile");
+  },
+  getUser: (req, res) => {
+    const { id } = req.params;
+    const user = users.find((user) => user.id === id);
+    res.status(200).json({ user });
   },
 };
 

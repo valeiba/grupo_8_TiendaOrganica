@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../controllers/products");
+const controller = require("../controllers/productsController");
 const path = require("path");
 const multer = require("multer");
 
@@ -17,6 +17,8 @@ var upload = multer({storage: storage})
 
 // /products (GET) Listado de productos OK
 router.get("/", controller.products);
+
+router.get("/productcart", controller.productCart);
 
 // /products/:id (GET) Detalle de un producto particular OK
 router.get("/:id/detail", controller.detail);

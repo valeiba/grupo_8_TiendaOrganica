@@ -5,9 +5,10 @@ const cookies = require('cookie-parser');
 const path = require("path");
 const cors = require("cors");
 const methodOverride = require("method-override");
-const mainRoutes = require("./src/routes/main");
-const productRoutes = require("./src/routes/products");
-const userRoutes = require("./src/routes/users");
+const mainRoutes = require("./src/routes/mainRoutes");
+const productsRoutes = require("./src/routes/productsRoutes");
+const usersRoutes = require("./src/routes/usersRoutes");
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
 // Config
 app.set("view engine", "ejs");
@@ -26,11 +27,12 @@ app.use(session({
 	saveUninitialized: false,
 }));
 app.use(cookies());
+app.use(userLoggedMiddleware);
 
 // Routes
 app.use("/", mainRoutes);
-app.use("/products", productRoutes);
-app.use("/users", userRoutes);
+app.use("/products", productsRoutes);
+app.use("/users", usersRoutes);
 
 app.listen(3000, () => {
   console.log("Servidor funcionando");

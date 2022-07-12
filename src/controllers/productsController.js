@@ -8,20 +8,25 @@ const controller = {
     try {
       let products = await JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
       if (req.query.category) {
-        products = products.filter(product => product.category === req.query.category);
-      };
-      res.render("./products/index", {
+        products = products.filter((product) => product.category === req.query.category);
+      }
+      return res.render("./products/index", {
         products,
       });
     } catch (error) {
       console.error(error);
     }
   },
+
+  productCart: (req, res) => {
+    return res.render("./products/productCart");
+  },
+
   detail: async (req, res) => {
     try {
       const basketProducts = products.filter((product) => product.category === "baskets");
       const product = products.find((product) => product.id == req.params.id);
-      res.render("./products/detail", {
+      return res.render("./products/detail", {
         product,
         basketProducts,
       });
@@ -31,7 +36,7 @@ const controller = {
   },
   create: async (req, res) => {
     try {
-      res.render("./products/create");
+      return res.render("./products/create");
     } catch (error) {
       console.error(error);
     }
@@ -49,7 +54,7 @@ const controller = {
       };
       await products.push(newProduct);
       fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-      res.redirect("/products");
+      return res.redirect("/products");
     } catch (error) {
       console.error(error);
     }
@@ -57,7 +62,7 @@ const controller = {
   edit: async (req, res) => {
     try {
       let productToEdit = products.find((product) => product.id == req.params.id);
-      res.render("./products/edit", {productToEdit});
+      return res.render("./products/edit", {productToEdit});
     } catch (error) {
       console.error(error);
     }
@@ -88,7 +93,7 @@ const controller = {
       });
 
       fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, " "));
-      res.redirect("/products");
+      return res.redirect("/products");
     } catch (error) {
       console.error(error);
     }
@@ -97,7 +102,7 @@ const controller = {
     try {
       let filteredProducts = await products.filter((product) => product.id != req.params.id);
       fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, " "));
-      res.redirect("/products");
+      return res.redirect("/products");
     } catch (error) {
       console.error(error);
     }

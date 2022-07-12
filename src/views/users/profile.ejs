@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+    
+      <form class="form-profile container pt-4px" id="form">
+        <div>
+          <h1>Perfil</h1>
+        </div>
+        <div class="row">
+          <div class="col-12 pb-2">
+            <div class="form-group">
+              <img src="images/avatars/<%= user.avatar %> " alt="profile..." id="imageProfile" />
+              <label for="avatar">Modificar la imagen de perfil</label>
+              <input
+                id="avatar"
+                type="file"
+                class="form-control-file"
+                name="avatar"
+                accept=".png, .jpg, .jpeg"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group pb-2">
+              <label for="formName">Nombre</label>
+              <input
+                id="formName"
+                type="text"
+                class="form-control"
+                name="firstName"
+                placeholder="First name"
+                value="<%= user.firstName %> "
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group pb-2">
+              <label for="formLastName">Apellido</label>
+              <input
+                id="formLastName"
+                type="text"
+                class="form-control"
+                name="lastName"
+                placeholder="Last name"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group pb-2">
+              <label for="formAddress">Dirección</label>
+              <input
+                id="formAddress"
+                type="text"
+                class="form-control"
+                name="address"
+                placeholder="1234 Main St"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group pb-2">
+              <label for="formCity">Ciudad</label>
+              <input
+                id="formCity"
+                type="text"
+                class="form-control"
+                name="city"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 py-4">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </div>
+      </form>
+    
+
+    <%- include('../partials/footer') %>
+    <script type="module" src="/js/profile.js"></script>
+    <%- include('../partials/scripts') %>
+  </body>
+</html>

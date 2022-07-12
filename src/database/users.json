@@ -1,14 +1,18 @@
 [
  {
-  "name": "User",
-  "lastname": "Test",
-  "email": "user@test.com",
-  "password": "$2b$10$R9fUyzcpXi.l0AjXE42UFu55U.9liBtWdQQxvFelmGQyhZ2/epbqm"
+  "id": 1,
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "a@a.com",
+  "password": "$2a$10$rXvgDzZ71cKeawUgAxGWdudZh6oyksUhfbIUVbiNg4n.Va7rBmwZm",
+  "avatar": "TestUser_1657604801571.jpg"
  },
  {
-  "name": "jesus david",
-  "lastname": "leal parada",
-  "email": "david01.jdlp@gmail.com",
-  "password": "$2b$10$RenGbelavHizjgdanjn57eRiuUYRnG4Q7L1D6IGcxDx1TWjLQAtR."
+  "id": 2,
+  "firstName": "asd",
+  "lastName": "qwe",
+  "email": "qwe@a.com",
+  "password": "$2a$10$7WQQRyiBGmIYpQQVAeKgoOskf3ucme6BAkcdrBjuc60yDmMOnP9GC",
+  "avatar": "default.webp"
  }
 ]

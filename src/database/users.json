@@ -14,5 +14,13 @@
   "email": "qwe@a.com",
   "password": "$2a$10$7WQQRyiBGmIYpQQVAeKgoOskf3ucme6BAkcdrBjuc60yDmMOnP9GC",
   "avatar": "default.webp"
+ },
+ {
+  "id": 3,
+  "firstName": "Vale",
+  "lastName": "Ibañez",
+  "email": "Valeryz_266@hotmail.com",
+  "password": "$2a$10$lW48SwSsVnEOrTSmeAeo.ucqQ0Q1U2pgGByIBIzKfUgzhaUVWT0C.",
+  "avatar": "ValeIbañez_1657675252227.png"
  }
 ]

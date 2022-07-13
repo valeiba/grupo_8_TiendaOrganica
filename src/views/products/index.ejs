@@ -2,7 +2,7 @@
 <html lang="en">
   <%- include('./../partials/head') %>
   <body>
-    <%- include('./../partials/header') %>
+    <%- include('./../partials/navbar') %>
 
     <section class="products__grid-layout container">
       <div class="products__categories">
@@ -26,7 +26,7 @@
             <p class="product-card__price">$<%= product.price %></p>
             <p class=""><%= product.presentation %></p>
           </a>
-          <a href="/productcart" class="product-card__button">Comprar</a>
+          <a href="/products/productcart" class="product-card__button">Comprar</a>
         </article>
         <% }) %>
       </div>

@@ -1,0 +1,83 @@
+<nav class="navbar">
+  <div class="container navbar-wrapper">
+    <div class="navbar__menu">
+      <a href="/" class="navbar__logo">
+        <img src="../images/logo-mobile.png" alt="" />
+      </a>
+      <div>
+        <a href="/products" class="navbar__icon-wrapper navbar-cta">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span>Ver productos</span>
+        </a>
+      </div>
+    </div>
+    <!-- <form class="navbar__search-wrapper" action="/" method="get">
+        <input type="text" class="navbar__search-input" />
+        <i class="fa-solid fa-magnifying-glass navbar__search-icon"></i>
+      </form> -->
+    <ul class="navbar__menu">
+      <% if (locals.userIsLogged) { %>
+      <li>
+        <a href="/users/profile" class="navbar__icon-wrapper">
+          <span>Hola, <%= userLogged.firstName %> </span>
+        </a>
+      </li>
+      <li>
+        <a href="/products/productcart" class="navbar__icon-wrapper">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>Carrito</span>
+        </a>
+      </li>
+      <% } else { %>
+      <li>
+        <a href="/users/login" class="navbar__icon-wrapper">
+          <i class="fa-solid fa-user"></i>
+          <span>Iniciá sesión</span>
+        </a>
+      </li>
+      <li>
+        <a href="/users/register" class="navbar__icon-wrapper">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Registrate</span>
+        </a>
+      </li>
+      <div class="btn-open">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <% } %>
+    </ul>
+  </div>
+
+  <div class="mobile-menu">
+    <div class="btn-close">
+      <i class="fa-solid fa-times"></i>
+    </div>
+    <ul class="mobile-menu__user">
+      <li>
+        <a href="/users/login" class="navbar__icon-wrapper">
+          <i class="fa-solid fa-user"></i>
+          <span>Iniciá sesión</span>
+        </a>
+      </li>
+      <li>
+        <a href="/users/register" class="navbar__icon-wrapper">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Registrate</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="mobile-menu__links">
+      <h3 class="mobile-menu__title">Categorías</h3>
+      <li><a href="/products" class="mobile-menu__link">Todos los productos </a></li>
+      <li><a href="#" class="mobile-menu__link"> Frutas </a></li>
+      <li><a href="#" class="mobile-menu__link"> Verduras </a></li>
+      <li><a href="#" class="mobile-menu__link"> Canastas </a></li>
+    </ul>
+    <ul class="mobile-menu__links">
+      <h3 class="mobile-menu__title">Nosotros</h3>
+      <li><a href="#" class="mobile-menu__link"> Nuestra propuesta </a></li>
+      <li><a href="#" class="mobile-menu__link"> Preguntas frecuentes </a></li>
+      <li><a href="#" class="mobile-menu__link"> Contacto </a></li>
+    </ul>
+  </div>
+</nav>

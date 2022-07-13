@@ -1,14 +1,26 @@
 [
  {
-  "name": "jesus david",
-  "lastname": "leal parada",
-  "email": "david01.jdlp@gmail.com",
-  "password": "$2b$10$BDd3G47CVvxl3z23vufKDuJ8i4Eq8kGuspsXCGt4M6YEc6lzFcuM2"
+  "id": 1,
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "a@a.com",
+  "password": "$2a$10$rXvgDzZ71cKeawUgAxGWdudZh6oyksUhfbIUVbiNg4n.Va7rBmwZm",
+  "avatar": "TestUser_1657604801571.jpg"
  },
  {
-  "name": "asd",
-  "lastname": "asdf",
-  "email": "rb5133@hotmail.com",
-  "password": "$2b$10$fcv78PKPb5FuP3AzuvSGEesiJLpQsnCx5AOtiJppuABrbUum87XtO"
+  "id": 2,
+  "firstName": "asd",
+  "lastName": "qwe",
+  "email": "qwe@a.com",
+  "password": "$2a$10$7WQQRyiBGmIYpQQVAeKgoOskf3ucme6BAkcdrBjuc60yDmMOnP9GC",
+  "avatar": "default.webp"
+ },
+ {
+  "id": 3,
+  "firstName": "Vale",
+  "lastName": "Ibañez",
+  "email": "Valeryz_266@hotmail.com",
+  "password": "$2a$10$lW48SwSsVnEOrTSmeAeo.ucqQ0Q1U2pgGByIBIzKfUgzhaUVWT0C.",
+  "avatar": "ValeIbañez_1657675252227.png"
  }
 ]

@@ -2,9 +2,8 @@
 <html lang="en">
   <%- include('../partials/head') %>
   <body>
-    <%- include('./../partials/header') %>
-
-    <main class="swiper">
+    <%- include('./../partials/navbar') %>
+    
       <form class="form-profile container pt-4px" id="form">
         <div>
           <h1>Perfil</h1>
@@ -12,13 +11,13 @@
         <div class="row">
           <div class="col-12 pb-2">
             <div class="form-group">
-              <img src="" alt="profile..." id="imageProfile" />
-              <label for="formImage">Example file input</label>
+              <img src="images/avatars/<%= user.avatar %> " alt="profile..." id="imageProfile" />
+              <label for="avatar">Modificar la imagen de perfil</label>
               <input
-                id="formImage"
+                id="avatar"
                 type="file"
                 class="form-control-file"
-                name="image"
+                name="avatar"
                 accept=".png, .jpg, .jpeg"
               />
             </div>
@@ -31,8 +30,9 @@
                 id="formName"
                 type="text"
                 class="form-control"
-                name="name"
+                name="firstName"
                 placeholder="First name"
+                value="<%= user.firstName %> "
                 required
               />
             </div>
@@ -44,7 +44,7 @@
                 id="formLastName"
                 type="text"
                 class="form-control"
-                name="lastname"
+                name="lastName"
                 placeholder="Last name"
                 required
               />
@@ -80,7 +80,7 @@
           </div>
         </div>
       </form>
-    </main>
+    
 
     <%- include('../partials/footer') %>
     <script type="module" src="/js/profile.js"></script>

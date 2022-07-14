@@ -44,5 +44,6 @@ Logo, tipografias, colores: https://docs.google.com/document/d/1pjIBJ6jZ_Tm1dUQT
  
 Trello: https://trello.com/b/DgptEg3a/grupo-8-proyecto-integrador
  
+Drawio: file:///D:/Downloads/tienda%20organica.drawio%20(1).pdf
 
 

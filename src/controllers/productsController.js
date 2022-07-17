@@ -1,112 +1,74 @@
-const fs = require("fs");
-const path = require("path");
-const productsFilePath = path.join(__dirname, "/../database/products.json");
-const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+//const bcryptjs = require("bcryptjs");
+//const {validationResult} = require("express-validator");
+const db = require("../database/models");
+//const { Product } = db;
 
-const controller = {
-  products: async (req, res) => {
-    try {
-      let products = await JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-      if (req.query.category) {
-        products = products.filter((product) => product.category === req.query.category);
-      }
-      return res.render("./products/index", {
-        products,
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  },
+const controller ={
+  //listar
+  products: function(req,res) {
+     db.Product.findAll()
+      .then(function(products){
+        res.render('index',{products:products})
 
-  productCart: (req, res) => {
-    return res.render("./products/productCart");
+      })
   },
+  //detalle
+  detail: function(req,res){
+     db.Product.findByPk(req.params.id)
+     .then(function(product){
+      res.render("detail",{product:product})
+     })
+  },
+  //crear
+  create: function(req,res){
+    res.render("create");
+  },
+  store: function(req,res){
+    db.Product.create({
+        name: req.body.name,
+        price:req.body.price,
+        presentation: req.body.presentation,
+        available:req.body.available
 
-  detail: async (req, res) => {
-    try {
-      const basketProducts = products.filter((product) => product.category === "baskets");
-      const product = products.find((product) => product.id == req.params.id);
-      return res.render("./products/detail", {
-        product,
-        basketProducts,
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  },
-  create: async (req, res) => {
-    try {
-      return res.render("./products/create");
-    } catch (error) {
-      console.error(error);
-    }
-  },
-  store: async (req, res) => {
-    try {
-      let image;
-      if (req.file != undefined) {
-        image = await req.file.filename;
-      }
-      let newProduct = {
-        id: products[products.length - 1].id + 1,
-        image,
-        ...req.body,
-      };
-      await products.push(newProduct);
-      fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-      return res.redirect("/products");
-    } catch (error) {
-      console.error(error);
-    }
-  },
-  edit: async (req, res) => {
-    try {
-      let productToEdit = products.find((product) => product.id == req.params.id);
-      return res.render("./products/edit", {productToEdit});
-    } catch (error) {
-      console.error(error);
-    }
-  },
-  update: async (req, res) => {
-    try {
-      let id = req.params.id;
-      let productToEdit = products.find((product) => product.id == id);
-      let image;
 
-      if (req.file != undefined) {
-        image = await req.file.filename;
-      } else {
-        image = productToEdit.image;
-      }
-
-      productToEdit = {
-        id: productToEdit.id,
-        ...req.body,
-        image: image,
-      };
-
-      let newProducts = await products.map((product) => {
-        if (product.id == productToEdit.id) {
-          return (product = {...productToEdit});
-        }
-        return product;
-      });
-
-      fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, " "));
-      return res.redirect("/products");
-    } catch (error) {
-      console.error(error);
-    }
+    });
+   res.redirect('/')
   },
-  delete: async (req, res) => {
-    try {
-      let filteredProducts = await products.filter((product) => product.id != req.params.id);
-      fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, " "));
-      return res.redirect("/products");
-    } catch (error) {
-      console.error(error);
-    }
+  //editar
+  edit: function(req,res){
+    db.Product.findByPk(req.params.id)
+    .then(function(productToEdit){
+      res.render("edit",{productToEdit:productToEdit});
+    })
   },
+ update: function(req,res){
+  db.Product.update({
+    name: req.body.name,
+    price:req.body.price,
+    presentation: req.body.presentation,
+    available:req.body.available
+  },{
+    where:{
+   id: req.params.id
+    }
+  })
+  res.redirect("products/edit/" + req.params.id)
+ },
+ //eliminar
+ delete: function(req,res){
+  db.Product.findByPk(req.params.id)
+  .then(function(product){
+    res.render("delete",{product:product});
+  })
+ },
+ destroy: function(req,res){
+  db.Product.destroy({
+    where:{
+      id: req.params.id
+    }
+  })
+  res.redirect("/")
+ } 
+ 
 };
-
-module.exports = controller;
+module.exports=controller;

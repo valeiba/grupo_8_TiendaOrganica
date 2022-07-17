@@ -22,18 +22,18 @@ CREATE TABLE `roles` (
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`role.id`)
 ) ENGINE=InnoDB;
-CREATE TABLE `shopping cart` (
-  `shoppingcart.id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `total` int(11) NOT NULL,
-  PRIMARY KEY (`shoppingcart.id`),
-  KEY `product_id` (`product_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id.product`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user.id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB;
+-- CREATE TABLE `shopping cart` (
+--   `shoppingcart.id` int(11) NOT NULL AUTO_INCREMENT,
+--   `product_id` int(11) NOT NULL,
+--   `user_id` int(11) NOT NULL,
+--   `quantity` int(11) NOT NULL,
+--   `total` int(11) NOT NULL,
+--   PRIMARY KEY (`shoppingcart.id`),
+--   KEY `product_id` (`product_id`),
+--   KEY `user_id` (`user_id`),
+--   CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id.product`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+--   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user.id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+-- ) ENGINE=InnoDB;
 CREATE TABLE `users` (
   `user.id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,

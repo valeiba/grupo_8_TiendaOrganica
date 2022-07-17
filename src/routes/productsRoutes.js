@@ -18,7 +18,7 @@ var upload = multer({storage: storage})
 // /products (GET) Listado de productos OK
 router.get("/", controller.products);
 
-router.get("/productcart", controller.productCart);
+//router.get("/productcart", controller.productCart);
 
 // /products/:id (GET) Detalle de un producto particular OK
 router.get("/:id/detail", controller.detail);
@@ -27,15 +27,16 @@ router.get("/:id/detail", controller.detail);
 router.get("/create", controller.create);
 
 // /products (POST) Acción de creación (a donde se envía el formulario OK
-router.post("/", upload.single('image'), controller.store);
+router.post("/create", upload.single('image'), controller.store);
 
 // /products/:id/edit (GET) Formulario de edición de productos OK
-router.get("/:id/edit", controller.edit);
+router.get("/edit/:id", controller.edit);
 
-// /products/:id (PUT) Acción de edición (a donde se envía el formulario) PENDIENTE
-router.put("/:id/edit", upload.single('image'), controller.update);
+// /products/:id (PUT) Acción de edición (a donde se envía el formulario) 
+router.put("/edit/:id", upload.single('image'), controller.update);
 
-// /products/:id (DELETE) Acción de borrado PENDIENTE
-router.get("/:id/delete", controller.delete);
+// /products/:id (DELETE) Acción de borrado 
+router.get("/delete/:id", controller.delete);
+router.delete("/delete/:id", controller.destroy);
 
 module.exports = router;

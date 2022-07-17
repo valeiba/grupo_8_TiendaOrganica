@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+    <section>
+      <div class="container-form">
+        <form
+          class="main-form"
+          action="/products/delete/<%= product.id %>?_method=DELETE"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+        <h4>Confirma eliminar <%= productToEdit.name %> ?</h4>
+         
+          <button class="bottons" type="submit">ELIMINAR</button>
+        </form>
+      </div>
+    </section>
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+  </body>
+</html>

@@ -2,11 +2,10 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Product';
     let cols = {
         id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-     
         name: {
             type: dataTypes.STRING(100),
             allowNull: false
@@ -23,9 +22,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BOOLEAN,
             allowNull: false
         },
-        category_id:{
-            type:dataTypes.BIGINT(10)
-        }
+       // category_id:{
+          //  type:dataTypes.BIGINT(10)
+       // }
     };
     let config = {
         timestamps: true,
@@ -35,19 +34,19 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Product = sequelize.define(alias, cols, config); 
 
-    Product.associate = function (models) {
-        Product.belongsToMany(models.user, { 
-            as: "users",
-            through: 'shoppingCart',
-            foreignKey: 'product_id',
-            otherKey: 'user_id',
-            timestamps: false
-        })
-        Product.hasMany(models.category,{
-            as:'categories',
-            foreignKey:'category_id'
-        })
-    }
+    // Product.associate = function (models) {
+    //     Product.belongsToMany(models.user, { 
+    //         as: "users",
+    //         through: 'shoppingCart',
+    //         foreignKey: 'product_id',
+    //         otherKey: 'user_id',
+    //         timestamps: false
+    //     })
+    //     Product.hasMany(models.category,{
+    //         as:'categories',
+    //         foreignKey:'category_id'
+    //     })
+    // }
 
     return Product
 };

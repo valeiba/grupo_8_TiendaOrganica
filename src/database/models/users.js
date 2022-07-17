@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
      
-        name: {
+        firstName: {
             type: dataTypes.STRING(100),
             allowNull: false
         },
@@ -23,9 +23,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(45),
             allowNull: false
         },
-        role_id:{
-            type:dataTypes.BIGINT(10)
-        }
+        // role_id:{
+        //     type:dataTypes.BIGINT(10)
+        // }
     };
     let config = {
         timestamps: true,
@@ -35,19 +35,19 @@ module.exports = (sequelize, dataTypes) => {
     }
     const User = sequelize.define(alias, cols, config); 
 
-    User.associate = function (models) {
-        User.belongsToMany(models.Product, { 
-            as: "products",
-            through: 'shoppingCart',
-            foreignKey: 'user_id',
-            otherKey: 'product_id',
-            timestamps: false
-        })
-        Product.belongsTo(models.Role,{
-            as:'roles',
-            foreignKey:'role_id'
-        })
-    }
+    // User.associate = function (models) {
+    //     User.belongsToMany(models.Product, { 
+    //         as: "products",
+    //         through: 'shoppingCart',
+    //         foreignKey: 'user_id',
+    //         otherKey: 'product_id',
+    //         timestamps: false
+    //     })
+    //     Product.belongsTo(models.Role,{
+    //         as:'roles',
+    //         foreignKey:'role_id'
+    //     })
+    // }
 
     return User
 };

@@ -7,7 +7,7 @@
       <div class="container-form">
         <form
           class="main-form"
-          action="/products/<%= productToEdit.id %>/edit?_method=PUT"
+          action="/products/edit/<%= productToEdit.id %>?_method=PUT"
           method="POST"
           enctype="multipart/form-data"
         >
@@ -47,6 +47,7 @@
           <label>Foto de producto</label>
           <input type="file" name="image" id="image" />
           <button class="bottons" type="submit">MODIFICAR</button>
+          <a href="/products/delete<%= product.id %>" class="product-card__button">Eliminar Producto</a>
         </form>
       </div>
     </section>

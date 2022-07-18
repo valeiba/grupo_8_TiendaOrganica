@@ -1,8 +1,8 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Category';
+    let alias = 'Categories';
     let cols = {
         id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTERGER,
             primaryKey: true,
             autoIncrement: true
         },
@@ -14,6 +14,7 @@ module.exports = (sequelize, dataTypes) => {
         
     };
     let config = {
+        tableName:"categories",
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
@@ -21,12 +22,12 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Category = sequelize.define(alias, cols, config); 
 
-    // Category.associate = function (models) {
-    //     Category.belongsTo(models.Product, { 
-    //         as: "products",
-    //         foreignKey: 'category_id'
-    //     })
-    // }
+     Category.associate = function (models) {
+         Category.hasMany(models.Product, { 
+             as: "products",
+             foreignKey: 'category_id'
+         })
+     }
 
     return Category
 };

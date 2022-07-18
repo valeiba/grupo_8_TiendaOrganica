@@ -2,7 +2,7 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'User';
     let cols = {
         id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTERGER,
             primaryKey: true,
             autoIncrement: true
         },
@@ -23,11 +23,12 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(45),
             allowNull: false
         },
-        // role_id:{
-        //     type:dataTypes.BIGINT(10)
-        // }
+         role_id:{
+             type:dataTypes.INTERGER
+         }
     };
     let config = {
+        tableName:"users",
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',

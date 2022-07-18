@@ -1,19 +1,19 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'ShoppingCart';
+    let alias = 'ShoppingCarts';
     let cols = {
         id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTERGER,
             primaryKey: true,
             autoIncrement: true
         },
      
         product_id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTERGER,
             references:{model:'Product', key:'id'}
            
         },
         user_id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTERGER,
             references:{model:'User', key:'id'}
         },
         quantity: {
@@ -26,6 +26,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
+        tableName: "shoppingCart",
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',

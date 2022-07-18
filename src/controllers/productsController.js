@@ -6,7 +6,7 @@ const db = require("../database/models");
 const controller ={
   //listar
   products: function(req,res) {
-     db.Product.findAll()
+     db.Products.findAll()
       .then(function(products){
         res.render('index',{products:products})
 
@@ -14,7 +14,7 @@ const controller ={
   },
   //detalle
   detail: function(req,res){
-     db.Product.findByPk(req.params.id)
+     db.Products.findByPk(req.params.id)
      .then(function(product){
       res.render("detail",{product:product})
      })
@@ -24,7 +24,7 @@ const controller ={
     res.render("create");
   },
   store: function(req,res){
-    db.Product.create({
+    db.Products.create({
         name: req.body.name,
         price:req.body.price,
         presentation: req.body.presentation,
@@ -36,13 +36,13 @@ const controller ={
   },
   //editar
   edit: function(req,res){
-    db.Product.findByPk(req.params.id)
+    db.Products.findByPk(req.params.id)
     .then(function(productToEdit){
       res.render("edit",{productToEdit:productToEdit});
     })
   },
  update: function(req,res){
-  db.Product.update({
+  db.Products.update({
     name: req.body.name,
     price:req.body.price,
     presentation: req.body.presentation,
@@ -56,13 +56,13 @@ const controller ={
  },
  //eliminar
  delete: function(req,res){
-  db.Product.findByPk(req.params.id)
+  db.Products.findByPk(req.params.id)
   .then(function(product){
     res.render("delete",{product:product});
   })
  },
  destroy: function(req,res){
-  db.Product.destroy({
+  db.Products.destroy({
     where:{
       id: req.params.id
     }

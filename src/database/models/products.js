@@ -1,5 +1,7 @@
+const { products } = require("../../controllers/productsController");
+
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Product';
+    let alias = 'Products';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -22,11 +24,12 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BOOLEAN,
             allowNull: false
         },
-       // category_id:{
-          //  type:dataTypes.BIGINT(10)
-       // }
+        category_id:{
+           type:dataTypes.INTEGER
+        }
     };
     let config = {
+        tableName:"products",
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
@@ -34,19 +37,19 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Product = sequelize.define(alias, cols, config); 
 
-    // Product.associate = function (models) {
-    //     Product.belongsToMany(models.user, { 
-    //         as: "users",
-    //         through: 'shoppingCart',
-    //         foreignKey: 'product_id',
-    //         otherKey: 'user_id',
-    //         timestamps: false
-    //     })
-    //     Product.hasMany(models.category,{
-    //         as:'categories',
-    //         foreignKey:'category_id'
-    //     })
-    // }
+     Product.associate = function (models) {
+        Product.belongsToMany(models.user, { 
+            as: "users",
+             through: 'shoppingCart',
+            foreignKey: 'product_id',
+             otherKey: 'user_id',
+             timestamps: false
+        })
+          Product.belongsTo(models.category,{
+             as:'categories',
+             foreignKey:'category_id'
+         })
+     }
 
     return Product
 };

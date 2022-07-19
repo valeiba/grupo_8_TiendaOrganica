@@ -36,19 +36,19 @@ module.exports = (sequelize, dataTypes) => {
     }
     const User = sequelize.define(alias, cols, config); 
 
-    // User.associate = function (models) {
-    //     User.belongsToMany(models.Product, { 
-    //         as: "products",
-    //         through: 'shoppingCart',
-    //         foreignKey: 'user_id',
-    //         otherKey: 'product_id',
-    //         timestamps: false
-    //     })
-    //     Product.belongsTo(models.Role,{
-    //         as:'roles',
-    //         foreignKey:'role_id'
-    //     })
-    // }
+     User.associate = function (models) {
+         User.belongsToMany(models.Product, { 
+             as: "products",
+             through: 'shoppingCart',
+             foreignKey: 'user_id',
+             otherKey: 'product_id',
+             timestamps: false
+         })
+         Product.belongsTo(models.Role,{
+             as:'roles',
+            foreignKey:'role_id'
+         })
+     }
 
     return User
 };

@@ -7,15 +7,6 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
      
-        product_id: {
-            type: dataTypes.INTERGER,
-            references:{model:'Product', key:'id'}
-           
-        },
-        user_id: {
-            type: dataTypes.INTERGER,
-            references:{model:'User', key:'id'}
-        },
         quantity: {
             type: dataTypes.BIGINT(50),
             allowNull: false
@@ -27,22 +18,11 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         tableName: "shoppingCart",
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        timestamps: false
     }
     const ShoppingCart = sequelize.define(alias, cols, config); 
 
-    // ShoppingCart.associate = function (models) {
-    //     ShoppingCart.belongsTo(models.Product, { 
-    //         foreignKey: 'product_id',
-    //         timestamps: false
-    //     })
-    //     Product.belongsTo(models.User,{
-    //         foreignKey:'user_id'
-    //     })
-    // }
+ 
 
     return ShoppingCart
 };

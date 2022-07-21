@@ -16,12 +16,12 @@ const controller ={
   detail: function(req,res){
      db.Product.findByPk(req.params.id)
      .then(function(product){
-      res.render("detail",{product:product})
+      res.render("products/detail",{product:product})
      })
   },
   //crear
   create: function(req,res){
-    res.render("create");
+    res.render("products/create");
   },
   store: function(req,res){
     db.Product.create({
@@ -38,7 +38,7 @@ const controller ={
   edit: function(req,res){
     db.Product.findByPk(req.params.id)
     .then(function(productToEdit){
-      res.render("edit",{productToEdit:productToEdit});
+      res.render("products/edit",{productToEdit:productToEdit});
     })
   },
  update: function(req,res){
@@ -58,7 +58,7 @@ const controller ={
  delete: function(req,res){
   db.Product.findByPk(req.params.id)
   .then(function(product){
-    res.render("delete",{product:product});
+    res.render("products/delete",{product:product});
   })
  },
  destroy: function(req,res){

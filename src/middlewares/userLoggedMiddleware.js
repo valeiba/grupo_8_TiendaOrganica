@@ -1,3 +1,4 @@
+
 // Global middleware (app)
 const db = require("../database/models");
 const { User } = db;
@@ -7,7 +8,7 @@ const userLoggedMiddleware = (req, res, next) => {
 
   // 'userEmail' comes from processLogin method in usersController
   let emailInCookie = req.cookies.userEmail;
-  let userFromCookie =  User.findOne({
+  let userFromCookie = User.findOne({
         where: {
           email: emailInCookie
         }

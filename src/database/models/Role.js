@@ -14,10 +14,7 @@ module.exports = (sequelize, dataTypes) => {
         
     };
     let config = {
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        timestamps: false
     }
     const Role = sequelize.define(alias, cols, config); 
 

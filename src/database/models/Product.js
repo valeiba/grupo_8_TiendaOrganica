@@ -1,4 +1,4 @@
-const { products } = require("../../controllers/productsController");
+
 
 module.exports = (sequelize, dataTypes) => {
     let alias = 'Products';
@@ -9,27 +9,32 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING(100),
+            type: dataTypes.STRING,
             allowNull: false
         },
         price: {
-            type: dataTypes.DECIMAL(4,2),
+            type: dataTypes.DECIMAL,
             allowNull: false
         },
         presentation: {
-            type: dataTypes.STRING(50),
+            type: dataTypes.STRING,
             allowNull: false
         },
         available:{
             type: dataTypes.BOOLEAN,
             allowNull: false
         },
+        image:{
+            type:dataTypes.BLOB,
+            allowNull:false
+
+        },
         category_id:{
-           type:dataTypes.INTEGER
+           type:dataTypes.INTEGER,
+           allowNull:false
         }
     };
     let config = {
-        tableName:"products",
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
@@ -38,14 +43,14 @@ module.exports = (sequelize, dataTypes) => {
     const Product = sequelize.define(alias, cols, config); 
 
      Product.associate = function (models) {
-        Product.belongsToMany(models.users, { 
+        Product.belongsToMany(models.Users, { 
             as: "users",
              through: 'shoppingCart',
             foreignKey: 'product_id',
              otherKey: 'user_id',
              timestamps: false
         })
-          Product.belongsTo(models.category,{
+          Product.belongsTo(models.Categories,{
              as:'categories',
              foreignKey:'category_id'
          })

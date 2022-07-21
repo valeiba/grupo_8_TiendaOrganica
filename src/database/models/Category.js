@@ -2,19 +2,19 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Categories';
     let cols = {
         id: {
-            type: dataTypes.INTERGER,
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
      
         name: {
-            type: dataTypes.STRING(100),
+            type: dataTypes.STRING,
             allowNull: false
         }
         
     };
     let config = {
-        tableName:"categories",
+     
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',

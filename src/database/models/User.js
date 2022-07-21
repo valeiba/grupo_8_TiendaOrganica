@@ -1,30 +1,30 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'User';
+    let alias = 'Users';
     let cols = {
         id: {
-            type: dataTypes.INTERGER,
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
      
         firstName: {
-            type: dataTypes.STRING(100),
+            type: dataTypes.STRING,
             allowNull: false
         },
         lastName: {
-            type: dataTypes.STRING(100),
+            type: dataTypes.STRING,
             allowNull: false
         },
         email: {
-            type: dataTypes.STRING(255),
+            type: dataTypes.STRING,
             allowNull: false
         },
         password:{
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING,
             allowNull: false
         },
          role_id:{
-             type:dataTypes.INTERGER
+             type:dataTypes.INTEGER
          }
     };
     let config = {
@@ -37,14 +37,14 @@ module.exports = (sequelize, dataTypes) => {
     const User = sequelize.define(alias, cols, config); 
 
      User.associate = function (models) {
-         User.belongsToMany(models.Product, { 
+         User.belongsToMany(models.Products, { 
              as: "products",
              through: 'shoppingCart',
              foreignKey: 'user_id',
              otherKey: 'product_id',
              timestamps: false
          })
-         Product.belongsTo(models.Role,{
+         User.belongsTo(models.Roles,{
              as:'roles',
             foreignKey:'role_id'
          })

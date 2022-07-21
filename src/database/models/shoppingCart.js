@@ -2,26 +2,33 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'ShoppingCarts';
     let cols = {
         id: {
-            type: dataTypes.INTERGER,
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
      
         quantity: {
-            type: dataTypes.BIGINT(50),
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         total:{
-            type: dataTypes.DECIMAL(4,2),
+            type: dataTypes.DECIMAL,
             allowNull: false
         }
     };
     let config = {
-        tableName: "shoppingCart",
         timestamps: false
     }
     const ShoppingCart = sequelize.define(alias, cols, config); 
-
+    ShoppingCart.associate = function (models) {
+        ShoppingCart.belongsTo(models.Products, { 
+            foreignKey: 'product_id',
+            timestamps: false
+        })
+        ShoppingCart.belongsTo(models.Users,{
+            foreignKey:'user_id'
+        })
+    }
  
 
     return ShoppingCart

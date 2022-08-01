@@ -1,5 +1,5 @@
 //const bcryptjs = require("bcryptjs");
-//const {validationResult} = require("express-validator");
+const {validationResult} = require("express-validator");
 const db = require("../database/models");
 //const { Product } = db;
 
@@ -23,16 +23,47 @@ const controller ={
   create: function(req,res){
     res.render("products/create");
   },
-  store: function(req,res){
-    db.Product.create({
-        name: req.body.name,
-        price:req.body.price,
-        presentation: req.body.presentation,
-        available:req.body.available
+  store: async (req, res) => {
+    try {
+      
+      const inputFieldsValidation = validationResult(req);
+  
+      if (inputFieldsValidation.errors.length > 0) {
+        return res.render("products/create", {
+          errors: inputFieldsValidation.mapped(),
+          oldData: req.body,
+        });
+      }
 
+      let productAlreadyExists = await db.Product.findOne({
+        where: {
+          name: req.body.name
+        }
+      });
 
-    });
-   res.redirect('/')
+      if (productAlreadyExists) {
+        return res.render("products/create", {
+          errors: {
+            name: {
+              msg: "El Producto ya existe",
+            },
+          },
+          oldData: req.body,
+        });
+      }
+
+      let datos = {
+        ...req.body,
+        Image: req.file?.filename || "default.webp",
+      };
+  
+      let product = await db.Product.create(datos);
+  
+      return res.redirect('/')
+    } catch (error) {
+      console.log(error)
+    }
+   
   },
   //editar
   edit: function(req,res){

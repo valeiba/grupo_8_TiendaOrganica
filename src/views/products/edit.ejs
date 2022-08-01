@@ -13,39 +13,70 @@
         >
           <h4>Formulario de edición de <%= productToEdit.name %></h4>
           <input
-            class="controls"
+            class="controls <%= locals.errors && errors.name ? 'is-invalid' : null %>"
             type="text"
             name="name"
             id="name"
-            placeholder="<%= productToEdit.name %>"
-            value="<%= productToEdit.name %>"
+            placeholder="nombre del producto"
+            value="<%= locals.oldData ? oldData.name : null %>"
           />
+          <% if (locals.errors && errors.name) { %>
+            <div class="text-danger"><%= errors.name.msg %></div>
+
+            <% } %>
           <input
-            class="controls"
+            class="controls <%= locals.errors && errors.price ? 'is-invalid' : null %>"
             type="number"
             name="price"
             id="price"
-            placeholder="<%= productToEdit.price %>"
-            value="<%= productToEdit.price %>"
+            value="<%= locals.oldData ? oldData.price : null %>"
           />
+          <% if (locals.errors && errors.price) { %>
+            <div class="text-danger"><%= errors.price.msg %></div>
+
+            <% } %>
+            <input class="controls <%= locals.errors && errors.presentation ? 'is-invalid' : null %>" type="number" name="presentation" id="presentation" placeholder="presentación del producto" value="<%= locals.oldData ? oldData.presentation : null %>" />
+            <% if (locals.errors && errors.presentation) { %>
+              <div class="text-danger"><%= errors.presentation.msg %></div>
+  
+              <% } %>
+        <input class="controls <%= locals.errors && errors.available ? 'is-invalid' : null %>" type="text" name="available" id="available"  value="<%= locals.oldData ? oldData.available : null %>" />
+              <% if (locals.errors && errors.available) { %>
+                <div class="text-danger"><%= errors.available.msg %></div>
+    
+                <% } %>
           <input
-            class="controls"
+            class="controls <%= locals.errors && errors.description ? 'is-invalid' : null %> "
             type="text"
             name="description"
             id="description"
             placeholder="Descripción del producto"
-            value="<%= productToEdit.description %>"
+            value="<%= locals.oldData ? oldData.description : null %>"
           />
+          <% if (locals.errors && errors.description) { %>
+            <div class="text-danger"><%= errors.description.msg %></div>
+
+            <% } %>
           <br />
           <label>Selecionar categoria</label>
-          <select name="category">
-            <option value="fruits">Frutas</option>
-            <option value="vegetables">Verduras</option>
-            <option value="baskets">Canasta familiar</option>
+          <select class="<%= locals.errors && errors.category ? 'is-invalid' : null %>"  name="category">
+            <option value="">Categorias</option>
+            <%  
+              let categories = ['Frutas', 'Verduras', 'Canasta Familiar'];
+            %>
+            <% for (const oneCategory of categories) { %>
+              <option 
+                value="<%= oneCategory %>"
+                <%= locals.oldData && (oneCategory === oldData.category) ? 'selected' : null %> 
+              > <%= oneCategory %> </option>
+            <% } %>
           </select>
           <br />
           <label>Foto de producto</label>
-          <input type="file" name="image" id="image" />
+          <input class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" type="file" name="image" id="image" />
+          <% if (locals.errors && errors.image) { %>
+            <span class="text-danger"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
+            <% } %>
           <button class="bottons" type="submit">MODIFICAR</button>
           <a href="/products/delete/<%= product.id %>" class="product-card__button">Eliminar Producto</a>
         </form>

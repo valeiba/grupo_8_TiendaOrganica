@@ -1,57 +1,71 @@
-
-
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Products';
-    let cols = {
-        id: {
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        name: {
-            type: dataTypes.STRING,
-            allowNull: false
-        },
-        price: {
-            type: dataTypes.DECIMAL,
-            allowNull: false
-        },
-        presentation: {
-            type: dataTypes.STRING,
-            allowNull: false
-        },
-        available:{
-            type: dataTypes.BOOLEAN,
-            allowNull: false
-        },
-        image:{
-            type:dataTypes.BLOB,
-            allowNull:false
+  let alias = "Product";
 
-        },
-        category_id:{
-           type:dataTypes.INTEGER,
-           allowNull:false
-        }
-    };
-    let config = {
-        timestamps: false
-    }
-    const Product = sequelize.define(alias, cols, config); 
+  let cols = {
+    id: {
+      type: dataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: dataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: dataTypes.STRING,
+      allowNull: false,
+    },
+    presentation: {
+      type: dataTypes.STRING,
+      allowNull: false,
+    },
+    price: {
+      type: dataTypes.DECIMAL(10, 2),
+      allowNull: false,
+    },
+    stock: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
+    },
+    available: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 1,
+    },
+    on_sale: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    image: {
+      type: dataTypes.STRING,
+      allowNull: false,
+      defaultValue: "default.webp",
+    },
+    category_id: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
+    },
+  };
 
-     Product.associate = function (models) {
-        Product.belongsToMany(models.Users, { 
-            as: "users",
-             through: 'shoppingCart',
-            foreignKey: 'product_id',
-             otherKey: 'user_id',
-             timestamps: false
-        })
-          Product.belongsTo(models.Categories,{
-             as:'categories',
-             foreignKey:'category_id'
-         })
-     }
+  let config = {
+    underscored: true,
+  };
 
-    return Product
+  const Product = sequelize.define(alias, cols, config);
+
+  Product.associate = function (models) {
+    Product.belongsToMany(models.User, {
+      as: "users",
+      through: "shopping_cart",
+      foreignKey: "product_id",
+      otherKey: "user_id",
+    });
+    Product.belongsTo(models.Category, {
+      as: "categories",
+      foreignKey: "category_id",
+    });
+  };
+
+  return Product;
 };

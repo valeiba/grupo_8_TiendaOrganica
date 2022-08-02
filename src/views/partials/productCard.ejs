@@ -1,9 +1,13 @@
-
-  <div class="producto-relacionado">   
-    <a href="/products/<%= product.id %>/detail" class="product-card__details">
-    <img src="/images/products/<%= product.image %>" alt="foto de <%= product.name %>" />
-    <h4><%= product.name %></h4>
-    <h4>$<%= product.price %></h4>
-    </a>
-    <a href="/productcart" class="product-card-button">Añadir a carrito</a>
-  </div>
+<article class="product-card">
+  <a href="/products/<%= product.id %>/detail" class="product-card__details">
+    <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
+    <h2 class="product-card__title"><%= product.name %></h2>
+    <p class="product-card__price">$<%= product.price %></p>
+    <p class=""><%= product.presentation %></p>
+  </a>
+  <% if (locals.userIsLogged) { %>
+  <a href="/products/productcart" class="product-card__button">Comprar</a>
+  <% } else { %>
+  <a href="/products/<%= product.id %>/detail" class="product-card__button">Ver</a>
+  <% } %>
+</article>

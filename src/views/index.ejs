@@ -40,42 +40,12 @@
       <div class="container">
         <h2 class="section__title">Destacados</h2>
         <section class="products">
-          <article class="product-card">
-            <img
-              src="images/products/canasta-de-frutas.jpg"
-              alt=""
-              class="product-card__img"
-            />
-            <div class="product-card__details">
-              <h2 class="product-card__title">Canasta de Frutas</h2>
-              <span class="product-card__price">$99</span>
-            </div>
-            <button class="product-card__button">Comprar</button>
-          </article>
-          <article class="product-card">
-            <img
-              src="images/products/canasta-de-verduras1.jpg"
-              alt=""
-              class="product-card__img"
-            />
-            <div class="product-card__details">
-              <h2 class="product-card__title">Canasta de Frutas</h2>
-              <span class="product-card__price">$99</span>
-            </div>
-            <button class="product-card__button">Comprar</button>
-          </article>
-          <article class="product-card">
-            <img
-              src="images/products/canasta-familiar.jpg"
-              alt=""
-              class="product-card__img"
-            />
-            <div class="product-card__details">
-              <h2 class="product-card__title">Canasta de Frutas</h2>
-              <span class="product-card__price">$99</span>
-            </div>
-            <button class="product-card__button">Comprar</button>
-          </article>
+          <% const filteredProducts = products.filter(product => product.on_sale == 1) %> 
+          <% console.log("ON SALE!!") %> 
+          <% filteredProducts.forEach(product => { %>
+           
+            <%- include('./partials/productCard', { product }) %>
+          <% }) %>
         </section>
       </div>
     </section>

@@ -9,28 +9,28 @@
           <form id="form" class="form" action="users/register" enctype="multipart/form-data" method="POST">
             <h2>Registrate en Tienda Orgánica</h2>
             <input
-              class="controls <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+              class="controls <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
               type="text"
-              name="firstName"
-              id="firstName"
+              name="first_name"
+              id="first_name"
               placeholder="Nombre"
-              value="<%= locals.oldData ? oldData.firstName : null %>"
+              value="<%= locals.oldData ? oldData.first_name : null %>"
             />
-            <% if (locals.errors && errors.firstName) { %>
-            <div class="text-danger"><%= errors.firstName.msg %></div>
+            <% if (locals.errors && errors.first_name) { %>
+            <div class="text-danger"><%= errors.first_name.msg %></div>
 
             <% } %>
 
             <input
-              class="controls <%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
+              class="controls <%= locals.errors && errors.last_name ? 'is-invalid' : null %>"
               type="text"
-              name="lastName"
-              id="lastName"
+              name="last_name"
+              id="last_name"
               placeholder="Apellido"
-              value="<%= locals.oldData ? oldData.lastName : null %>"
+              value="<%= locals.oldData ? oldData.last_name : null %>"
             />
-            <% if (locals.errors && errors.lastName) { %>
-            <div class="text-danger"><%= errors.lastName.msg %></div>
+            <% if (locals.errors && errors.last_name) { %>
+            <div class="text-danger"><%= errors.last_name.msg %></div>
 
             <% } %>
             <input
@@ -38,7 +38,7 @@
               type="text"
               name="email"
               id="email"
-              placeholder="E-mail"
+              placeholder="Email"
               value="<%= locals.oldData ? oldData.email : null %>"
             />
             <% if (locals.errors && errors.email) { %>
@@ -46,7 +46,7 @@
 
             <% } %>
             <input
-              class="controls <%= locals.errors && errors.password? 'is-invalid' : null %>"
+              class="controls <%= locals.errors && errors.password ? 'is-invalid' : null %>"
               type="password"
               name="password"
               id="password"

@@ -11,23 +11,15 @@
           <div id="btn-collapse"><i class="fa-solid fa-chevron-down"></i></div>
         </div>
         <ul id="categories-links" class="products__categories-links is-open">
-          <li><a href="/products/" class="">Todos los productos</a></li>
-          <li><a href="/products/?category=fruits" class="">Frutas</a></li>
-          <li><a href="/products/?category=vegetables" class="">Verduras</a></li>
-          <li><a href="/products/?category=baskets" class="">Canastas</a></li>
+          <li><a href="/products/all" class="">Todos los productos</a></li>
+          <li><a href="/products/category/1" class="">Frutas</a></li>
+          <li><a href="/products/category/2" class="">Verduras</a></li>
+          <li><a href="/products/category/3" class="">Canastas</a></li>
         </ul>
       </div>
       <div class="products">
-        <% products.forEach(product => { %>
-        <article class="product-card">
-          <a href="/products/<%= product.id %>/detail" class="product-card__details">
-            <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
-            <h2 class="product-card__title"><%= product.name %></h2>
-            <p class="product-card__price">$<%= product.price %></p>
-            <p class=""><%= product.presentation %></p>
-          </a>
-          <a href="/products/productcart" class="product-card__button">Comprar</a>
-        </article>
+        <% products.forEach(product => { %> 
+          <%- include('./../partials/productCard', {product}) %>
         <% }) %>
       </div>
     </section>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+    <section class="section">
+      <% arr.forEach(el => { %>
+      <p>
+        <%= el.id %>; <%= el.name %>; <%= el.description %>; <%= el.presentation %>; <%= el.price %>; "stock"; <%=
+        el.available %>; <%= el.image %>; <%= el.category %>
+      </p>
+      <% }) %>
+    </section>
+  </body>
+</html>

@@ -8,17 +8,25 @@
       <div class="container-form">
         <form class="main-form" action="products/create" method="POST" enctype="multipart/form-data">
           <h4>Formulario de creación de productos</h4>
-          <input class="controls <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="text" name="name" id="name" placeholder="nombre del producto" value="<%= locals.oldData ? oldData.name : null %>" />
+          <input class="controls <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="text" name="name" id="name" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null %>" />
           <% if (locals.errors && errors.name) { %>
             <div class="text-danger"><%= errors.name.msg %></div>
-
             <% } %>
-          <input class="controls <%= locals.errors && errors.price ? 'is-invalid' : null %>" type="number" name="price" id="price" placeholder="precio del producto" value="<%= locals.oldData ? oldData.price : null %>" />
+          <input class="controls <%= locals.errors && errors.price ? 'is-invalid' : null %>" type="number" name="price" id="price" placeholder="Precio" value="<%= locals.oldData ? oldData.price : null %>" />
           <% if (locals.errors && errors.price) { %>
             <div class="text-danger"><%= errors.price.msg %></div>
-
             <% } %>
-       <input class="controls <%= locals.errors && errors.presentation ? 'is-invalid' : null %>" type="number" name="presentation" id="presentation" placeholder="presentación del producto" value="<%= locals.oldData ? oldData.presentation : null %>" />
+            <select
+            class="p-2 border rounded-md <%= locals.errors && errors.presentation ? 'border-red-700' : null %>"
+            name="presentation"
+            id="presentation"
+          >
+            <option value="">Elegí presentación</option>
+            
+            <option value="1 unidad">
+              <%= locals.oldData && (product.presentation === oldData.product.presentation) ? 'selected' : null %> 
+              1 unidad</option>
+          </select>
             <% if (locals.errors && errors.presentation) { %>
               <div class="text-danger"><%= errors.presentation.msg %></div>
   
@@ -43,15 +51,14 @@
           <br />
           <label>Selecionar categoria</label>
           <select class="<%= locals.errors && errors.category ? 'is-invalid' : null %>" name="category">
-            <option value="">Categorias</option>
-            <%  
-              let categories = ['Frutas', 'Verduras', 'Canasta Familiar'];
-            %>
-            <% for (const oneCategory of categories) { %>
+            <option value="">Categorías</option>
+            <% for (const category of categories) { %>
               <option 
-                value="<%= oneCategory %>"
-                <%= locals.oldData && (oneCategory === oldData.category) ? 'selected' : null %> 
-              > <%= oneCategory %> </option>
+                value="<%= category.name %>"
+                <%= locals.oldData && (category.name === oldData.category) ? 'selected' : null %> 
+              > 
+              <!-- Esto capitaliza las categorías -->
+              <%= category.name[0].toUpperCase() + category.name.slice(1) %> </option>
             <% } %>
           </select>
           <br />

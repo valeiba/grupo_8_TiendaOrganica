@@ -1,170 +1,159 @@
 const bcryptjs = require("bcryptjs");
 const {validationResult} = require("express-validator");
 const db = require("../database/models");
-const { User } = db;
 
-const controller = {
-  register: (req, res) => {
-    return res.render("users/register");
-  },
+const register = (req, res) => {
+  return res.render("users/register");
+};
 
-  processRegister: async (req, res) => {
-    try {
-      
-      const inputFieldsValidation = validationResult(req);
-  
-      if (inputFieldsValidation.errors.length > 0) {
-        return res.render("users/register", {
-          errors: inputFieldsValidation.mapped(),
-          oldData: req.body,
-        });
-      }
+const processRegister = async (req, res) => {
+  try {
+    const inputFieldsValidation = validationResult(req);
 
-      let userAlreadyExists = await User.findOne({
-        where: {
-          email: req.body.email
-        }
+    if (inputFieldsValidation.errors.length > 0) {
+      return res.render("users/register", {
+        errors: inputFieldsValidation.mapped(),
+        oldData: req.body,
       });
-
-      if (userAlreadyExists) {
-        return res.render("users/register", {
-          errors: {
-            email: {
-              msg: "El Email ya está registrado",
-            },
-          },
-          oldData: req.body,
-        });
-      }
-
-      let datos = {
-        ...req.body,
-        password: bcryptjs.hashSync(req.body.password, 10),
-        // guarda en la propiedad avatar el nombre de la imagen o usuario genérico
-        avatar: req.file?.filename || "default.webp",
-      };
-  
-      let user = await User.create(datos);
-  
-      return res.redirect('/users/login')
-    } catch (error) {
-      console.log(error)
     }
 
+    let userAlreadyExists = await db.User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
 
-    // let userAlreadyExists = await User.findByField("email", req.body.email);
-
-    // if (userAlreadyExists) {
-    //   return res.render("users/register", {
-    //     errors: {
-    //       email: {
-    //         msg: "El Email ya está registrado",
-    //       },
-    //     },
-    //     oldData: req.body,
-    //   });
-    // }
-
-    // let userData = {
-    //   ...req.body,
-    //   password: bcryptjs.hashSync(req.body.password, 10),
-    //   // guarda en la propiedad avatar el nombre de la imagen o usuario genérico
-    //   avatar: req.file?.filename || "default.webp",
-    // };
-
-    // guarda todos los campos del formulario en la variable user
-    // let user = await User.create(userData);
-
-    // return res.redirect("login");
-  },
-
-  listAll: async (req, res) => {
-    try {
-      const users = await User.findAll();
-      res.send(users);
-      
-    } catch (error) {
-      console.log(error)
-    }
-  },
-
-  listUser: async (req, res) => {
-    try {
-      const user = await User.findAll({
-        where: {
-          id: req.params.id
-        }
-      });
-      res.send(user);
-      
-    } catch (error) {
-      console.log(error)
-    }
-  },
-  
-  login: (req, res) => {
-    return res.render("users/login");
-  },
-
-  processLogin: async (req, res) => {
-
-    // let userToLogin = User.findByField("email", req.body.email);
-    
-    try {
-      let userToLogin = await User.findOne({
-        where: {
-          email: req.body.email
-        }
-      })
-  
-      if (userToLogin) {
-        let passwordIsOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
-        if (passwordIsOk) {
-          delete userToLogin.password;
-          req.session.userLogged = userToLogin;
-  
-          // si el usuario clickea "Recordar mi usuario" guarda el campo Email
-          // se utiliza en userLoggedMiddleware
-          if (req.body.remember_user) {
-            res.cookie("userEmail", req.body.email, {maxAge: 1000 * 30});
-          }
-          return res.redirect("/users/profile");
-        }
-        return res.render("users/login", {
-          errors: {
-            password: {
-              msg: "La contraseña es incorrecta",
-            },
-          },
-          oldData: req.body,
-        });
-      }
-  
-      return res.render("users/login", {
+    if (userAlreadyExists) {
+      return res.render("users/register", {
         errors: {
           email: {
-            msg: "El Email no está registrado",
+            msg: "El Email ya está registrado",
           },
         },
         oldData: req.body,
       });
-      
-    } catch (error) {
-      console.log(error)
     }
-  },
 
-  profile: (req, res) => {
+    let data = {
+      ...req.body,
+      password: bcryptjs.hashSync(req.body.password, 10),
+      // guarda en la propiedad avatar el nombre de la imagen o usuario genérico
+      avatar: req.file?.filename || "default.webp",
+      role_id: 2,
+    };
+
+    await db.User.create(data);
+
+    return res.redirect("/users/login");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const login = async (req, res) => {
+  try {
+    return res.render("users/login");
+  } catch (error) {
+    return console.log(error);
+  }
+};
+
+const processLogin = async (req, res) => {
+  try {
+    const userToLogin = await db.User.findOne({where: {email: req.body.email}});
+    if (userToLogin) {
+      let passwordIsCorrect = bcryptjs.compareSync(req.body.password, userToLogin.password);
+
+      if (passwordIsCorrect) {
+        delete userToLogin.password;
+        req.session.userLogged = userToLogin;
+
+        // if user checks "Remember me", store Email in cookies
+        // used in userLoggedMiddleware
+        if (req.body.remember_user) {
+          res.cookie("userEmail", req.body.email, {maxAge: 1000 * 30});
+        }
+
+        return res.redirect("/");
+      }
+
+      return res.render("users/login", {
+        errors: {
+          password: {
+            msg: "Contraseña incorrecta. Intentá de nuevo.",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    if (req.body.email == "") {
+      return res.render("users/login", {
+        errors: {
+          email: {
+            msg: "Ingresá un Email.",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    return res.render("users/login", {
+      errors: {
+        email: {
+          msg: "El Email no está registrado.",
+        },
+      },
+      oldData: req.body,
+    });
+  } catch (error) {
+    return console.log(error);
+  }
+};
+
+const profile = async (req, res) => {
+  try {
     return res.render("users/profile", {
       user: req.session.userLogged,
     });
-  },
+  } catch (error) {
+    return console.log(error);
+  }
+};
 
-  logout: (req, res) => {
+const edit = async (req, res) => {
+  try {
+    return res.render("users/edit", {
+      oldData: req.session.userLogged,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const editProfile = async (req, res) => {
+  try {
+  } catch (error) {
+    return console.log(error);
+  }
+};
+
+const shoppingCart = async (req, res) => {
+  try {
+    return res.render("users/shoppingCart", {});
+  } catch (error) {
+    return console.log(error);
+  }
+};
+
+const logout = async (req, res) => {
+  try {
     res.clearCookie("userEmail");
     req.session.destroy();
     return res.redirect("/");
-  },
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-module.exports = controller;
+module.exports = {register, processRegister, login, processLogin, profile, edit, editProfile, shoppingCart, logout};

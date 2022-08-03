@@ -27,11 +27,6 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.INTEGER,
       allowNull: false,
     },
-    available: {
-      type: dataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 1,
-    },
     on_sale: {
       type: dataTypes.INTEGER,
       allowNull: false,

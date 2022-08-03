@@ -240,8 +240,6 @@ img {
   gap: 1rem;
 }
 
-
-
 .mobile-menu__link:active {
   color: #fff;
 }
@@ -359,11 +357,39 @@ img {
   flex-direction: column;
 }
 
-.divided-screen > div {
-  width: 100%;
+.bg-light-green {
+  background-color: var(--light-green);
 }
 
+.bg-dark-green {
+  background-color: var(--dark-green);
+}
 
+.bg-light-orange {
+  background-color: var(--light-orange);
+}
+
+.bg-orange {
+  background-color: var(--orange);
+}
+
+.left-screen {
+  min-height: 90vh;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-screen {
+  padding: 0 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+}
 
 .input-is-invalid {
   border: 2px solid red;
@@ -389,8 +415,6 @@ footer {
 .footer__title {
   font-size: 1.5em;
 }
-
-
 
 .footer-wrapper {
   /* display: grid;
@@ -485,6 +509,18 @@ footer {
     display: none;
   }
 
+  .left-screen {
+    padding: 2rem 1rem;
+    flex-basis: 35%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .right-screen {
+    padding: 0 1rem;
+    flex-basis: 65%;
+  }
+
   .products__grid-layout {
     padding-top: 7rem;
     grid-template-columns: minmax(10rem, 25%) 1fr;
@@ -506,8 +542,8 @@ footer {
     align-items: center;
   }
 
-  .divided-screen > div {
-    width: 50%;
+  .divided-screen {
+    flex-direction: row;
   }
 }
 
@@ -517,8 +553,7 @@ footer {
   font-size: 30px;
   font-weight: bold;
   padding-top: 120px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/images/bannerdetalle.jpg");
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/images/bannerdetalle.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -613,7 +648,6 @@ footer {
 }
 #abajo-carro .cupon > div,
 #abajo-carro .total > div {
-  
   border: 1px solid #b6b3b3;
 }
 #abajo-carro h5 {
@@ -628,7 +662,6 @@ footer {
 
 #abajo-carro .cupon,
 #abajo-carro .total {
- 
   width: 70%;
   margin: 10px 50px;
   padding-top: 10px;
@@ -732,7 +765,6 @@ input,
 }
 .producto-relacionado {
   cursor: pointer;
-
 }
 .contenedor-productos .producto-relacionado img {
   width: 80%;
@@ -787,7 +819,6 @@ input,
 
   .contenedor-productos ul {
     flex-direction: row;
-   
   }
   .titulo-productos {
     text-align: left;

@@ -41,7 +41,6 @@
         <h2 class="section__title">Destacados</h2>
         <section class="products">
           <% const filteredProducts = products.filter(product => product.on_sale == 1) %> 
-          <% console.log("ON SALE!!") %> 
           <% filteredProducts.forEach(product => { %>
            
             <%- include('./partials/productCard', { product }) %>
@@ -55,6 +54,5 @@
     <script src="../js/carousel.js"></script>
 
     <%- include('./partials/scripts') %>
-    <script type="module" src="/js/header.js"></script>
   </body>
 </html>

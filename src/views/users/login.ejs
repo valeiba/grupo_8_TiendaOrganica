@@ -3,40 +3,43 @@
   <%- include('./../partials/head') %>
   <body>
     <%- include('./../partials/navbar') %>
-    <section class="main-form">
-      <form id="form" class="form" action="/users/login" method="POST">
-        <h4>¡Qué gusto volver a verte!</h4>
-        <input
-          class="controls"
-          type="text"
-          name="email"
-          id="email"
-          placeholder="Email"
-          value="<%= locals.oldData ? oldData.email : null %>"
-        />
-
-        <% if (locals.errors && errors.email) { %>
-        <div class="text-danger"><%= errors.email.msg %></div>
-
-        <% } %>
-        <input
-          class="controls"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Contraseña"
-          value="<%= locals.oldData ? oldData.password : null %>"
-        />
-        <% if (locals.errors && errors.password) { %>
-        <div class="text-danger"><%= errors.password.msg %></div>
-
-        <% } %>
-        <div class="">
-          <input type="checkbox" id="remember_user" name="remember_user" />
-          <label for="remember_user">Recordar mi usuario</label>
-        </div>
-        <button id="" class="" type="submit">Iniciar sesión</button>
-      </form>
-    </section>
+    <div class="divided-screen">
+      <div class="right-screen bg-orange"></div>
+      <div class="left-screen bg-light-orange">
+        <form id="form" class="form" action="/users/login" method="POST">
+          <h4>¡Qué gusto volver a verte!</h4>
+          <input
+            class="controls"
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Email"
+            value="<%= locals.oldData ? oldData.email : null %>"
+          />
+  
+          <% if (locals.errors && errors.email) { %>
+          <div class="text-danger"><%= errors.email.msg %></div>
+  
+          <% } %>
+          <input
+            class="controls"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Contraseña"
+            value="<%= locals.oldData ? oldData.password : null %>"
+          />
+          <% if (locals.errors && errors.password) { %>
+          <div class="text-danger"><%= errors.password.msg %></div>
+  
+          <% } %>
+          <div class="">
+            <input type="checkbox" id="remember_user" name="remember_user" />
+            <label for="remember_user">Recordar mi usuario</label>
+          </div>
+          <button id="" class="" type="submit">Iniciar sesión</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

@@ -39,6 +39,7 @@ const processRegister = async (req, res) => {
       password: bcryptjs.hashSync(req.body.password, 10),
       // guarda en la propiedad avatar el nombre de la imagen o usuario genérico
       avatar: req.file?.filename || "default.webp",
+      // rol: "user" por defecto (sin privilegios de admin)
       role_id: 2,
     };
 

@@ -11,6 +11,14 @@ module.exports = [
     .isEmail()
     .withMessage("Por favor revisá el formato de correo electrónico"),
   body("password").notEmpty().withMessage("Por favor completá tu contraseña"),
+  body("mobile")
+    .notEmpty()
+    .withMessage("Por favor completá tu número de teléfono")
+    .bail()
+    .isLength({
+      min: 7
+    })
+    .withMessage("El número de teléfono debe tener al menos 7 dígitos"),
   body("avatar").custom((value, {req}) => {
     // accesible from Multer (function "uploadFile")
     let acceptedFileExtensions = [".jpg", ".jpeg", ".png", ".gif"];

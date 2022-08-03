@@ -3,75 +3,108 @@
   <%- include('./../partials/head') %>
   <body>
     <%- include('./../partials/navbar') %>
-    <section class="section">
+    
       <div class="divided-screen">
-        <div>
+        <div class="left-screen bg-light-green">
           <form id="form" class="form" action="users/register" enctype="multipart/form-data" method="POST">
             <h2>Registrate en Tienda Orgánica</h2>
-            <input
-              class="controls <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
-              type="text"
-              name="first_name"
-              id="first_name"
-              placeholder="Nombre"
-              value="<%= locals.oldData ? oldData.first_name : null %>"
-            />
-            <% if (locals.errors && errors.first_name) { %>
-            <div class="text-danger"><%= errors.first_name.msg %></div>
+            <div class="">
+              <input
+                class="<%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
+                type="text"
+                name="first_name"
+                id="first_name"
+                placeholder="Nombre"
+                value="<%= locals.oldData ? oldData.first_name : null %>"
+              />
+              <% if (locals.errors && errors.first_name) { %>
+              <div class="text-danger"><%= errors.first_name.msg %></div>
+              <% } %>
+            </div>
 
-            <% } %>
+            <div class="">
+              <input
+                class="<%= locals.errors && errors.last_name ? 'is-invalid' : null %>"
+                type="text"
+                name="last_name"
+                id="last_name"
+                placeholder="Apellido"
+                value="<%= locals.oldData ? oldData.last_name : null %>"
+              />
+              <% if (locals.errors && errors.last_name) { %>
+              <div class="text-danger"><%= errors.last_name.msg %></div>
+              <% } %>
+            </div>
 
-            <input
-              class="controls <%= locals.errors && errors.last_name ? 'is-invalid' : null %>"
-              type="text"
-              name="last_name"
-              id="last_name"
-              placeholder="Apellido"
-              value="<%= locals.oldData ? oldData.last_name : null %>"
-            />
-            <% if (locals.errors && errors.last_name) { %>
-            <div class="text-danger"><%= errors.last_name.msg %></div>
+            <div class="">
+              <input
+                class="<%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Email"
+                value="<%= locals.oldData ? oldData.email : null %>"
+              />
+              <% if (locals.errors && errors.email) { %>
+              <div class="text-danger"><%= errors.email.msg %></div>
+              <% } %>
+            </div>
 
-            <% } %>
-            <input
-              class="controls <%= locals.errors && errors.email ? 'is-invalid' : null %>"
-              type="text"
-              name="email"
-              id="email"
-              placeholder="Email"
-              value="<%= locals.oldData ? oldData.email : null %>"
-            />
-            <% if (locals.errors && errors.email) { %>
-            <div class="text-danger"><%= errors.email.msg %></div>
+            <div class="">
+              <input
+                class="<%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Contraseña"
+                value="<%= locals.oldData ? oldData.password : null %>"
+              />
+              <% if (locals.errors && errors.password) { %>
+              <div class="text-danger"><%= errors.password.msg %></div>
+              <% } %>
+            </div>
 
-            <% } %>
-            <input
-              class="controls <%= locals.errors && errors.password ? 'is-invalid' : null %>"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Contraseña"
-              value="<%= locals.oldData ? oldData.password : null %>"
-            />
-            <% if (locals.errors && errors.password) { %>
-            <div class="text-danger"><%= errors.password.msg %></div>
-            <% } %>
-            <label class="mb-2" for="avatar">Imagen de Perfil</label>
-            <input
-              class="<%= locals.errors && errors.avatar ? 'is-invalid' : null %>"
-              type="file"
-              id="avatar"
-              name="avatar"
-            />
-            <% if (locals.errors && errors.avatar) { %>
-            <span class="text-danger"><%= errors.avatar.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
-            <% } %>
+            <div class="">
+              <input
+                class="<%= locals.errors && errors.mobile ? 'is-invalid' : null %>"
+                type="text"
+                name="mobile"
+                id="mobile"
+                placeholder="Teléfono"
+                value="<%= locals.oldData ? oldData.mobile : null %>"
+              />
+              <% if (locals.errors && errors.mobile) { %>
+              <div class="text-danger"><%= errors.mobile.msg %></div>
+              <% } %>
+            </div>
+
+            <div class="">
+              <label class="mb-2" for="avatar">Imagen de Perfil</label>
+              <input
+                class="<%= locals.errors && errors.avatar ? 'is-invalid' : null %>"
+                type="file"
+                id="avatar"
+                name="avatar"
+              />
+              <% if (locals.errors && errors.avatar) { %>
+              <span class="text-danger"><%= errors.avatar.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
+              <% } %>
+            </div>
+
             <p>Estoy de acuerdo con los <a href="#">Términos y Condiciones</a></p>
-            <button id="" class="" type="submit">Registrarme</button>
-            <p><a href="/users/login">Ya estoy registrado</a></p>
+
+            <div class="">
+              <button id="" class="" type="submit">Registrarme</button>
+              <p><a href="/users/login">Ya estoy registrado</a></p>
+            </div>
           </form>
         </div>
+
+        <div class="right-screen bg-dark-green">
+
+        </div>
+        
       </div>
-    </section>
+   
   </body>
 </html>

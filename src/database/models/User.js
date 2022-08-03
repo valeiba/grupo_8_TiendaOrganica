@@ -23,8 +23,12 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING,
       allowNull: false,
     },
+    mobile: {
+      type: dataTypes.INTEGER,
+    },
     role_id: {
       type: dataTypes.INTEGER,
+      allowNull: false,
     },
   };
 
@@ -45,6 +49,10 @@ module.exports = (sequelize, dataTypes) => {
       as: "roles",
       foreignKey: "role_id",
     });
+    User.hasMany(models.Address, {
+      as: "addresses",
+      foreignKey: "user_id",
+    })
   };
 
   return User;

@@ -40,15 +40,15 @@ app.use("/users", usersRoutes);
 app.use("/api/roles", roleApiRoutes);
 app.use("/api/categories", categoriesApiRoutes);
 
-models.sequelize
-  .authenticate()
-  .then(function () {
-    console.log("Connection successful");
-    return sequelize.sync({force: true, alter: true});
-  })
-  .catch(function (error) {
-    console.log("Error creating connection:", error);
-  });
+// models.sequelize
+//   .authenticate()
+//   .then(function () {
+//     console.log("Connection successful");
+//     return sequelize.sync({force: true, alter: true});
+//   })
+//   .catch(function (error) {
+//     console.log("Error creating connection:", error);
+//   });
 
 app.listen(3000, () => {
   console.log("Servidor funcionando");

@@ -1,5 +1,5 @@
 <article class="product-card">
-  <a href="/products/<%= product.id %>/detail" class="product-card__details">
+  <a href="/products/detail/<%= product.id %>" class="product-card__details">
     <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
     <h2 class="product-card__title"><%= product.name %></h2>
     <p class="product-card__price">$<%= product.price %></p>
@@ -8,6 +8,6 @@
   <% if (locals.userIsLogged) { %>
   <a href="/products/productcart" class="product-card__button">Comprar</a>
   <% } else { %>
-  <a href="/products/<%= product.id %>/detail" class="product-card__button">Ver</a>
+  <a href="/products/detail/<%= product.id %>" class="product-card__button">Ver</a>
   <% } %>
 </article>

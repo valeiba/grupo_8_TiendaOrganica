@@ -786,14 +786,8 @@ input,
 .form-profile {
   padding-top: 100px;
 }
-
-@keyframes muevecarro {
-  from {
-    transform: rotate(-90deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
+div.errores{
+  color: red;
 }
 
 @media (min-width: 480px) {

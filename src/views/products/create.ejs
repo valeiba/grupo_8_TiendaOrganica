@@ -6,9 +6,15 @@
 
     <section>
       <div class="container-form">
+        <div class="errores">
+          <ul>
+            
+          </ul>
+
+        </div>
         <form class="main-form" action="products/create" method="POST" enctype="multipart/form-data">
           <h4>Formulario de creación de productos</h4>
-          <input class="controls <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="text" name="name" id="name" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null %>" />
+          <input  class="controls <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="text" name="name" id="name" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null %>" />
           <% if (locals.errors && errors.name) { %>
             <div class="text-danger"><%= errors.name.msg %></div>
             <% } %>
@@ -16,26 +22,44 @@
           <% if (locals.errors && errors.price) { %>
             <div class="text-danger"><%= errors.price.msg %></div>
             <% } %>
+            <input class="controls <%= locals.errors && errors.stock ? 'is-invalid' : null %>" type="number" name="stock" id="stock" placeholder="stock del producto" value="<%= locals.oldData ? oldData.stock : null %>" />
+            <% if (locals.errors && errors.stock) { %>
+              <div class="text-danger"><%= errors.stock.msg %></div>
+  
+              <% } %>
+              <label>¿Producto on sale?</label>
+          <select class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" name="on_sale">
+            <option value="">Selecionar</option>
+            <%  
+              let options = ['0', '1'];
+            %>
+            <% for (const oneOption of options) { %>
+              <option 
+                value="<%= oneOption %>"
+                <%= locals.oldData && (oneOption === oldData.on_sale) ? 'selected' : null %> 
+              > <%= oneOption %> </option>
+            <% } %>
+          </select>
+          <br>
             <select
             class="p-2 border rounded-md <%= locals.errors && errors.presentation ? 'border-red-700' : null %>"
             name="presentation"
             id="presentation"
           >
-            <option value="">Elegí presentación</option>
+            <option value="">Elegí una presentación</option>
+            <%  
+              let presentations = ['1kg', 'un atado', 'una unidad', '500gr', '250gr'];
+            %>
+            <% for (const onePresentation of presentations) { %>
+              <option 
+                value="<%= onePresentation %>"
+                <%= locals.oldData && (onePresentation === oldData.presentation) ? 'selected' : null %> 
+              > <%= onePresentation %> </option>
+            <% } %>
             
-            <option value="1 unidad">
-              <%= locals.oldData && (product.presentation === oldData.product.presentation) ? 'selected' : null %> 
-              1 unidad</option>
           </select>
-            <% if (locals.errors && errors.presentation) { %>
-              <div class="text-danger"><%= errors.presentation.msg %></div>
-  
-              <% } %>
-        <input class="controls <%= locals.errors && errors.available ? 'is-invalid' : null %>" type="text" name="available" id="available"  value="<%= locals.oldData ? oldData.available : null %>" />
-              <% if (locals.errors && errors.available) { %>
-                <div class="text-danger"><%= errors.available.msg %></div>
-    
-                <% } %>
+       
+ 
           <input
             class="controls <%= locals.errors && errors.description ? 'is-invalid' : null %>"
             type="text"
@@ -50,20 +74,24 @@
             <% } %>
           <br />
           <label>Selecionar categoria</label>
-          <select class="<%= locals.errors && errors.category ? 'is-invalid' : null %>" name="category">
+          <select class="<%= locals.errors && errors.category ? 'is-invalid' : null %>" name="category_id">
             <option value="">Categorías</option>
-            <% for (const category of categories) { %>
-              <option 
-                value="<%= category.name %>"
-                <%= locals.oldData && (category.name === oldData.category) ? 'selected' : null %> 
-              > 
-              <!-- Esto capitaliza las categorías -->
-              <%= category.name[0].toUpperCase() + category.name.slice(1) %> </option>
-            <% } %>
+            <%  
+            let categories = ['Frutas', 'Verduras', 'Canasta Familiar'];
+          %>
+               <% for (const oneCategory of categories) { %>
+                <option 
+                  value="<%= oneCategory %>"
+                  <%= locals.oldData && (oneCategory === oldData.category_id) ? 'selected' : null %> 
+                > <%= oneCategory %> </option>
+              <% } %>
+         
+            
+        
           </select>
           <br />
           <label>Foto de producto</label>
-          <input class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" type="file" name="image" />
+          <input class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" type="file" name="image" id="image"/>
           <% if (locals.errors && errors.image) { %>
             <span class="text-danger"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
             <% } %>
@@ -72,5 +100,6 @@
       </div>
     </section>
     <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+    <script type="module" src="/js/create.js"></script>
   </body>
 </html>

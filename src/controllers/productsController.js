@@ -51,7 +51,9 @@ const createProduct = async (req, res) => {
 const controller ={
   //listar
   products: function(req,res) {
-     db.Product.findAll()
+     db.Product.findAll({
+      include :['categories']
+     })
       .then(function(products){
         res.render('products/index',{products:products})
 
@@ -78,33 +80,40 @@ const controller ={
   },
   //crear
   create: function(req,res){
-    res.render("products/create");
+    let promCategories= db.Category.findAll();
+    Promise
+    .all([promCategories])
+    .then(([allCategories])=>{
+      
+      return res.render( 'products/create',{allCategories}
+    )})
+    .catch(error => res.send(error))
   },
   store: function(req,res){
-    const inputFieldsValidation = validationResult(req);
+    //const inputFieldsValidation = validationResult(req);
   
-      if (inputFieldsValidation.errors.length > 0) {
-        return res.render("products/create", {
-          errors: inputFieldsValidation.mapped(),
-          oldData: req.body,
-        });
-      }
-      let productAlreadyExists = db.Product.findOne({
-        where: {
-          name: req.body.name
-        }
-      });
+      //if (inputFieldsValidation.errors.length > 0) {
+       // return res.render("products/create", {
+       //   errors: inputFieldsValidation.mapped(),
+         // oldData: req.body,
+     //   });
+     // }
+    //  let productAlreadyExists = db.Product.findOne({
+   //     where: {
+     //     name: req.body.name
+     //   }
+     // });
 
-      if (productAlreadyExists) {
-        return res.render("products/create", {
-          errors: {
-            name: {
-              msg: "El Producto ya existe",
-            },
-          },
-          oldData: req.body,
-        });
-      }
+    //  if (productAlreadyExists) {
+    //    return res.render("products/create", {
+      //    errors: {
+       //     name: {
+        //      msg: "El Producto ya existe",
+       //     },
+        //  },
+      //    oldData: req.body,
+      //  });
+    // }
     db.Product.create({
       name: req.body.name,
       price:req.body.price,
@@ -115,14 +124,23 @@ const controller ={
       category_id:req.body.category_id,
       image:req.body.image
     })
-    .then(product=>{res.redirect('/products/index')})
+    
+    .then(()=> {
+      return res.redirect('/products/index')})            
+  .catch(error => res.send(error))
+    
   },
   //editar
   edit: function(req,res){
-    db.Product.findByPk(req.params.id)
-    .then(function(productToEdit){
-      res.render("products/edit",{productToEdit:productToEdit});
-    })
+    let Products=db.Product;
+    let productId=req.params.id;
+    let promProducts=db.Product.findByPk(productId,{include:['category']})
+    let promCategories= db.Category.findAll();
+    Promise
+    .all([promProducts,promCategories])
+    .then(([Products, allCategories]) => {
+      return res.render(path.resolve(__dirname, '..', 'views',  'edit'), {Products,allCategories})})
+  .catch(error => res.send(error))
   },
  update: function(req,res){
   const inputFieldsValidation = validationResult(req);
@@ -147,23 +165,26 @@ const controller ={
    id: req.params.id
     }
   })
-  .then(function(products){
-    res.render('products/index',{products:products})
- })},
+  .then(()=> {
+    return res.redirect('/products/index')})            
+.catch(error => res.send(error))
+ },
  //eliminar
  delete: function(req,res){
   db.Product.findByPk(req.params.id)
-  .then(function(product){
-    res.render("products/delete",{product:product});
-  })
+  .then(Product => {
+    return res.render(path.resolve(__dirname, '..', 'views',  'delete'), {Product})})
+.catch(error => res.send(error))
  },
  destroy: function(req,res){
   db.Product.destroy({
-    where:{
-      id: req.params.id
-    }
-  })
-  res.redirect("/")
+    where:
+      {id: req.params.id}
+    , force: true}
+  )
+  .then(()=> {
+    return res.redirect('/products/index')})            
+.catch(error => res.send(error))
  } 
  
 };

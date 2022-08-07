@@ -1,53 +1,10 @@
 const {validationResult} = require("express-validator");
+const path = require('path');
 const db = require("../database/models");
+const Product = require("../database/models/Product");
 
-const listAllProducts = async (req, res) => {
-  try {
-    const products = await db.Product.findAll();
-    return res.render("products/index", {
-      products,
-    });
-  } catch (error) {
-    return console.log(error);
-  }
-};
 
-const filterProducts = async (req, res) => {
-  try {
-    const products = await db.Product.findAll({
-      where: {
-        category_id: req.params.id,
-      },
-    });
-    return res.render("products/index", {
-      products,
-    });
-  } catch (error) {
-    return console.log(error);
-  }
-};
 
-const create = async (req, res) => {
-  try {
-    const products = await db.Product.findAll();
-    const categories = await db.Category.findAll();
-    return res.render("products/create", {
-      products,
-      categories,
-    });
-  } catch (error) {
-    return console.log(error);
-  }
-};
-
-const createProduct = async (req, res) => {
-  try {
-    const newProduct = await db.Product.create({});
-    return res.render("products/all");
-  } catch (error) {
-    return console.log(error);
-  }
-};
 const controller ={
   //listar
   products: function(req,res) {
@@ -90,14 +47,8 @@ const controller ={
     .catch(error => res.send(error))
   },
   store: function(req,res){
-    //const inputFieldsValidation = validationResult(req);
-  
-      //if (inputFieldsValidation.errors.length > 0) {
-       // return res.render("products/create", {
-       //   errors: inputFieldsValidation.mapped(),
-         // oldData: req.body,
-     //   });
-     // }
+   // const resultValidation = validationResult(req);
+   // if (resultValidation.errors.length == 0) {
     //  let productAlreadyExists = db.Product.findOne({
    //     where: {
      //     name: req.body.name
@@ -114,6 +65,12 @@ const controller ={
       //    oldData: req.body,
       //  });
     // }
+    let image;
+    if(req.file != undefined){
+        image = req.file.filename
+    } else {
+        image = 'image-default.jpg'
+    }
     db.Product.create({
       name: req.body.name,
       price:req.body.price,
@@ -122,34 +79,42 @@ const controller ={
       stock:req.body.stock,
       on_sale:req.body.on_sale,
       category_id:req.body.category_id,
-      image:req.body.image
+      image:image
     })
     
     .then(()=> {
-      return res.redirect('/products/index')})            
+      return res.redirect('/products/all')})            
   .catch(error => res.send(error))
     
+
+      
   },
   //editar
   edit: function(req,res){
-    let Products=db.Product;
-    let productId=req.params.id;
-    let promProducts=db.Product.findByPk(productId,{include:['category']})
-    let promCategories= db.Category.findAll();
-    Promise
-    .all([promProducts,promCategories])
-    .then(([Products, allCategories]) => {
-      return res.render(path.resolve(__dirname, '..', 'views',  'edit'), {Products,allCategories})})
-  .catch(error => res.send(error))
-  },
- update: function(req,res){
-  const inputFieldsValidation = validationResult(req);
   
-  if (inputFieldsValidation.errors.length > 0) {
-    return res.render("products/create", {
-      errors: inputFieldsValidation.mapped(),
-      oldData: req.body,
-    });
+ let productId = req.params.id;
+ let promProducts = db.Product.findByPk(req.params.id,{include: ['categories']});
+ let promCategories = db.Category.findAll();
+
+ Promise
+ .all([promProducts, promCategories])
+ .then
+ (([ Product,allCategories]) => {
+    
+    return res.render('products/edit', {Product, allCategories})})
+ .catch(error => res.send(error))
+
+
+
+ },
+ update: function(req,res){
+  const resultValidation = validationResult(req);
+  if (resultValidation.errors.length == 0) {
+  let image;
+  if(req.file != undefined){
+      image = req.file.filename
+  } else {
+      image = 'image-default.jpg'
   }
   db.Product.update({
     name: req.body.name,
@@ -159,21 +124,32 @@ const controller ={
     stock:req.body.stock,
     on_sale:req.body.on_sale,
     category_id:req.body.category_id,
-    image:req.body.image
+    image:image
   },{
     where:{
    id: req.params.id
     }
   })
   .then(()=> {
-    return res.redirect('/products/index')})            
+    return res.redirect('/products/all')})            
 .catch(error => res.send(error))
+  }else { 
+    let promProducts = db.Product.findByPk(req.params.id,{include: ['categories']});
+    let promCategories = db.Category.findAll();
+   
+    Promise
+    .all([promProducts, promCategories])
+    .then
+    (([ Product,allCategories]) => {
+       
+       return res.render('products/edit', {Product, allCategories,errors: resultValidation.mapped()})})
+}
  },
  //eliminar
  delete: function(req,res){
   db.Product.findByPk(req.params.id)
   .then(Product => {
-    return res.render(path.resolve(__dirname, '..', 'views',  'delete'), {Product})})
+    return res.render('products/delete', {Product})})
 .catch(error => res.send(error))
  },
  destroy: function(req,res){
@@ -183,7 +159,7 @@ const controller ={
     , force: true}
   )
   .then(()=> {
-    return res.redirect('/products/index')})            
+    return res.redirect('/products/all')})            
 .catch(error => res.send(error))
  } 
  

@@ -7,11 +7,11 @@
       <div class="container-form">
         <form
           class="main-form"
-          action="/products/delete/<%= product.id %>?_method=DELETE"
+          action="/products/delete/<%= Product.id %>?_method=DELETE"
           method="POST"
           enctype="multipart/form-data"
         >
-        <h4>Confirma eliminar <%= product.name %> ?</h4>
+        <h4>Confirma eliminar <%= Product.name %> ?</h4>
          
           <button class="bottons" type="submit">ELIMINAR</button>
         </form>

@@ -13,11 +13,11 @@
         </div>
         <form
           class="main-form"
-          action="/products/edit/<%= productToEdit.id %>?_method=PUT"
+          action="/products/edit/<%= Product.id %>?_method=PUT"
           method="POST"
           enctype="multipart/form-data"
         >
-          <h4>Formulario de edición de <%= productToEdit.name %></h4>
+          <h4>Formulario de edición de <%= Product.name %></h4>
           <input
             class="controls <%= locals.errors && errors.name ? 'is-invalid' : null %>"
             type="text"
@@ -80,15 +80,11 @@
           <label>Selecionar categoria</label>
           <select class="<%= locals.errors && errors.category ? 'is-invalid' : null %>" name="category">
             <option value="">Categorías</option>
-            <%  
-            let categories = ['Frutas', 'Verduras', 'Canasta Familiar'];
-          %>
-              <% for (const oneCategory of categories) { %>
-                <option 
-                  value="<%= oneCategory %>"
+            <% allCategories.forEach(category=> { %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+              <% }); %>
                   <%= locals.oldData && (oneCategory === oldData.category_id) ? 'selected' : null %> 
-                > <%= oneCategory %> </option>
-              <% } %>
+         
           </select>
           <br />
           <label>Foto de producto</label>
@@ -97,7 +93,7 @@
             <span class="text-danger"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
             <% } %>
           <button class="bottons" type="submit">MODIFICAR</button>
-          <a href="/products/delete/<%= productToEdit.id %>" class="product-card__button">Eliminar Producto</a>
+          <a href="/products/delete/<%= Product.id %>" class="product-card__button">Eliminar Producto</a>
         </form>
       </div>
     </section>

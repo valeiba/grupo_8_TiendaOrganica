@@ -7,11 +7,8 @@
     <section>
       <div class="container-form">
         <div class="errores">
-          <ul>
-            
-          </ul>
-
-        </div>
+          <ul></ul>
+      </div>
         <form class="main-form" action="products/create" method="POST" enctype="multipart/form-data">
           <h4>Formulario de creación de productos</h4>
           <input  class="controls <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="text" name="name" id="name" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null %>" />
@@ -76,15 +73,14 @@
           <label>Selecionar categoria</label>
           <select class="<%= locals.errors && errors.category ? 'is-invalid' : null %>" name="category_id">
             <option value="">Categorías</option>
-            <%  
-            let categories = ['Frutas', 'Verduras', 'Canasta Familiar'];
-          %>
-               <% for (const oneCategory of categories) { %>
-                <option 
-                  value="<%= oneCategory %>"
+        
+                <% allCategories.forEach(category=> { %>
+                  <option value="<%= category.id %>"><%= category.name %></option>
+                  <% }); %>
+                
                   <%= locals.oldData && (oneCategory === oldData.category_id) ? 'selected' : null %> 
-                > <%= oneCategory %> </option>
-              <% } %>
+               
+           
          
             
         

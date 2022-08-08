@@ -3,7 +3,7 @@ window.onload = function(){
     formularioLogin.addEventListener("submit",function(event){
         let errores=[]
         let campoEmail=document.querySelector("input#email")
-        let emailValido= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
+        let emailValido= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(campoEmail.value === ""){
             errores.push("el campo email es obligatorio")
 
@@ -15,11 +15,15 @@ window.onload = function(){
         if(campoContraseña.value===""){
             errores.push("el campo de contraseña es obligatorio")
         }
-        if (errores.length>0){
+        if (errores.length > 0) {
             event.preventDefault();
-            let ulErrores=document.querySelector('div.errores ul');
-            errores.forEach(error=>{
-                ulErrores.innerHTML+= `<li> ${error} </li>`
-            })
-           }
+            let erroresInput = document.querySelector("div.errores ul");
+            erroresInput.classList.add("alert-warning");
+            erroresInput.innerHTML = "";
+            for (let i = 0; i < errores.length; i++) {
+              let li = document.createElement("li");
+              li.innerHTML = errores[i];
+              erroresInput.appendChild(li);
+            }
+          }
     })}

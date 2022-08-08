@@ -4,16 +4,18 @@
   <body>
     <%- include('./../partials/navbar') %>
     <div class="divided-screen">
+      
       <div class="right-screen bg-orange"></div>
       <div class="left-screen bg-light-orange">
         <div class="container-form">
+          
+        <form id="form" class="form" action="/users/login" method="POST">
           <div class="errores">
             <ul>
               
             </ul>
   
           </div>
-        <form id="form" class="form" action="/users/login" method="POST">
           <h4>¡Qué gusto volver a verte!</h4>
           <input
             class="controls"

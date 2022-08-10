@@ -32,6 +32,10 @@ window.onload = function(){
             errores.push('Extensión no permitida. Utiliza: .jpeg/.jpg/.png/.gif.');
             campoImagen.value = '';
           
+        }else{
+            campoImagen.classList.remove('is-invalid');
+            campoImagen.classList.add('is-valid');
+            campoImagen.focus();
         }
         if (errores.length > 0) {
             event.preventDefault();

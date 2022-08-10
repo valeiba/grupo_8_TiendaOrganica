@@ -10,6 +10,7 @@ const productsRoutes = require("./src/routes/productsRoutes");
 const usersRoutes = require("./src/routes/usersRoutes");
 const roleApiRoutes = require("./src/routes/api/roleApiRoutes");
 const categoriesApiRoutes = require("./src/routes/api/categoriesApiRoutes");
+const productsApiRoutes = require("./src/routes/api/productsApiRoutes");
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 const models = require("./src/database/models/");
 const {sequelize} = require("./src/database/models/");
@@ -39,6 +40,7 @@ app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
 app.use("/api/roles", roleApiRoutes);
 app.use("/api/categories", categoriesApiRoutes);
+app.use("/api/products", productsApiRoutes)
 
 // models.sequelize
 //   .authenticate()
@@ -50,6 +52,6 @@ app.use("/api/categories", categoriesApiRoutes);
 //     console.log("Error creating connection:", error);
 //   });
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log("Servidor funcionando");
 });

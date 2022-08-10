@@ -10,10 +10,18 @@ window.onload = function(){
         }else if(!emailValido.test(campoEmail.value)){
             errores.push("El Email ingresado es invalído")
             
+        }else{
+            campoEmail.classList.remove('is-invalid');
+            campoEmail.classList.add('is-valid');
+            campoEmail.focus();
         }
         let campoContraseña=document.querySelector("input#password");
         if(campoContraseña.value===""){
             errores.push("el campo de contraseña es obligatorio")
+        }else{
+            campoContraseña.classList.remove('is-invalid');
+            campoContraseña.classList.add('is-valid');
+            campoContraseña.focus();
         }
         if (errores.length > 0) {
             event.preventDefault();

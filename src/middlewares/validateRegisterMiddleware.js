@@ -2,7 +2,7 @@ const path = require("path");
 const {body} = require("express-validator");
 
 module.exports = [
-  body("first_name").notEmpty().withMessage("Por favor completá tu nombre"),
+  body("first_name").notEmpty().isLength({min: 2}).withMessage("Por favor completá tu nombre"),
   body("last_name").notEmpty().withMessage("Por favor completá tu apellido"),
   body("email")
     .notEmpty()

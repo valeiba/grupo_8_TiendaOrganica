@@ -4,13 +4,15 @@ const {Category} = db;
 const getAllCategories = async (req, res) => {
   try {
     const categories = await Category.findAll();
+    const totalCategory= await Category.count();
     return res.json({
       meta: {
           status: 200,
           total: categories.length,
-          url: "api/categories"
+          url: "api/categories/all"
       },
-      data: categories
+      data: categories,
+     totalCategory
     })
   } catch (error) {
     return console.log(error)

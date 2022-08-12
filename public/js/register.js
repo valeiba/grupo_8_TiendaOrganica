@@ -7,9 +7,9 @@ window.onload = function(){
         let campoNombre=document.querySelector("input#first_name");
        
         if(campoNombre.value=== ""){
-            errores.push("el campo de nombre es obligatorio")
+            errores.push("El nombre es obligatorio")
         } else if(campoNombre.value.length<2){
-            errores.push("el nombre debe tener al menos 2 caracteres")
+            errores.push("El nombre debe tener al menos 2 caracteres")
         }else{
             campoNombre.classList.remove('is-invalid');
             campoNombre.classList.add('is-valid');
@@ -17,9 +17,9 @@ window.onload = function(){
         }
         let campoApellido=document.querySelector("input#last_name")
         if(campoApellido.value=== ""){
-            errores.push("el campo de apellido es obligatorio")
+            errores.push("El Apellido es obligatorio")
         } else if(campoApellido.value.length<2){
-            errores.push("el apellido debe tener al menos 2 caracteres")
+            errores.push("El Apellido debe tener al menos 2 caracteres")
         }else{
             campoApellido.classList.remove('is-invalid');
             campoApellido.classList.add('is-valid');
@@ -28,10 +28,10 @@ window.onload = function(){
         let campoEmail=document.querySelector("input#email")
         let emailValido= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(campoEmail.value === ""){
-            errores.push("el campo email es obligatorio")
+            errores.push("El Email es obligatorio")
 
         }else if(!emailValido.test(campoEmail.value)){
-            errores.push("El Email ingresado es invalído")
+            errores.push("El Email ingresado es inválido")
             
         }else{
             campoEmail.classList.remove('is-invalid');
@@ -40,9 +40,9 @@ window.onload = function(){
         }
         let campoContraseña=document.querySelector("input#password");
         if(campoContraseña.value===""){
-            errores.push("el campo de contraseña es obligatorio")
+            errores.push("La contraseña es obligatoria")
         }else if(campoContraseña.value.length<8){
-            errores.push("la contraseña debe tener al menos 8 caracteres")
+            errores.push("La Contraseña debe tener al menos 8 caracteres")
         }else{
             campoContraseña.classList.remove('is-invalid');
             campoContraseña.classList.add('is-valid');

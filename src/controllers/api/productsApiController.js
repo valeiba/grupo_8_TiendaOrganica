@@ -24,7 +24,9 @@ const productsApiController = {
                     url: 'api/products/all'
                 },
                 data: products,
-                
+               detail: products.forEach((products) => {
+                    products.dataValues.detail = `http://localhost:3001/api/products/${products.id}`;
+                  })  
                 
             }
                 res.json(respuesta);
@@ -42,7 +44,9 @@ const productsApiController = {
                         
                         url: '/api/products/:id'
                     },
-                    data: product
+                    data: product,
+                    imageProduct: product.dataValues.image = `http://localhost:3001/api/products/${product.image}`
+                      
                 }
                 res.json(respuesta);
             });
@@ -51,7 +55,7 @@ const productsApiController = {
         db.Product.findAll({
            
             order : [
-                ['created_at', 'DESC']
+                ['id', 'DESC']
             ]
         })
             .then((products) => {

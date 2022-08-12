@@ -5,10 +5,10 @@ window.onload = function(){
         let campoEmail=document.querySelector("input#email")
         let emailValido= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(campoEmail.value === ""){
-            errores.push("el campo email es obligatorio")
+            errores.push("El Email es obligatorio")
 
         }else if(!emailValido.test(campoEmail.value)){
-            errores.push("El Email ingresado es invalído")
+            errores.push("El Email ingresado es inválido")
             
         }else{
             campoEmail.classList.remove('is-invalid');
@@ -17,7 +17,7 @@ window.onload = function(){
         }
         let campoContraseña=document.querySelector("input#password");
         if(campoContraseña.value===""){
-            errores.push("el campo de contraseña es obligatorio")
+            errores.push("La Contraseña es obligatoria")
         }else{
             campoContraseña.classList.remove('is-invalid');
             campoContraseña.classList.add('is-valid');

@@ -155,6 +155,20 @@ const logout = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-};
+}
+  const admin = async (req, res) => {
+    return res.render("users/admin");
+  };
 
-module.exports = {register, processRegister, login, processLogin, profile, edit, editProfile, shoppingCart, logout};
+  module.exports = {
+    register,
+    processRegister,
+    login,
+    processLogin,
+    profile,
+    edit,
+    editProfile,
+    shoppingCart,
+    logout,
+    admin,
+  }

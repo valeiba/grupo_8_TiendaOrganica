@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+
+    <div>
+      <h1 class="admin-title">Admin</h1>
+    </div>
+    <div class="b-container">
+      <a class="a-boton" href="/products/create">Crear Producto</a>
+
+      <a class="a-boton" href="/products/edit">Editar Producto</a>
+
+      <a class="a-boton" href="/products/delete">Eliminar Producto</a>
+    </div>
+
+    <%- include('../partials/footer') %>
+    <script type="module" src="/js/profile.js"></script>
+    <%- include('../partials/scripts') %>
+  </body>
+</html>

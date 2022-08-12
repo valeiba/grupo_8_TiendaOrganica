@@ -789,6 +789,37 @@ input,
 div.errores ul{
   color: red;
 }
+/*ADMIN*/
+
+.admin-title {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #e6be82;
+  display: flex;
+  justify-content: center;
+}
+
+.b-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.a-boton {
+  width: 25%;
+  background-color: #2b8652;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 2px;
+  cursor: pointer;
+}
 
 @media (min-width: 480px) {
   #abajo-carro .row {

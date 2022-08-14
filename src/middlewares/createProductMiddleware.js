@@ -6,7 +6,7 @@ module.exports = [
   body("price").notEmpty().withMessage("Por favor ingresar precio del producto"),
   body("presentation").notEmpty().withMessage("Por favor ingresar la presentación del producto"),
   body("stock").notEmpty().withMessage("Por favor ingresar si el stock del producto"),
-  body ("on_sale").notEmpty().withMessage("Por favor ingresar si el producto esta en oferta"),
+  body ("on_sale").notEmpty().withMessage("Por favor ingresar si el producto está en oferta"),
   body("description").isLength({min:20})
     .withMessage("La descripción debe tener al menos 20 caracteres"),
   body("category_id").notEmpty().withMessage("Por favor debe seleccionar una categoria"),

@@ -96,10 +96,10 @@ const controller = {
       include: ["categories"],
     });
     let promCategories = db.Category.findAll();
-
+    
     Promise.all([promProducts, promCategories])
-      .then(([Product, allCategories]) => {
-        return res.render("products/edit", { Product, allCategories });
+    .then(([product, allCategories]) => {
+        return res.render("products/edit", { product, allCategories });
       })
       .catch((error) => res.send(error));
   },
@@ -140,21 +140,21 @@ const controller = {
       let promCategories = db.Category.findAll();
 
       Promise.all([promProducts, promCategories]).then(
-        ([Product, allCategories]) => {
+        ([product, allCategories]) => {
           return res.render("products/edit", {
-            Product,
+            product,
             allCategories,
             errors: resultValidation.mapped(),
           });
         }
       );
-    } console.log(resultValidation)
+    }
   },
   //eliminar
   delete: function (req, res) {
     db.Product.findByPk(req.params.id)
-      .then((Product) => {
-        return res.render("products/delete", { Product });
+      .then((product) => {
+        return res.render("products/delete", { product });
       })
       .catch((error) => res.send(error));
   },

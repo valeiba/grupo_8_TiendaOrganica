@@ -306,11 +306,6 @@ img {
   transition: all 0.3s ease-in-out;
 }
 
-.product-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-}
-
 .product-card:hover .product-card__button {
   background-color: var(--green);
   color: #fff;
@@ -339,7 +334,8 @@ img {
   text-overflow: ellipsis;
 }
 
-.product-card__button {
+.product-card__button,
+.button {
   display: block;
   margin: 1rem;
   padding: 0.75rem 1rem;
@@ -350,6 +346,10 @@ img {
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+
+.delete-btn {
+  background-color: red;
 }
 
 .divided-screen {

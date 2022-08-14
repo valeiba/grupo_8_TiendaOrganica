@@ -7,11 +7,9 @@ window.onload = function(){
         if(campoEmail.value === ""){
             errores.push("El Email es obligatorio")
             campoEmail.classList.add('is-invalid');
-
         }else if(!emailValido.test(campoEmail.value)){
             errores.push("El Email ingresado es inválido")
             campoEmail.classList.add('is-invalid');
-            
         }else{
             campoEmail.classList.remove('is-invalid');
             campoEmail.classList.add('is-valid');

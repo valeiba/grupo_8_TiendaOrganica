@@ -7,8 +7,11 @@
     <section>
       <div class="container-form">
         <div class="errores">
-          <ul></ul>
-      </div>
+          <ul>
+            
+          </ul>
+
+        </div>
         <form id="form" class="form" action="products/create" method="POST" enctype="multipart/form-data">
           <h4>Formulario de creación de productos</h4>
 
@@ -32,8 +35,8 @@
               type="number"
               name="price"
               id="price"
-              placeholder="precio"
-              value=""
+              placeholder="Precio"
+              value="<%= locals.oldData ? oldData.price : null %>"
             />
             <% if (locals.errors && errors.price) { %>
               <div class="text-invalid"><%= errors.price.msg %></div>
@@ -41,7 +44,7 @@
           </div>
           
           <div class="">
-            <input class="<%= locals.errors && errors.stock ? 'is-invalid' : null %>" type="number" name="stock" id="stock" placeholder="stock del producto" value="" />
+            <input class="<%= locals.errors && errors.stock ? 'is-invalid' : null %>" type="number" name="stock" id="stock" placeholder="Cantidad en stock" value="<%= locals.oldData ? oldData.stock : null %>" />
             <% if (locals.errors && errors.stock) { %>
               <div class="text-invalid"><%= errors.stock.msg %></div>
             <% } %>
@@ -118,8 +121,7 @@
             <% } %>
           </div>
 
-          <!-- <button class="" type="submit">Agregar</button> -->
-          <input type="submit" value="Agregar">
+          <button class="" type="submit">Agregar</button>
         </form>
       </div>
     </section>

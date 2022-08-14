@@ -18,7 +18,7 @@ module.exports = [
     .isLength({
       min: 7
     })
-    .withMessage("El número de teléfono debe tener al menos 7 dígitos"),
+    .withMessage("El teléfono debe tener al menos 7 dígitos"),
   body("avatar").custom((value, {req}) => {
     // accesible from Multer (function "uploadFile")
     let acceptedFileExtensions = [".jpg", ".jpeg", ".png", ".gif"];

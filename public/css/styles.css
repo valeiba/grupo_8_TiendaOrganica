@@ -385,18 +385,38 @@ img {
 }
 
 .form {
+  max-width: 28rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin: 0 auto;
+  padding: 1rem;
 }
 
-.input-is-invalid {
+.form input,
+.form textarea {
+  padding: .5rem;
+  width: 100%;
+}
+
+.form input[type=checkbox] {
+  width: auto;
+}
+
+.is-invalid {
   border: 2px solid red;
 }
 
-.text-danger {
+.text-invalid {
   color: red;
+}
+
+.is-valid {
+  border: 2px solid green;
+}
+
+.text-valid {
+  color: green;
 }
 
 footer {
@@ -673,7 +693,6 @@ footer {
   justify-content: space-around;
 }
 #abajo-carro .cupon p,
-input,
 #abajo-carro .cupon h6 {
   padding: 0 12px;
 }

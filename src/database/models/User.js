@@ -26,6 +26,10 @@ module.exports = (sequelize, dataTypes) => {
     mobile: {
       type: dataTypes.INTEGER,
     },
+    avatar: {
+      type: dataTypes.STRING,
+      allowNull: false,
+    },
     role_id: {
       type: dataTypes.INTEGER,
       allowNull: false,

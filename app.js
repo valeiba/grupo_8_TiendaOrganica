@@ -11,6 +11,7 @@ const usersRoutes = require("./src/routes/usersRoutes");
 const roleApiRoutes = require("./src/routes/api/roleApiRoutes");
 const categoriesApiRoutes = require("./src/routes/api/categoriesApiRoutes");
 const productsApiRoutes = require("./src/routes/api/productsApiRoutes");
+const usersApiRoutes = require("./src/routes/api/usersApiRoutes");
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 const models = require("./src/database/models/");
 const {sequelize} = require("./src/database/models/");
@@ -41,6 +42,7 @@ app.use("/users", usersRoutes);
 app.use("/api/roles", roleApiRoutes);
 app.use("/api/categories", categoriesApiRoutes);
 app.use("/api/products", productsApiRoutes)
+app.use("/api/users", usersApiRoutes)
 
 // models.sequelize
 //   .authenticate()

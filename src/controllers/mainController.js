@@ -7,7 +7,6 @@ const home = async (req, res) => {
         on_sale: 1
       }
     })
-    console.log(products)
     return res.render("index", {
       products
     });

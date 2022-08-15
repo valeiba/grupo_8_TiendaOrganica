@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 const path = require("path");
+const { Op } = require("sequelize");
 const db = require("../database/models");
 const Product = require("../database/models/Product");
 const productsApiController = require("./api/productsApiController");
@@ -23,12 +24,23 @@ const controller = {
       res.render("products/index", { products: products });
     });
   },
-
-  //detalle
-  detail: function (req, res) {
-    db.Product.findByPk(req.params.id).then(function (product) {
-      res.render("products/detail", { product: product });
+  // detalle
+  detail: async (req, res) => {
+    const product = await db.Product.findByPk(req.params.id, {
+      include: ["categories"]
     });
+    const relatedProducts = await db.Product.findAll({
+      where: {
+        category_id: product.category_id,
+        id: {
+          [Op.ne]: product.id
+        }
+      }
+    });
+    res.render("products/detail", {
+      product,
+      relatedProducts
+    })
   },
   //crear
   create: function (req, res) {

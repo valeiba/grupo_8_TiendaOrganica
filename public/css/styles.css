@@ -272,7 +272,6 @@ img {
 .products__grid-layout {
   display: grid;
   grid-template-columns: 1fr;
-  padding-top: 4rem;
 }
 
 .products__categories {
@@ -542,7 +541,6 @@ footer {
   }
 
   .products__grid-layout {
-    padding-top: 7rem;
     grid-template-columns: minmax(10rem, 25%) 1fr;
   }
 
@@ -763,7 +761,7 @@ footer {
   margin-right: 0px;
 }
 .contenedor-productos {
-  padding-bottom: 40px;
+  
 }
 .titulo-productos h2 {
   text-align: center;

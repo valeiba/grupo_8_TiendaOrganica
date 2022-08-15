@@ -21,26 +21,24 @@
             <option>3</option>
             <option>4</option>
           </select>
-         <a href="/users/shopping-cart" class="product-card__button">Añadir a carrito</a>
-          <p class="description">
-            <%= product.description %>
-          </p>
+          <a href="/users/shopping-cart" class="product-card__button">Añadir a carrito</a>
+          <p class="description"><%= product.description %></p>
         </div>
       </article>
-    </section>
-    <section>
-      <div class="titulo-productos">
-        <h2>Productos Relacionados</h2>
-      </div>
-      <div class="contenedor-productos">
-        <ul>
-       
+    
+    
+      <div class="container">
+        <div class="titulo-productos">
+          <h2>Productos Relacionados</h2>
+        </div>
+        <ul class="products">
+          <% relatedProducts.forEach(product => { %>
           <li><%- include('./../partials/productCard', {product}) %></li>
-      
+          <% }) %>
         </ul>
       </div>
     </section>
-  
+
     <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
   </body>
 </html>

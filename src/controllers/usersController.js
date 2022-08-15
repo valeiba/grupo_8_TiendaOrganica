@@ -43,7 +43,9 @@ const processRegister = async (req, res) => {
       role_id: 2,
     };
 
-    await db.User.create(data);
+    await db.User.create(data, {
+      include: ["roles"]
+    });
 
     return res.redirect("/users/login");
   } catch (error) {

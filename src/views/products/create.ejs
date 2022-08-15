@@ -8,11 +8,9 @@
       <div class="container-form">
         <form id="form" class="form" action="products/create" method="POST" enctype="multipart/form-data">
           <div class="errores">
-            <ul>
-              
-            </ul>
-  
+            <ul></ul>
           </div>
+
           <h4>Formulario de creación de productos</h4>
 
           <div class="">
@@ -26,7 +24,7 @@
             />
             <% if (locals.errors && errors.name) { %>
               <div class="text-invalid"><%= errors.name.msg %></div>
-              <% } %>
+            <% } %>
           </div>
 
           <div class="">
@@ -52,7 +50,7 @@
 
           <div class="">
             <label>¿Producto en oferta?</label>
-            <select class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" name="on_sale">
+            <select class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" id="on_sale" name="on_sale">
               <option value="">Selecionar</option>
               <%
                 let options = ['0', '1'];

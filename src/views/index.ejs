@@ -40,9 +40,7 @@
       <div class="container">
         <h2 class="section__title">Destacados</h2>
         <section class="products">
-          <% const filteredProducts = products.filter(product => product.on_sale == 1) %> 
-          <% filteredProducts.forEach(product => { %>
-           
+          <% products.forEach(product => { %>
             <%- include('./partials/productCard', { product }) %>
           <% }) %>
         </section>

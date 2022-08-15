@@ -7,6 +7,7 @@
 
       <div class="container-form">
         <form
+          id="form"
           class="form"
           action="/products/edit/<%= product.id %>?_method=PUT"
           method="POST"
@@ -55,18 +56,12 @@
 
           <div class="">
             <label>¿Producto en oferta?</label>
-            <select class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" name="on_sale">
-              <option value="">Selecionar</option>
+            <select id="on_sale" class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" name="on_sale">
+              <option value="">Seleccionar</option>
               <%  let options = ['0', '1']; %>
-              <!-- <% for (const oneOption of options) { %>
-                <option
-                  value="<%= oneOption %>"
-                  <%= locals.oldData && (oneOption === oldData.on_sale) ? 'selected' : null %> 
-                > <%= oneOption %> </option>
-              <% } %> -->
+              
               <% for (option of options) { %>
-                <option value="<%= product.on_sale %>"
-                  <%= locals.oldData && (option === oldData.on_sale) ? 'selected' : null %> 
+                <option value="<%= product.on_sale %>" <%= (option === product.on_sale) ? 'selected' : null %>
                   ><%= option %></option>
                 <% } %>
             </select>
@@ -112,7 +107,9 @@
           <p>
               <select name="category_id" id="category_id" required>
                   <% allCategories.forEach(category => { %>
-                  <option value="<%= category.id %>" <% if (product.category_id == category.id) { %><%= 'selected' %><% }; %>><%= category.name %></option>
+                  <option value="<%= category.id %>" 
+                    <% (product.category_id == category.id) ? 'selected' : null %>>
+                    <%= category.name %></option>
                   <% }); %>
               </select>
               <% if (locals.errors && errors.category_id) { %>

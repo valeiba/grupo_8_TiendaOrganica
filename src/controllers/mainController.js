@@ -17,5 +17,8 @@ const home = async (req, res) => {
 const about = async (req, res) => {
   return res.render("about");
 };
+const faqs = async (req, res) => {
+  return res.render("faqs");
+};
 
-module.exports = { home, about };
+module.exports = { home, about, faqs };

@@ -6,7 +6,7 @@
     <p class=""><%= product.presentation %></p>
   </a>
   <% if (locals.userIsLogged) { %>
-  <a href="/users/shopping-cart" class="product-card__button">Comprar</a>
+  <a href="/users/shopping-cart" class="product-card__button"><button class="addToCart">Comprar</button></a>
   <% } else { %>
   <a href="/products/detail/<%= product.id %>" class="product-card__button">Ver</a>
   <% } %>

@@ -69,10 +69,11 @@ window.onload = function(){
           campoCategoria.focus();
       }
       let campoImagen= document.querySelector("input#image")
+    
       var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
       if(!allowedExtensions.exec(campoImagen.value)){
           errores.push('Extensión no permitida. Utiliza: .jpeg/.jpg/.png/.gif.');
-      }else if(campoImagen.value== ""){
+      }else if(campoImagen.files.length== 0){
           errores.push("Debe agregar una Imagen al producto")
           campoImagen.classList.add('is-invalid')
       }else{

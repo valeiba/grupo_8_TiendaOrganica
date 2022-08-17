@@ -394,11 +394,11 @@ img {
 
 .form input,
 .form textarea {
-  padding: .5rem;
+  padding: 0.5rem;
   width: 100%;
 }
 
-.form input[type=checkbox] {
+.form input[type="checkbox"] {
   width: auto;
 }
 
@@ -571,7 +571,8 @@ footer {
   font-size: 30px;
   font-weight: bold;
   padding-top: 120px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/images/bannerdetalle.jpg");
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/images/bannerdetalle.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -761,7 +762,6 @@ footer {
   margin-right: 0px;
 }
 .contenedor-productos {
-  
 }
 .titulo-productos h2 {
   text-align: center;
@@ -803,7 +803,7 @@ footer {
 .form-profile {
   padding-top: 100px;
 }
-div.errores ul{
+div.errores ul {
   color: red;
 }
 /*ADMIN*/
@@ -836,6 +836,34 @@ div.errores ul{
   font-size: 16px;
   margin: 8px 2px;
   cursor: pointer;
+}
+
+/*VIEW FOOTER*/
+.title-footer {
+  font-size: 45px;
+  font-weight: bold;
+  color: #2b8652;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.p-footer {
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.li-footer {
+  font-size: 30px;
+  color: #e6be82;
+  margin-bottom: 20px;
+}
+
+.p-li-footer {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 480px) {

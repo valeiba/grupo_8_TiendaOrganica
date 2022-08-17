@@ -4,15 +4,18 @@ const home = async (req, res) => {
   try {
     const products = await db.Product.findAll({
       where: {
-        on_sale: 1
-      }
-    })
+        on_sale: 1,
+      },
+    });
     return res.render("index", {
-      products
+      products,
     });
   } catch (error) {
     return console.log(error);
   }
 };
+const about = async (req, res) => {
+  return res.render("about");
+};
 
-module.exports = {home};
+module.exports = { home, about };

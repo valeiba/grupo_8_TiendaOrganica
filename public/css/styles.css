@@ -924,6 +924,7 @@ div.errores ul{
   cursor: pointer;
 }
 
+
 @media (min-width: 480px) {
   #abajo-carro .row {
     flex-direction: row;

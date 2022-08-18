@@ -807,10 +807,7 @@ div.errores ul {
   color: red;
 }
 /*formulario de productos*/
-.form-product{
-  padding: 3.5rem 0;
-  
-  }
+
   .form h4{
     font-size: 2rem;
     font-weight: bold;
@@ -818,7 +815,7 @@ div.errores ul {
     font-family: Arial, Helvetica, sans-serif;
     color: #e6be82;
   }
-  .main-form{
+  form #form{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -830,9 +827,10 @@ div.errores ul {
   }
   .field{
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     width: 20rem;
     margin: 0.5rem;
+   
   }
   .field label,.textbox label{
     font-size: 0.9rem;
@@ -882,15 +880,21 @@ div.errores ul {
     margin-right: auto;
     margin-left: auto;
   }
-  .botton-form .bottons{
+  .agregar .button{
     font-size: 1.3rem;
-    padding: 0.75rem 1.2rem;
-    border: 2px solid #696969;
-    border-radius: 5px;
+    padding: 0.75rem 3.2rem;
+   margin: auto;
+    border-radius: 20px;
+    background-color: #2b8652;
+    color: white;
+    border: none;
+    transition: background-color 1s;
   }
-  button #create{
-    width: 12rem;
-  }
+  
+.agregar .button:hover {
+  background-color: lightgreen;
+}
+ 
   
 /*ADMIN*/
 

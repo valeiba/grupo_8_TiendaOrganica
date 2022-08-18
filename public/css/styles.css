@@ -806,6 +806,92 @@ footer {
 div.errores ul {
   color: red;
 }
+/*formulario de productos*/
+.form-product{
+  padding: 3.5rem 0;
+  
+  }
+  .form h4{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e6be82;
+  }
+  .main-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 1rem;
+  }
+  .field{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    margin: 0.5rem;
+  }
+  .field label,.textbox label{
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    color: #696969;
+  
+  }
+  .field input{
+    font-size: 1.1rem;
+    width: 70%;
+    height: 2.2rem;
+    padding-left: 0.5rem;
+    border: 2px solid #696969;
+    border-radius: 5px;
+  
+  }
+  .field select{
+    font-size: 1.1rem;
+    width: 16rem;
+    height: 2.6rem;
+    padding-left: 0.5rem;
+    border: 2px solid #696969;
+    border-radius: 5px;
+  
+  }
+  .textbox{
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    margin: 0.75rem 0;
+  }
+  .textbox textarea{
+    font-size: 1.1rem;
+    max-width: 100%;
+    height: 5rem;
+    max-height: 15rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    border: 2px solid #696969;
+    border-radius: 5px;
+  }
+  .botton-form{
+    display: flex;
+    justify-content:center ;
+    width: 100%;
+    margin-top: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .botton-form .bottons{
+    font-size: 1.3rem;
+    padding: 0.75rem 1.2rem;
+    border: 2px solid #696969;
+    border-radius: 5px;
+  }
+  button #create{
+    width: 12rem;
+  }
+  
 /*ADMIN*/
 
 .admin-title {
@@ -866,6 +952,7 @@ div.errores ul {
 .avatar-profile {
   max-width: 15rem;
 }
+
 
 @media (min-width: 480px) {
   #abajo-carro .row {

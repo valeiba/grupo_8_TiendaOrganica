@@ -44,6 +44,11 @@ app.use("/api/categories", categoriesApiRoutes);
 app.use("/api/products", productsApiRoutes)
 app.use("/api/users", usersApiRoutes)
 
+//images
+// app.get('/public/images/products/:imgName', (req,res)=>{
+// 	const image =req.params.imgName;
+// 	res.sendFile(`${__dirname}/img/${image}`)
+// })
 // models.sequelize
 //   .authenticate()
 //   .then(function () {

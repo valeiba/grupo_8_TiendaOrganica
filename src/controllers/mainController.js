@@ -15,6 +15,7 @@ const home = async (req, res) => {
   }
 };
 
+
 const about = async (req, res) => {
   return res.render("about");
 };
@@ -25,3 +26,4 @@ const contact = async (req, res) => {
   return res.render("contact");
 };
 module.exports = { home, about, faqs, contact };
+

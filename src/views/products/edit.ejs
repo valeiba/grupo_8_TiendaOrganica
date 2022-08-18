@@ -19,7 +19,7 @@
 
           <h4>Formulario de edición de <%= product.name %></h4>
 
-          <div class="">
+          <div class="field">
             <input
               class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
               type="text"
@@ -33,7 +33,7 @@
             <% } %>
           </div>
           
-          <div class="">
+          <div class="field">
             <input
               class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
               type="number"
@@ -47,21 +47,21 @@
             <% } %>
           </div>
 
-          <div class="">
+          <div class="field">
             <input class="<%= locals.errors && errors.stock ? 'is-invalid' : null %>" type="number" name="stock" id="stock" placeholder="stock del producto" value="<%= product.stock %>" />
             <% if (locals.errors && errors.stock) { %>
               <div class="text-invalid"><%= errors.stock.msg %></div>
             <% } %>
           </div>
 
-          <div class="">
+          <div class="field">
             <label>¿Producto en oferta?</label>
             <select id="on_sale" class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" name="on_sale">
               <option value="">Seleccionar</option>
               <%  let options = ['0', '1']; %>
               
               <% for (option of options) { %>
-                <option value="<%= product.on_sale %>" <%= (option === product.on_sale) ? 'selected' : null %>
+                <option value="<%= product.on_sale %>" selected
                   ><%= option %></option>
                 <% } %>
             </select>
@@ -70,7 +70,7 @@
             <% } %>
           </div>
 
-          <div class="">
+          <div class="field">
             <select
               class="<%= locals.errors && errors.presentation ? 'is-invalid' : null %>"
               name="presentation"
@@ -80,17 +80,18 @@
               <% let presentations = ['1kg', 'un atado', 'una unidad', '500gr', '250gr']; %>
               <% for (const onePresentation of presentations) { %>
                 <option
-                  value="<%= onePresentation %>"
-                  <%= product.presentation %>
+                  value="<%= product.presentation %>" selected
+                 
                 > <%= onePresentation %> </option>
               <% } %>
+             
             </select>
             <% if (locals.errors && errors.presentation) { %>
               <div class="text-invalid"><%= errors.presentation.msg %></div>
             <% } %>
           </div>
        
-          <div class="">
+          <div class="textbox">
             <textarea class="<%= locals.errors && errors.description ? 'is-invalid' : null %> "
               type="text"
               name="description"
@@ -102,7 +103,7 @@
               <div class="text-invalid"><%= errors.description.msg %></div>
             <% } %>
           </div>
-
+          <div class="field">
           <label for="category_id">Categorías</label>
           <p>
               <select name="category_id" id="category_id" required>
@@ -117,12 +118,17 @@
     
                 <% } %>
           </p>
+        </div>
+        <div class="field">
           <label>Foto de producto</label>
+        </div>
           <input class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" type="file" name="image" id="image" />
           <% if (locals.errors && errors.image) { %>
             <span class="text-invalid"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
           <% } %>
+          <div class="confirmar">
           <button class="button" type="submit">Modificar</button>
+        </div>
           <a href="/products/delete/<%= product.id %>" class="button delete-btn">Eliminar Producto</a>
         </form>
       </div>

@@ -7,4 +7,5 @@ router.get("/about", controller.about);
 router.get("/faqs", controller.faqs);
 router.get("/contact", controller.contact);
 
+
 module.exports = router;

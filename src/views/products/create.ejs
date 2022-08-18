@@ -13,7 +13,7 @@
 
           <h4>Formulario de creación de productos</h4>
 
-          <div class="">
+          <div class="field">
             <input
               class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
               type="text"
@@ -27,7 +27,7 @@
             <% } %>
           </div>
 
-          <div class="">
+          <div class="field">
             <input
               class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
               type="number"
@@ -41,17 +41,17 @@
             <% } %>
           </div>
           
-          <div class="">
+          <div class="field">
             <input class="<%= locals.errors && errors.stock ? 'is-invalid' : null %>" type="number" name="stock" id="stock" placeholder="Cantidad en stock" value="<%= locals.oldData ? oldData.stock : null %>" />
             <% if (locals.errors && errors.stock) { %>
               <div class="text-invalid"><%= errors.stock.msg %></div>
             <% } %>
           </div>
 
-          <div class="">
+          <div class="field">
             <label>¿Producto en oferta?</label>
             <select class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" id="on_sale" name="on_sale">
-              <option value="">Selecionar</option>
+              <option value="" disabled selected >Selecionar</option>
               <%
                 let options = ['0', '1'];
               %>
@@ -67,13 +67,13 @@
             <% } %>
           </div>
 
-          <div class="">
+          <div class="field">
             <select
               class="<%= locals.errors && errors.presentation ? 'border-red-700' : null %>"
               name="presentation"
               id="presentation"
             >
-              <option value="">Elegí una presentación</option>
+              <option value="" disabled selected>Elegí una presentación</option>
               <%  let presentations = ['1kg', 'un atado', 'una unidad', '500gr', '250gr']; %>
               <% for (const onePresentation of presentations) { %>
                 <option
@@ -87,7 +87,7 @@
             <% } %>
           </div>
         
-          <div class="">
+          <div class="textbox">
             <textarea class="<%= locals.errors && errors.description ? 'is-invalid' : null %> "
               type="text"
               name="description"
@@ -99,7 +99,7 @@
             <% } %>
           </div>
 
-          <div>
+          <div class="field">
             <select name="category_id" id="category_id" >
                 <option value="" disabled selected>- Seleccione la Categoria - </option>
                 <% allCategories.forEach(category => { %>
@@ -111,15 +111,17 @@
             <% } %>
           </div>
           
-          <div class="">
+          <div class="field">
             <label>Foto de producto</label>
+          </div>
             <input class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" type="file" name="image" id="image" />
             <% if (locals.errors && errors.image) { %>
               <span class="text-invalid"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
             <% } %>
-          </div>
-
-          <button class="" type="submit">Agregar</button>
+          
+        <div class="confirmar">
+          <button class="button" id="create" type="submit">Agregar</button>
+        </div>
         </form>
       </div>
     </section>

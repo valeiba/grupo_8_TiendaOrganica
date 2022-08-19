@@ -1,13 +1,18 @@
 <article class="product-card">
+  <% if (locals.userIsLogged) { %>
+    <% if (userLogged.role_id == 1) { %>
+      <a href="/products/edit/<%= product.id %>" class="product-card__edit-btn">
+        <i class="fa-solid fa-pencil"></i>
+      </a> 
+    <% } %>
+  <% } %>
   <a href="/products/detail/<%= product.id %>" class="product-card__details">
     <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
-    <h2 class="product-card__title"><%= product.name %></h2>
-    <p class="product-card__price">$<%= product.price %></p>
-    <p class=""><%= product.presentation %></p>
+    <div class="">
+      <h2 class="product-card__title"><%= product.name %></h2>
+      <p class="product-card__price">$<%= product.price %></p>
+      <p class="product-card__presentation"><%= product.presentation %></p>
+    </div>
   </a>
-  <% if (locals.userIsLogged) { %>
-  <a href="/users/shopping-cart" class="product-card__button">Comprar</a>
-  <% } else { %>
   <a href="/products/detail/<%= product.id %>" class="product-card__button">Ver</a>
-  <% } %>
 </article>

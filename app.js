@@ -15,6 +15,7 @@ const usersApiRoutes = require("./src/routes/api/usersApiRoutes");
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 const models = require("./src/database/models/");
 const {sequelize} = require("./src/database/models/");
+const PORT = 3001;
 
 // Config
 app.set("view engine", "ejs");
@@ -59,6 +60,22 @@ app.use("/api/users", usersApiRoutes)
 //     console.log("Error creating connection:", error);
 //   });
 
-app.listen(3001, () => {
-  console.log("Servidor funcionando");
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error404");
+});
+
+app.listen(process.env.PORT || PORT, () => {
+  console.log("Server running on Port " + PORT);
 });

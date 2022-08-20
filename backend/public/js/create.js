@@ -73,7 +73,8 @@ window.onload = function(){
       var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
       if(!allowedExtensions.exec(campoImagen.value)){
           errores.push('Extensión no permitida. Utiliza: .jpeg/.jpg/.png/.gif.');
-      }else if(campoImagen.files.length== 0){
+          campoImagen.classList.add('is-invalid')
+      }else if(campoImagen.value == 0){
           errores.push("Debe agregar una Imagen al producto")
           campoImagen.classList.add('is-invalid')
       }else{

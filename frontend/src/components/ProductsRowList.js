@@ -13,7 +13,7 @@ useEffect(()=>{
           const reslist = await fetch("http://localhost:3001/api/products/all");
           const products = await reslist.json();
           console.log(products.data.data);
-          setListProduct(products.data.data);
+          setListProduct(products);
         } catch (error) {
           console.log(error);
         }
@@ -47,9 +47,9 @@ useEffect(()=>{
                             </tr>
                         </tfoot>
                         <tbody>
-                            {
-                            listProduct.map( ( row , i) => {
-                                return <ProductsList { ...row} key={i}/>
+                            {listProduct&&
+                            listProduct.data.map( ( list , i) => {
+                                return <ProductsList { ...list} key={i}/>
                             })
                             }
 

@@ -62,6 +62,7 @@
                 > <%= oneOption %> </option>
               <% } %>
             </select>
+            <label>Seleccione 0 si no esta en oferta ó 1 si esta en oferta el producto</label>
             <% if (locals.errors && errors.on_sale) { %>
               <div class="text-invalid"><%= errors.on_sale.msg %></div>
             <% } %>

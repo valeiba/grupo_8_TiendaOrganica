@@ -6,14 +6,15 @@
     <section>
       <div class="container-form">
         <form
-          class="main-form"
+          class="form"
           action="/products/delete/<%= product.id %>?_method=DELETE"
           method="POST"
           enctype="multipart/form-data"
         >
         <h4>Confirma eliminar <%= product.name %> ?</h4>
-         
-          <button class="" type="submit">ELIMINAR</button>
+         <div class="agregar">
+          <button class="button-delete" type="submit">ELIMINAR</button>
+        </div>
         </form>
       </div>
     </section>

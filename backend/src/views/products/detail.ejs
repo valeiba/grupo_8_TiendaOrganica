@@ -5,11 +5,12 @@
     <%- include('./../partials/navbar') %>
     <section>
       <article class="contenedor-detalleproducto">
+        
         <div class="fotoproducto">
           <img src="/images/products/<%= product.image %>" width="100%" alt="foto de producto" />
         </div>
-        <div class="detalle-producto">
-          <h6>Home/frutas/manzana-verde</h6>
+          <div class="detalle-producto">
+          <a href="/products/all">Productos/</a><a href="/products/category/<%= product.category_id%>">Categoria/</a><%= product.name %>
           <h3><%= product.name %></h3>
           <h3>Precio</h3>
           <h2>$<%= product.price %></h2>

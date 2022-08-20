@@ -727,10 +727,24 @@ footer {
 }
 
 /*detalle de producto*/
+.banner-detalle{
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 120px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/images/bolsa-arpillera-verduras-frutas-campo_362480-308.webp");
+    
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .contenedor-detalleproducto {
   display: flex;
   flex-direction: column;
   padding: 100px;
+  margin: 50px 50px;
+  box-shadow: -2px 4px 12px 10px rgba(230, 190, 130, 0.86);
 }
 .detalle-producto {
   padding-top: 30px;
@@ -741,7 +755,7 @@ footer {
   margin-bottom: 10px;
   width: 100px;
 }
-.detalle-producto a {
+.detalle-producto .product-card__button {
   background-color: #e6be82;
   color: white;
   border: none;
@@ -750,12 +764,12 @@ footer {
   font-size: 13px;
   width: fit-content;
 }
-.detalle-producto a:hover {
+.detalle-producto .product-card__button:hover {
   background-color: tomato;
 }
 .detalle-producto .description {
   font-style: italic;
-  width: 100%;
+  width: 1rem;
 }
 .fotoproducto {
   width: 100%;
@@ -894,6 +908,20 @@ div.errores ul {
 .agregar .button:hover {
   background-color: lightgreen;
 }
+.agregar .button-delete{
+  font-size: 1.3rem;
+  padding: 0.75rem 3.2rem;
+ margin-left: 6rem;
+  border-radius: 20px;
+  background-color:  tomato;
+  color: white;
+  border: none;
+  transition: background-color 1s;
+}
+
+.agregar .button-delete:hover {
+background-color:  #e6be82;
+}
  
   
 /*ADMIN*/
@@ -958,7 +986,7 @@ div.errores ul {
 }
 
 
-@media (min-width: 480px) {
+@media screen and (min-width: 64rem) {
   #abajo-carro .row {
     flex-direction: row;
   }
@@ -977,6 +1005,9 @@ div.errores ul {
   }
   .detalle-producto {
     width: 50%;
+  }
+  .detalle-producto .description{
+    width: 100%;
   }
 
   .contenedor-productos ul {

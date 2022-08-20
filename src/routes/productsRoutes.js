@@ -16,7 +16,7 @@ const validateAdminMiddleware = require("../middlewares/validateAdminMiddleware"
 //router.get("/all", listAllProducts);
 //router.get("/category/:id", filterProducts);
 router.get("/all", controller.productsRender);
-router.get("/", controller.products);
+
 //filtrar productos por categorias
 router.get("/category/:id", controller.filterProducts);
 

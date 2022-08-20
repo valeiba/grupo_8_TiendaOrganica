@@ -28,7 +28,7 @@ function makeTemplateProduct(product) {
 }
 
 function getProducts(page = 1, limit = 10) {
-  fetch(`/products?page=${page}&limit=${limit}`)
+  fetch(`/api/products?page=${page}&limit=${limit}`)
     .then((response) => response.json())
     .then((data) => {
       const { products, total } = data;

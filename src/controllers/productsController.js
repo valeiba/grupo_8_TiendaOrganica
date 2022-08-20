@@ -10,20 +10,7 @@ const controller = {
   productsRender: (req, res) => {
     return res.render("products/index", { products: [], total: 0 });
   },
-  //listar
-  products: function (req, res) {
-    let limit = parseInt(req.query.limit) || 10;
-    let page = parseInt(req.query.page) || 1;
 
-    db.Product.findAndCountAll({
-      include: ["categories"],
-      limit: limit || 10,
-      offset: page ? (page - 1) * limit : 0,
-    }).then(function ({ count, rows }) {
-      // res.render("products/index", { products: rows, total: count });
-      return res.json({ products: rows, total: count });
-    });
-  },
   //filtrar productos
   filterProducts: function (req, res) {
     db.Product.findAll({

@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const session = require('express-session');
-const cookies = require('cookie-parser');
+const session = require("express-session");
+const cookies = require("cookie-parser");
 const path = require("path");
 const cors = require("cors");
 const methodOverride = require("method-override");
@@ -12,9 +12,9 @@ const roleApiRoutes = require("./src/routes/api/roleApiRoutes");
 const categoriesApiRoutes = require("./src/routes/api/categoriesApiRoutes");
 const productsApiRoutes = require("./src/routes/api/productsApiRoutes");
 const usersApiRoutes = require("./src/routes/api/usersApiRoutes");
-const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
 const models = require("./src/database/models/");
-const {sequelize} = require("./src/database/models/");
+const { sequelize } = require("./src/database/models/");
 
 // Config
 app.set("view engine", "ejs");
@@ -27,11 +27,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
-app.use(session({
-	secret: "Shhh, It's a secret",
-	resave: false,
-	saveUninitialized: false,
-}));
+app.use(
+  session({
+    secret: "Shhh, It's a secret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 app.use(cookies());
 app.use(userLoggedMiddleware);
 
@@ -41,8 +43,8 @@ app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
 app.use("/api/roles", roleApiRoutes);
 app.use("/api/categories", categoriesApiRoutes);
-app.use("/api/products", productsApiRoutes)
-app.use("/api/users", usersApiRoutes)
+app.use("/api/products", productsApiRoutes);
+app.use("/api/users", usersApiRoutes);
 
 //images
 // app.get('/public/images/products/:imgName', (req,res)=>{
@@ -60,5 +62,5 @@ app.use("/api/users", usersApiRoutes)
 //   });
 
 app.listen(3001, () => {
-  console.log("Servidor funcionando");
+  console.log("Servidor funcionando en el puerto 3001");
 });

@@ -6,12 +6,17 @@
     <div class="container">
       <form id="search" action="/products/all" method="GET">
         <div class="">
-          <input id="search-input" type="text">
+          <<<<<<< HEAD
+          <input id="search-input" type="text" />
           <button type="submit" class="">Buscar</button>
+          =======
+          <input type="text" />
+          <button type="submit">Buscar</button>
+          >>>>>>> f2d2a440fa7d1c99a9333d7a47bd3ae8e519d1de
         </div>
       </form>
       <% if (locals.userIsLogged && userLogged.role_id == 1) { %>
-       <a class="button" href="products/create">Crear producto</a>
+      <a class="button" href="products/create">Crear producto</a>
       <% } %>
     </div>
     <section class="products__grid-layout container">
@@ -27,14 +32,18 @@
           <li><a href="/products/category/3" class="">Canastas</a></li>
         </ul>
       </div>
-      <div class="products">
-        <% products.forEach(product => { %> 
-          <%- include('./../partials/productCard', {product}) %>
-        <% }) %>
+      <div id="container-products" class="products">
+        <% products.forEach(product => { %>
+        <%-include('./../partials/productCard', {product}) %> <% }) %>
       </div>
     </section>
+    <div>
+      <button id="button-prev"><</button>
+      <button id="button-next">></button>
+    </div>
 
-    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
-    <script type="module" src="/js/shoppingCart.js"></script>
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts')
+    %>
+    <script src="/js/products.js"></script>
   </body>
 </html>

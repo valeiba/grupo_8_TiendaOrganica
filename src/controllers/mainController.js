@@ -14,16 +14,11 @@ const home = async (req, res) => {
     return console.log(error);
   }
 };
-
-
 const about = async (req, res) => {
   return res.render("about");
 };
 const faqs = async (req, res) => {
   return res.render("faqs");
 };
-const contact = async (req, res) => {
-  return res.render("contact");
-};
-module.exports = { home, about, faqs, contact };
 
+module.exports = { home, about, faqs };

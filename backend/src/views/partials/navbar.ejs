@@ -1,0 +1,102 @@
+<nav class="navbar bg-light-green">
+  <div class="container navbar-wrapper">
+    <div class="navbar__menu">
+      <a href="/" class="navbar__logo">
+        <img src="../images/logo.png" alt="logo tienda orgánica" />
+      </a>
+      <a href="/products/all" class="navbar__icon-wrapper navbar-cta">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span>Ver productos</span>
+      </a>
+    </div>
+    <ul class="navbar__menu">
+      <% if (locals.userIsLogged) { %>
+      <li class="navbar__menu-profile">
+        <div class="">
+          <img src="images/avatars/<%= userLogged.avatar %>" class="navbar__menu-avatar" alt="" />
+          <span>Hola, <%= userLogged.first_name %> </span>
+        </div>
+        <ul class="navbar__menu-profile__links">
+          <li>
+            <a href="/users/profile" class="">Perfil</a>
+          </li>
+          <li>
+            <a href="/users/shopping-cart" class="">Compras</a>
+          </li>
+          <li>
+            <a href="/users/logout" class="">Cerrar sesión</a>
+          </li>
+        </ul>
+      </li>
+      <!-- Si el usuario posee rol "Admin" -->
+      <% if (userLogged.role_id == 1) { %>
+      <li>
+        <a href="/users/admin" class="navbar__icon-wrapper">
+          <span>Vista Admin</span>
+        </a>
+      </li>
+      <% } %>
+      <li>
+        <a href="/users/shopping-cart" class="navbar__icon-wrapper">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>Carrito</span>
+        </a>
+      </li>
+      <% } else { %>
+      <li>
+        <a href="/users/login" class="navbar__icon-wrapper">
+          <i class="fa-solid fa-user"></i>
+          <span>Iniciá sesión</span>
+        </a>
+      </li>
+      <li>
+        <a href="/users/register" class="navbar__icon-wrapper">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Registrate</span>
+        </a>
+      </li>
+      <% } %>
+      <div class="btn-open">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </ul>
+  </div>
+
+  <div class="mobile-menu">
+    <div class="btn-close">
+      <i class="fa-solid fa-times"></i>
+    </div>
+    <ul class="mobile-menu__user">
+      <% if (locals.userIsLogged) { %>
+      <div class="">
+        <img src="images/avatars/<%= userLogged.avatar %>" class="navbar__menu-avatar" alt="" />
+        <span>Hola, <%= userLogged.first_name %> </span>
+      </div>
+      <ul class="mobile-menu__links">
+        <li>
+          <a href="/users/profile" class="">Perfil</a>
+        </li>
+        <li>
+          <a href="/users/shopping-cart" class="">Compras</a>
+        </li>
+        <li>
+          <a href="/users/logout" class="">Cerrar sesión</a>
+        </li>
+      </ul>
+      <% } %>
+    </ul>
+    <ul class="mobile-menu__links">
+      <h3 class="mobile-menu__title">Categorías</h3>
+      <li><a href="/products/all" class="mobile-menu__link">Todos los productos </a></li>
+      <li><a href="/products/category/1" class="mobile-menu__link"> Frutas </a></li>
+      <li><a href="/products/category/2" class="mobile-menu__link"> Verduras </a></li>
+      <li><a href="/products/category/3" class="mobile-menu__link"> Canastas </a></li>
+    </ul>
+    <ul class="mobile-menu__links">
+      <h3 class="mobile-menu__title">Nosotros</h3>
+      <li><a href="/about" class="mobile-menu__link"> Nuestra propuesta </a></li>
+      <li><a href="/faqs" class="mobile-menu__link"> Preguntas frecuentes </a></li>
+      <li><a href="/contact" class="mobile-menu__link"> Contacto </a></li>
+    </ul>
+  </div>
+</nav>

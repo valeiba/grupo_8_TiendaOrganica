@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+
+    <section>
+      <div class="container-form">
+        <form id="formproduct" class="form" action="products/create" method="POST" enctype="multipart/form-data">
+          <div class="errores">
+            <ul></ul>
+          </div>
+
+          <h4>Formulario de creación de productos</h4>
+
+          <div class="field">
+            <label for="name">Nombre</label>
+            <input
+              class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
+              type="text"
+              name="name"
+              id="name"
+              value="<%= locals.oldData ? oldData.name : null %>"
+            />
+            <% if (locals.errors && errors.name) { %>
+              <div class="text-invalid"><%= errors.name.msg %></div>
+            <% } %>
+          </div>
+
+          <div class="field">
+            <label for="price">Precio</label>
+            <input
+              class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
+              type="number"
+              name="price"
+              id="price"
+              value="<%= locals.oldData ? oldData.price : null %>"
+            />
+            <% if (locals.errors && errors.price) { %>
+              <div class="text-invalid"><%= errors.price.msg %></div>
+            <% } %>
+          </div>
+          
+          <div class="field">
+            <label for="stock">Stock</label>
+            <input class="<%= locals.errors && errors.stock ? 'is-invalid' : null %>" type="number" name="stock" id="stock" placeholder="Cantidad en stock" value="<%= locals.oldData ? oldData.stock : null %>" />
+            <% if (locals.errors && errors.stock) { %>
+              <div class="text-invalid"><%= errors.stock.msg %></div>
+            <% } %>
+          </div>
+
+          <div class="field">
+            <label for="on_sale">¿Producto en oferta?</label>
+            <select class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" id="on_sale" name="on_sale">
+              <option value="" disabled selected >Selecionar</option>
+              <%
+                let options = ['0', '1'];
+              %>
+              <% for (const oneOption of options) { %>
+                <option
+                  value="<%= oneOption %>"
+                  <%= locals.oldData && (oneOption === oldData.on_sale) ? 'selected' : null %>
+                > <%= oneOption %> </option>
+              <% } %>
+            </select>
+            <label>Seleccione 0 si no esta en oferta ó 1 si esta en oferta el producto</label>
+            <% if (locals.errors && errors.on_sale) { %>
+              <div class="text-invalid"><%= errors.on_sale.msg %></div>
+            <% } %>
+          </div>
+
+          <div class="field">
+            <label for="presentation">Presentación</label>
+            <select
+              class="<%= locals.errors && errors.presentation ? 'border-red-700' : null %>"
+              name="presentation"
+              id="presentation"
+            >
+              <option value="" disabled selected>Elegí una presentación</option>
+              <%  let presentations = ['1kg', 'un atado', 'una unidad', '500gr', '250gr']; %>
+              <% for (const onePresentation of presentations) { %>
+                <option
+                  value="<%= onePresentation %>"
+                  <%= locals.oldData && (onePresentation === oldData.presentation) ? 'selected' : null %>
+                > <%= onePresentation %> </option>
+              <% } %>
+            </select>
+            <% if (locals.errors && errors.presentation) { %>
+              <div class="text-invalid"><%= errors.presentation.msg %></div>
+            <% } %>
+          </div>
+        
+          <div class="textbox">
+            <label for="description">Descripción</label>
+            <textarea class="<%= locals.errors && errors.description ? 'is-invalid' : null %> "
+              type="text"
+              name="description"
+              id="description"
+              value=""></textarea>
+            <% if (locals.errors && errors.description) { %>
+              <div class="text-invalid"><%= errors.description.msg %></div>
+            <% } %>
+          </div>
+
+          <div class="field">
+            <label for="category_id">Categorías</label>
+            <select name="category_id" id="category_id" >
+                <option value="" disabled selected>- Seleccione la Categoría - </option>
+                <% allCategories.forEach(category => { %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+                <% }); %>
+            </select>
+            <% if (locals.errors && errors.category_id) { %>
+              <div class="text-invalid"><%= errors.category_id.msg %></div>
+            <% } %>
+          </div>
+          
+          <div class="field">
+            <label for="image">Foto de producto</label>
+          </div>
+          <div class="imageproduct">
+            <input class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" type="file" name="image" id="image" />
+            <% if (locals.errors && errors.image) { %>
+              <span class="text-invalid"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
+            <% } %>
+          </div>
+        <div class="agregar">
+          <button class="button" id="create" type="submit">Agregar</button>
+        </div>
+        </form>
+      </div>
+    </section>
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+    <script type="module" src="/js/create.js"></script>
+  </body>
+</html>

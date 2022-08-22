@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head') %>
+  <body>
+    <%- include('./partials/navbar') %>
+
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="slide" id="bannercomision">
+            <h1 class="slide__title"></h1>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="slide" id="banner-frutas">
+            <h1 class="slide__title"></h1>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="slide " id="banner-vegetales">
+            <h1 class="slide__title"></h1>
+          </div>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Destacados</h2>
+        <section class="products">
+          <% products.forEach(product => { %>
+            <%- include('./partials/productCard', { product }) %>
+          <% }) %>
+        </section>
+      </div>
+    </section>
+
+    <%- include('./partials/footer') %>
+    <script src="../swiper/swiper-bundle.min.js"></script>
+    <script src="../js/carousel.js"></script>
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

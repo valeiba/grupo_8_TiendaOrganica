@@ -3,15 +3,42 @@
   <%- include('./../partials/head') %>
   <body>
     <%- include('./../partials/navbar') %>
+ <!-- Slider main container -->
+ <div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+      <div class="container slide" id="bannercomision">
+        <h1 class="slide__title"></h1>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="container slide" id="banner-frutas">
+        <h1 class="slide__title"></h1>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="container slide " id="banner-vegetales">
+        <h1 class="slide__title"></h1>
+      </div>
+    </div>
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
 
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
     <main>
       <section>
-        <div class="banner-carro">
-          <div class="container">
-            <h1>Detalle de tu carrito</h1>
-          </div>
-        </div>
+        <h4 class="titulo-carrito">Carrito de compras</h4>
         <div class="carrito-compras">
+          
           <div class="contenedorsecciones" class="contenedor my-5">
             <table width="100%" id="carrito">
               <thead>
@@ -38,7 +65,7 @@
                       </div>
                     </td>
                   <td><input value="1" type="number"></td>
-                  <td><p class="subtotalProduct"></p></td>
+                  <td><p class="subtotalProduct">$ 1200</p></td>
                   <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>>
               </tbody>
@@ -52,7 +79,7 @@
           </div>
       </section>
       <section id="abajo-carro" class="contenedor-abajocarro">
-        <div class="row">
+        <div class="tablas-carrito">
           <div class="cupon">
             <div>
               <h5>Cupón</h5>
@@ -68,11 +95,11 @@
               <h5>Total de carrito</h5>
               <div class="flex">
                 <p>Subtotal</p>
-                <p class="subtotalProduct"></p>
+                <p class="subtotalProduct">$1200</p>
               </div>
               <div class="flex">
                 <p>Descuento</p>
-                <p>$120</p>
+                <p>$0</p>
               </div>
               <hr class="segundo-hr">
               <div class="flex">
@@ -89,9 +116,13 @@
           </div>
         </div>
       </section>
+  
+      
     </main>
     <%- include('./../partials/footer') %>
     <%- include('./../partials/scripts') %>
+    <script src="../../swiper/swiper-bundle.min.js"></script>
+    <script src="../../js/carousel.js"></script>
    
   </body>
 </html>

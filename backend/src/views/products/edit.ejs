@@ -7,7 +7,7 @@
 
       <div class="container-form">
         <form
-          id="form"
+          id="formproduct"
           class="form"
           action="/products/edit/<%= product.id %>?_method=PUT"
           method="POST"
@@ -20,6 +20,7 @@
           <h4>Formulario de edición de <%= product.name %></h4>
 
           <div class="field">
+            <label>Nombre</label>
             <input
               class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
               type="text"
@@ -34,6 +35,7 @@
           </div>
           
           <div class="field">
+            <label>Precio</label>
             <input
               class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
               type="number"
@@ -48,6 +50,7 @@
           </div>
 
           <div class="field">
+            <label>Stock</label>
             <input class="<%= locals.errors && errors.stock ? 'is-invalid' : null %>" type="number" name="stock" id="stock" placeholder="stock del producto" value="<%= product.stock %>" />
             <% if (locals.errors && errors.stock) { %>
               <div class="text-invalid"><%= errors.stock.msg %></div>
@@ -72,6 +75,7 @@
           </div>
 
           <div class="field">
+            <label>Presentación</label>
             <select
               class="<%= locals.errors && errors.presentation ? 'is-invalid' : null %>"
               name="presentation"
@@ -93,6 +97,7 @@
           </div>
        
           <div class="textbox">
+            <label>Descripción</label>
             <textarea class="<%= locals.errors && errors.description ? 'is-invalid' : null %> "
               type="text"
               name="description"
@@ -123,10 +128,12 @@
         <div class="field">
           <label>Foto de producto</label>
         </div>
+        <div class="imageproduct">
           <input class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" type="file" name="image" id="image" />
           <% if (locals.errors && errors.image) { %>
             <span class="text-invalid"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
           <% } %>
+        </div>
           <div class="agregar">
           <button class="button" type="submit">Modificar</button>
         </div>

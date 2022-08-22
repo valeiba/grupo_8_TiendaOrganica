@@ -257,6 +257,25 @@ img {
 .swiper-pagination-bullet-active {
   background-color: var(--dark-green);
 }
+#bannercomision{
+  background-image: url(/images/banner-comision.png);
+  background-size: 50rem;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+#banner-frutas{
+  background-image: url(/images/banner-frutas.png);
+  background-size: 50rem;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+#banner-vegetales{
+  background-image: url(/images/banner-vegetales.png);
+  background-size: 50rem;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+
 
 .section__title {
   color: var(--orange);
@@ -345,6 +364,9 @@ img {
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+.en-oferta, .en-oferta i{
+  color: #2b8652;
 }
 
 .delete-btn {
@@ -566,16 +588,14 @@ footer {
 }
 
 /*carrito de compras*/
-.banner-carro {
-  color: white;
-  font-size: 30px;
-  font-weight: bold;
-  padding-top: 120px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/images/bannerdetalle.jpg");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
+.titulo-carrito{
+font-size: 2.5rem;
+font-weight: bold;
+text-align: left;
+font-family: Arial, Helvetica, sans-serif;
+color: #e6be82;
+padding-left: 4rem;
+padding-top: 2rem;
 }
 .carrito-compras {
   width: 90%;
@@ -642,28 +662,30 @@ footer {
   justify-content: space-around;
 }
 .seguir button {
-  background-color: tomato;
+  background-color: var(--orange);
   color: white;
   border: none;
-  padding: 12px;
+  border-radius: 20px;
+  padding: 0.75rem 3.2rem;
   margin: 16px 0;
   font-size: 16px;
   transition: background-color 1s;
 }
 .seguir button:hover {
-  background-color: #e6be82;
+  background-color: var(--light-orange);
 }
 .confirmar button {
-  background-color: #2b8652;
+  background-color: var(--dark-green);
   color: white;
   border: none;
-  padding: 12px;
+  padding: 0.75rem 3.2rem;
+  border-radius: 20px;
   margin: 16px 0;
   font-size: 16px;
   transition: background-color 1s;
 }
 .confirmar button:hover {
-  background-color: lightgreen;
+  background-color: var(--light-green);
 }
 #abajo-carro .cupon > div,
 #abajo-carro .total > div {
@@ -686,7 +708,7 @@ footer {
   padding-top: 10px;
 }
 
-#abajo-carro .row {
+#abajo-carro .tablas-carrito {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -709,7 +731,7 @@ footer {
   height: 44px;
   margin: 0 0 20px 12px;
 }
-.iconocarro {
+/* .iconocarro {
   position: fixed;
   bottom: 50px;
   right: 90px;
@@ -724,30 +746,24 @@ footer {
   animation-name: muevecarro;
   animation-duration: 1s;
   animation-iteration-count: infinite;
-}
+} */
 
 /*detalle de producto*/
-.banner-detalle{
-  color: white;
-  font-size: 30px;
-  font-weight: bold;
-  padding-top: 120px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/images/bolsa-arpillera-verduras-frutas-campo_362480-308.webp");
-    
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 .contenedor-detalleproducto {
   display: flex;
   flex-direction: column;
-  padding: 100px;
-  margin: 50px 50px;
+  padding: 1px;
+  margin: 50px 20px;
   box-shadow: -2px 4px 12px 10px rgba(230, 190, 130, 0.86);
+ 
 }
 .detalle-producto {
   padding-top: 30px;
+  
+  
+  
+  
 }
 .detalle-producto select {
   display: block;
@@ -756,20 +772,22 @@ footer {
   width: 100px;
 }
 .detalle-producto .product-card__button {
-  background-color: #e6be82;
+  background-color: var(--orange);
   color: white;
   border: none;
-  padding: 12px;
+  border-radius: 20px;
+  padding: 0.75rem 3.2rem;
   margin: 16px 0;
   font-size: 13px;
   width: fit-content;
 }
 .detalle-producto .product-card__button:hover {
-  background-color: tomato;
+  background-color: var(--light-orange);
 }
 .detalle-producto .description {
   font-style: italic;
   width: 1rem;
+  
 }
 .fotoproducto {
   width: 100%;
@@ -829,21 +847,27 @@ div.errores ul {
     font-family: Arial, Helvetica, sans-serif;
     color: #e6be82;
   }
-  form #form{
+   #formproduct{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
     max-width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0 1rem;
+   
+    
+    padding:  1rem;
+    background-image: url("/images/form product5.jpg");
+    background-size: 84rem;
+    background-repeat: no-repeat;
+    background-position-x: center;
   }
   .field{
     display: flex;
     flex-direction:column;
     width: 20rem;
-    margin: 0.5rem;
+    margin-right: 18rem;
+    margin-left: auto;
+    
    
   }
   .field label,.textbox label{
@@ -868,13 +892,17 @@ div.errores ul {
     padding-left: 0.5rem;
     border: 2px solid #696969;
     border-radius: 5px;
+    margin-right: 18rem;
+    margin-left: auto;
   
   }
   .textbox{
     display: flex;
     flex-direction: column;
     width: 30rem;
-    margin: 0.75rem 0;
+   
+    margin-right: 15rem;
+    margin-left: auto;
   }
   .textbox textarea{
     font-size: 1.1rem;
@@ -885,6 +913,10 @@ div.errores ul {
     padding-left: 0.5rem;
     border: 2px solid #696969;
     border-radius: 5px;
+  }
+  .imageproduct{
+    margin-right: 20rem;
+    margin-left: auto;
   }
   .botton-form{
     display: flex;
@@ -899,30 +931,46 @@ div.errores ul {
     padding: 0.75rem 3.2rem;
    margin: auto;
     border-radius: 20px;
-    background-color: #2b8652;
+    background-color: var(--dark-green);
     color: white;
     border: none;
     transition: background-color 1s;
   }
   
 .agregar .button:hover {
-  background-color: lightgreen;
+  background-color: var(--light-green);
 }
 .agregar .button-delete{
   font-size: 1.3rem;
-  padding: 0.75rem 3.2rem;
- margin-left: 6rem;
-  border-radius: 20px;
-  background-color:  tomato;
+  padding: 0.75rem 2rem;
+ margin-left: 23rem;
+  border-radius: 18px;
+  background-color: var(--orange);
   color: white;
   border: none;
   transition: background-color 1s;
 }
 
 .agregar .button-delete:hover {
-background-color:  #e6be82;
+background-color:  var(--light-orange);
 }
+ #eliminar{
+  box-shadow: -2px 4px 12px 10px rgba(230, 190, 130, 0.86);
+  transition: all 0.2s ease-in-out;
+}
+
+#eliminar:hover {
+  color: var(--orange);
+}
+  
  
+ .button-delete{
+  border-radius: 18px;
+  background-color: var(--orange);
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+ }
   
 /*ADMIN*/
 
@@ -987,9 +1035,12 @@ background-color:  #e6be82;
 
 
 @media screen and (min-width: 64rem) {
-  #abajo-carro .row {
+  #abajo-carro .tablas-carrito {
+    display: flex;
     flex-direction: row;
+    justify-content: space-around;
   }
+ 
   #abajo-carro .cupon,
   #abajo-carro .total {
     width: 70%;
@@ -1006,8 +1057,9 @@ background-color:  #e6be82;
   .detalle-producto {
     width: 50%;
   }
-  .detalle-producto .description{
-    width: 100%;
+ .detalle-producto .description{
+  width: 1rem;
+  text-align: center;
   }
 
   .contenedor-productos ul {

@@ -10,18 +10,18 @@
       <div class="swiper-wrapper">
         <!-- Slides -->
         <div class="swiper-slide">
-          <div class="container slide">
-            <h1 class="slide__title">Productos frescos todo el año</h1>
+          <div class="container slide" id="bannercomision">
+            <h1 class="slide__title"></h1>
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="container slide">
-            <h1 class="slide__title">Suscribite a nuestras ofertas</h1>
+          <div class="container slide" id="banner-frutas">
+            <h1 class="slide__title"></h1>
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="container slide">
-            <h1 class="slide__title">Envíos a todo el país</h1>
+          <div class="container slide " id="banner-vegetales">
+            <h1 class="slide__title"></h1>
           </div>
         </div>
       </div>
@@ -36,15 +36,33 @@
       <div class="swiper-scrollbar"></div>
     </div>
 
-    <section class="section">
+    <section class="swiper">
       <div class="container">
         <h2 class="section__title">Destacados</h2>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
         <section class="products">
           <% products.forEach(product => { %>
+            
             <%- include('./partials/productCard', { product }) %>
+           
           <% }) %>
         </section>
-      </div>
+        </div>
+        </div>
+        </div>
+               <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+     
+
+     
     </section>
 
     <%- include('./partials/footer') %>

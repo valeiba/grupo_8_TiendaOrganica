@@ -59,23 +59,24 @@ const controller = {
         .then(([allCategories]) => {
           return res.render("products/create", { allCategories,errors: resultValidation.mapped() });
         })
-     }else{
-     //  let productAlreadyExists = db.Product.findOne({
+     }
+    //   let productAlreadyExists =  db.Product.findOne({
     //     where: {
-      //     name: req.body.name
-      //   }
-      // });
+    //       name: req.body.name
+    //     }
+    //   })
  
-     //  if (productAlreadyExists) {
-     //    return res.render("products/create", {
-       //    errors: {
-        //     name: {
-         //      msg: "El Producto ya existe",
-        //     },
-         //  },
-       //    oldData: req.body,
-       //  });
-     // }
+    //   if (productAlreadyExists) {
+    //     return res.render("products/create", {
+    //       errors: {
+    //         name: {
+    //           msg: "El Producto ya existe",
+    //         },
+    //       },
+    //       oldData: req.body,
+    //     });
+    //  }
+     else{
      let image;
      if(req.file != undefined){
          image = req.file.filename

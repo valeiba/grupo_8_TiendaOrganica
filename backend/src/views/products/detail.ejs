@@ -3,6 +3,37 @@
   <%- include('./../partials/head') %>
   <body>
     <%- include('./../partials/navbar') %>
+     <!-- Slider main container -->
+     <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="container slide" id="bannercomision">
+            <h1 class="slide__title"></h1>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container slide" id="banner-frutas">
+            <h1 class="slide__title"></h1>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container slide " id="banner-vegetales">
+            <h1 class="slide__title"></h1>
+          </div>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
     <section>
       <article class="contenedor-detalleproducto">
         
@@ -15,31 +46,42 @@
           <h3>Precio</h3>
           <h2>$<%= product.price %></h2>
           <p><%= product.presentation %></p>
-          <select>
-            <option>Cantidad</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
+          <label>Cantidad</label> <input type="number" />
           <a href="/users/shopping-cart" class="product-card__button">Añadir a carrito</a>
-          <p class="description"><%= product.description %></p>
+          <span class="description"><%= product.description %></span>
         </div>
       </article>
     
     
-      <div class="container">
+      <div class="swiper">
         <div class="titulo-productos">
           <h2>Productos Relacionados</h2>
         </div>
-        <ul class="products">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            
+        <div class="products">
           <% relatedProducts.forEach(product => { %>
-          <li><%- include('./../partials/productCard', {product}) %></li>
+          <div><%- include('./../partials/productCard', {product}) %></div>
           <% }) %>
-        </ul>
+          </div>
+      
+      </div>
+      </div>
+          <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
       </div>
     </section>
 
     <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+    <script src="../../swiper/swiper-bundle.min.js"></script>
+    <script src="../../js/carousel.js"></script>
   </body>
 </html>

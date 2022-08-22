@@ -1,10 +1,15 @@
 <article class="product-card">
   <a href="/products/detail/<%= product.id %>" class="product-card__details">
+    <% if (product.on_sale === 1) {%> 
+      <span class="en-oferta">OFERTA <i class="fas fa-tags"></i> </span>
+      <% } %> 
     <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
     <h2 class="product-card__title"><%= product.name %></h2>
-    <p class="product-card__price">$<%= product.price %></p>
+    <p class="product-card__price">$<%= product.price %> </p>
     <p class=""><%= product.presentation %></p>
+    
   </a>
+ 
   <% if (locals.userIsLogged) { %>
   <a href="/users/shopping-cart" class="product-card__button">Comprar</a>
   <% } else { %>

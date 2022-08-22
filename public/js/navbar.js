@@ -14,12 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
   btnOpen.addEventListener("click", toggleMobileMenu);
   btnClose.addEventListener("click", toggleMobileMenu);
 
-  // window.addEventListener('scroll', () => {
-  //   const navbarHeight = navbar.clientHeight; 
-  //   if (window.scrollY > navbarHeight * 4) {
-  //     navbar.classList.add('is-scrolled');
-  //   } else {
-  //     navbar.classList.remove('is-scrolled')
-  //   }
-  // })
+  window.addEventListener('scroll', () => {
+    const navbarHeight = navbar.clientHeight; 
+    if (window.scrollY > navbarHeight * 2) {
+      navbar.classList.add('is-scrolled');
+      document.body.style.paddingTop = `${navbarHeight}px`;
+    } else {
+      navbar.classList.remove('is-scrolled')
+      document.body.style.paddingTop = 0;
+    }
+  })
 });

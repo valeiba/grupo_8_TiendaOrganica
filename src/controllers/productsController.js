@@ -80,7 +80,7 @@ const controller = {
      if(req.file != undefined){
          image = req.file.filename
      } else {
-         image = 'image-default.jpg'
+         image = 'default.png'
      }
      db.Product.create({
        name: req.body.name,

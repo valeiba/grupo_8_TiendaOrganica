@@ -23,6 +23,10 @@ a {
   color: var(--black);
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -67,7 +71,6 @@ img {
   right: 0;
   z-index: 10;
   transition: all 0.3s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar.is-scrolled {
@@ -98,7 +101,7 @@ img {
 
 .navbar a,
 .btn-open {
-  color: #000;
+  color: var(--black);
 }
 
 .navbar__search-icon {
@@ -114,11 +117,14 @@ img {
   gap: 2rem;
 }
 
+.navbar__menu span {
+  text-transform: uppercase;
+}
+
 .navbar__menu .navbar-cta {
   border-radius: 4rem;
   padding: 0.8rem 1.8rem;
   background-color: var(--orange);
-  color: #000;
   text-transform: uppercase;
   font-size: 0.8em;
   font-weight: bold;
@@ -126,8 +132,7 @@ img {
 
 .navbar__menu .navbar-cta:hover {
   transform: scale(1.1);
-  color: #000;
-  text-decoration: none;
+  color: var(--black);
 }
 
 .dropdown {
@@ -186,6 +191,7 @@ img {
   position: relative;
   padding: 1rem 0;
   display: none;
+  cursor: pointer;
 }
 
 .navbar__menu-profile div,
@@ -210,15 +216,19 @@ img {
   left: 2rem;
   min-width: 12rem;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
   border-radius: 0.375rem;
   background-color: var(--orange);
   transform: scale(0);
   transform-origin: top left;
-  transition: all .2s ease-in-out;
-  box-shadow: 0 0 #0000,0 0 #0000, 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: all .3s ease-in-out;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
-
+.navbar__menu-profile:hover {
+  color: var(--orange);
+}
 
 .navbar__menu-profile__links a {
   display: block;
@@ -233,8 +243,6 @@ img {
 
 .navbar__menu-profile:hover .navbar__menu-profile__links {
   transform: scale(1);
-  display: flex;
-  flex-direction: column;
 }
 
 
@@ -288,7 +296,7 @@ img {
 }
 
 .mobile-menu__title {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid var(--black);
   margin: 0;
 }
 
@@ -297,6 +305,10 @@ img {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.footer__link:hover {
+  color: #fff;
 }
 
 .mobile-menu__link:active {
@@ -319,6 +331,43 @@ img {
 
 .section__title {
   color: var(--orange);
+}
+
+.search-form {
+  margin: 0 auto;
+  max-width: 48rem;
+}
+
+.search-wrapper {
+  display: flex;
+  margin: 0 auto;
+}
+
+.search-form input {
+  width: 100%;
+  padding: .5rem;
+  border-top-left-radius: .375rem;
+  border-bottom-left-radius: .375rem;
+}
+
+.search-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .2rem;
+  padding: 0 1rem;
+  border-top-right-radius: .375rem;
+  border-bottom-right-radius: .375rem;
+  margin-left: -2px;
+}
+
+.crud-btn {
+  grid-column: 1 / -1;
+  margin: 1rem 0 2rem;
+}
+
+.btn-404 {
+  width: auto;
 }
 
 .products {
@@ -345,8 +394,9 @@ img {
   align-items: center;
 }
 
-.products__categories-links {
-  display: none;
+.products__categories-link:hover {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .products__categories-links.is-open {
@@ -363,14 +413,14 @@ img {
   border-radius: 0.375rem;
   background-color: #fff;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out !important;
   text-align: left;
-  box-shadow: 0 0 #0000,0 0 #0000, 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .product-card:hover {
-  transform: translateY(-.5rem);
-  box-shadow: 0 0 #0000,0 0 #0000, 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transform: translateY(-.5rem) !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .product-card__edit-btn {
@@ -394,9 +444,8 @@ img {
 }
 
 .product-card:hover .product-card__button {
-  background-color: var(--green);
-  color: #fff;
   text-decoration: none;
+  color: #fff;
 }
 
 .product-card__img-wrapper {
@@ -449,7 +498,10 @@ img {
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  background-color: var(--green);
+}
+
+.button:hover {
+  color: #fff;
 }
 
 .delete-btn {
@@ -459,6 +511,10 @@ img {
 .divided-screen {
   display: flex;
   flex-direction: column;
+}
+
+.bg-green {
+  background-color: var(--green);
 }
 
 .bg-light-green {
@@ -497,6 +553,23 @@ img {
   padding: 1rem;
 }
 
+.form__title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.text-dark-green {
+  color: var(--dark-green)
+}
+
+.text-orange {
+  color: var(--orange)
+}
+
+.text-white {
+  color: white;
+}
+
 .form input,
 .form textarea {
   padding: 0.5rem;
@@ -505,6 +578,10 @@ img {
 
 .form input[type="checkbox"] {
   width: auto;
+}
+
+label {
+  margin-bottom: 0.1rem;
 }
 
 .is-invalid {
@@ -523,6 +600,22 @@ img {
   color: green;
 }
 
+.animation-shake {
+  animation: shake .8s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  } 
+  20%, 40%, 60%, 80% {
+    transform: translateX(-2%);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(2%);
+  }
+}
+
 footer {
   border-top: 1px solid rgb(220, 220, 220);
   padding-bottom: 1rem;
@@ -538,6 +631,7 @@ footer {
 
 .footer__title {
   font-size: 1.5em;
+  font-weight: bold;
 }
 
 .footer-wrapper {
@@ -583,6 +677,7 @@ footer {
 @media screen and (min-width: 48rem) {
   .product-card {
     box-shadow: none;
+    transition: all .3s ease-in-out;
   }
 }
 
@@ -646,8 +741,14 @@ footer {
     flex-basis: 65%;
   }
 
+  .products__categories {
+    border-right: 1px solid rgb(235, 235, 235);
+  }
+
   .products__grid-layout {
-    grid-template-columns: minmax(10rem, 25%) 1fr;
+    grid-template-columns: minmax(10rem, 20%) 1fr;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
   }
 
   .product-card__edit-btn {
@@ -920,6 +1021,8 @@ footer {
   padding-top: 100px;
 }
 div.errores ul {
+  padding: 1rem;
+  border-radius: .1rem;
   color: red;
 }
 /*formulario de productos*/
@@ -1119,10 +1222,6 @@ div.errores ul {
 
   .product-card {
     text-align: center;
-  }
-
-  .product-card__button {
-    background-color: var(--green);
-    color: #fff;
+    transition: all .3s ease-in-out;
   }
 }

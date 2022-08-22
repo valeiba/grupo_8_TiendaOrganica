@@ -15,7 +15,7 @@ module.exports = [
     let acceptedFileExtensions = [".jpg", ".jpeg", ".png", ".gif"];
     let file = req.file;
     if (typeof file === "undefined") {
-      file = null;
+      file = "default.png";
     } else {
       let fileExtension = path.extname(file.originalname).toLocaleLowerCase();
       if (!acceptedFileExtensions.includes(fileExtension)) {

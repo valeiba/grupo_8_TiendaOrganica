@@ -1,4 +1,4 @@
-<article class="product-card">
+<article class="product-card" data-aos="zoom-in" data-aos-duration="600" data-aos-once="true">
   <% if (locals.userIsLogged) { %>
     <% if (userLogged.role_id == 1) { %>
       <a href="/products/edit/<%= product.id %>" class="product-card__edit-btn">
@@ -14,5 +14,5 @@
       <p class="product-card__presentation"><%= product.presentation %></p>
     </div>
   </a>
-  <a href="/products/detail/<%= product.id %>" class="product-card__button">Ver</a>
+  <a href="/products/detail/<%= product.id %>" class="product-card__button bg-green text-white">Ver</a>
 </article>

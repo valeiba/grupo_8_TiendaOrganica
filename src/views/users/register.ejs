@@ -8,18 +8,18 @@
         <div class="left-screen bg-light-green">
           <div class="container-form">
             
-          <form id="form" class="form" action="users/register" enctype="multipart/form-data" method="POST">
+          <form id="form" class="form" action="users/register" enctype="multipart/form-data" method="POST" data-aos="fade-right">
             <div class="errores">
               <ul></ul>
             </div>
-            <h2>Registrate en Tienda Orgánica</h2>
+            <h2 class="form__title text-dark-green">Registrate en Tienda Orgánica</h2>
             <div class="">
+              <label for="first_name">Nombre</label>
               <input
                 class="<%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
                 type="text"
                 name="first_name"
                 id="first_name"
-                placeholder="Nombre"
                 value="<%= locals.oldData ? oldData.first_name : null %>"
               />
               <% if (locals.errors && errors.first_name) { %>
@@ -28,12 +28,12 @@
             </div>
 
             <div class="">
+              <label for="last_name">Apellido</label>
               <input
                 class="<%= locals.errors && errors.last_name ? 'is-invalid' : null %>"
                 type="text"
                 name="last_name"
                 id="last_name"
-                placeholder="Apellido"
                 value="<%= locals.oldData ? oldData.last_name : null %>"
               />
               <% if (locals.errors && errors.last_name) { %>
@@ -42,12 +42,12 @@
             </div>
 
             <div class="">
+              <label for="email">Email</label>
               <input
                 class="<%= locals.errors && errors.email ? 'is-invalid' : null %>"
                 type="text"
                 name="email"
                 id="email"
-                placeholder="Email"
                 value="<%= locals.oldData ? oldData.email : null %>"
               />
               <% if (locals.errors && errors.email) { %>
@@ -56,12 +56,12 @@
             </div>
 
             <div class="">
+              <label for="password">Contraseña</label>
               <input
                 class="<%= locals.errors && errors.password ? 'is-invalid' : null %>"
                 type="password"
                 name="password"
                 id="password"
-                placeholder="Contraseña"
                 value="<%= locals.oldData ? oldData.password : null %>"
               />
               <% if (locals.errors && errors.password) { %>
@@ -70,12 +70,12 @@
             </div>
 
             <div class="">
+              <label for="mobile">Teléfono</label>
               <input
                 class="<%= locals.errors && errors.mobile ? 'is-invalid' : null %>"
                 type="text"
                 name="mobile"
                 id="mobile"
-                placeholder="Teléfono"
                 value="<%= locals.oldData ? oldData.mobile : null %>"
               />
               <% if (locals.errors && errors.mobile) { %>
@@ -84,7 +84,7 @@
             </div>
 
             <div class="">
-              <label class="mb-2" for="avatar">Imagen de Perfil</label>
+              <label for="avatar">Imagen de Perfil</label>
               <input
                 class="<%= locals.errors && errors.avatar ? 'is-invalid' : null %>"
                 type="file"
@@ -96,11 +96,8 @@
               <% } %>
             </div>
 
-            <p>Estoy de acuerdo con los <a href="#">Términos y Condiciones</a></p>
-
             <div class="">
-              <button id="" class="" type="submit">Registrarme</button>
-              <p><a href="/users/login">Ya estoy registrado</a></p>
+              <button id="" class="button bg-green" type="submit">Registrarme</button>
             </div>
           </form>
         </div>

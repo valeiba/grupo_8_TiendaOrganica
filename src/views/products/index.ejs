@@ -4,37 +4,36 @@
   <body>
     <%- include('./../partials/navbar') %>
     <div class="container">
-      <form id="search" action="/products/all" method="GET">
-        <div class="">
-          <input id="search-input" type="text">
-          <button type="submit" class="">Buscar</button>
+      <form id="search" class="search-form" action="/products/all" method="GET">
+        <div class="search-wrapper">
+          <input id="search-input" type="text" name="search-input" />
+          <button type="submit" class="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i> <span>Buscar</span>
+          </button>
         </div>
       </form>
-      <% if (locals.userIsLogged && userLogged.role_id == 1) { %>
-       <a class="button" href="products/create">Crear producto</a>
-      <% } %>
     </div>
     <section class="products__grid-layout container">
       <div class="products__categories">
         <div class="products__categories-header">
-          <h2 class="">Categorías</h2>
-          <div id="btn-collapse"><i class="fa-solid fa-chevron-down"></i></div>
+          <h2 class="footer__title">Categorías</h2>
         </div>
-        <ul id="categories-links" class="products__categories-links is-open">
-          <li><a href="/products/all" class="">Todos los productos</a></li>
-          <li><a href="/products/category/1" class="">Frutas</a></li>
-          <li><a href="/products/category/2" class="">Verduras</a></li>
-          <li><a href="/products/category/3" class="">Canastas</a></li>
+        <ul id="categories-links" class="products__categories-links">
+          <li><a href="/products/all" class="products__categories-link">Todos los productos</a></li>
+          <li><a href="/products/category/1" class="products__categories-link">Frutas</a></li>
+          <li><a href="/products/category/2" class="products__categories-link">Verduras</a></li>
+          <li><a href="/products/category/3" class="products__categories-link">Canastas</a></li>
         </ul>
       </div>
       <div class="products">
-        <% products.forEach(product => { %> 
-          <%- include('./../partials/productCard', {product}) %>
-        <% }) %>
+        <% if (locals.userIsLogged && userLogged.role_id == 1) { %>
+        <div class="crud-btn">
+          <a class="button bg-green text-white" href="products/create"> <i class="fa-solid fa-plus"></i> Crear producto </a>
+        </div>
+        <% } %> <% products.forEach(product => { %> <%- include('./../partials/productCard', {product}) %> <% }) %>
       </div>
     </section>
 
     <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
-    <script type="module" src="/js/shoppingCart.js"></script>
   </body>
 </html>

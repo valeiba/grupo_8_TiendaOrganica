@@ -31,10 +31,16 @@
           <a class="button bg-green text-white" href="products/create"> <i class="fa-solid fa-plus"></i> Crear producto </a>
         </div>
         <% } %> 
-        
-        <% products.forEach(product => { %> 
-          <%- include('./../partials/productCard', {product}) %> 
-        <% }) %>
+
+        <% if (locals.products.length) { %>
+          <% products.forEach(product => { %> 
+            <%- include('./../partials/productCard', {product}) %> 
+          <% }) %>
+        <% } else { %>
+          <div class="not-found text-invalid footer__title">
+            <p>No tenemos productos con ese nombre <i class="fa-solid fa-circle-exclamation"></i></p> 
+          </div>
+        <% } %> 
       </div>
     </section>
 

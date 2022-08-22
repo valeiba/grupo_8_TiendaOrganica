@@ -4,6 +4,10 @@ const productsApiController = require("../../controllers/api/productsApiControll
 
 router.get("/", productsApiController.products);
 router.get("/all", productsApiController.getAllProducts);
+// total productos vendidos
+router.get("/onSales", productsApiController.productsOnSales);
+// top 5 productos vendidos
+router.get("/topFiveProducts", productsApiController.topFiveProducts);
 router.get("/last", productsApiController.Last);
 router.get("/:id", productsApiController.getOneProduct);
 

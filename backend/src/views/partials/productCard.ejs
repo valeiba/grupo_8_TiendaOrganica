@@ -1,0 +1,19 @@
+<article class="product-card" data-aos="zoom-in" data-aos-duration="600" data-aos-once="true">
+  <% if (locals.userIsLogged) { %> 
+    <% if (userLogged.role_id == 1) { %>
+      <a href="/products/edit/<%= product.id %>" class="product-card__edit-btn">
+        <i class="fa-solid fa-pencil"></i>
+      </a>
+    <% } %> 
+  <% } %>
+  <a href="/products/detail/<%= product.id %>" class="product-card__details">
+    <% if (product.on_sale === 1) {%>
+      <span class="en-oferta">EN OFERTA <i class="fas fa-tags"></i> </span>
+    <% } %>
+    <img src="images/products/<%= product.image %>" alt="" class="product-card__img" />
+    <h2 class="product-card__title"><%= product.name %></h2>
+    <p class="product-card__price">$<%= product.price %></p>
+    <p class="product-presentation"><%= product.presentation %></p>
+  </a>
+  <a href="/products/detail/<%= product.id %>" class="product-card__button bg-green text-white">Ver</a>
+</article>

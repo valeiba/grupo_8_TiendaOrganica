@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+    <div class="container">
+      <form id="search" class="search-form" action="/products/search" method="GET">
+        <div class="search-wrapper">
+          <input id="name" type="text" name="name" />
+          <button type="submit" class="search-button bg-orange">
+            <i class="fa-solid fa-magnifying-glass"></i> <span>Buscar</span>
+          </button>
+        </div>
+      </form>
+    </div>
+    <section class="products__grid-layout container">
+      <div class="products__categories">
+        <div class="products__categories-header">
+          <h2 class="footer__title">Categorías</h2>
+        </div>
+        <ul id="categories-links" class="products__categories-links">
+          <li><a href="/products/all" class="products__categories-link">Todos los productos</a></li>
+          <li><a href="/products/category/1" class="products__categories-link">Frutas</a></li>
+          <li><a href="/products/category/2" class="products__categories-link">Verduras</a></li>
+          <li><a href="/products/category/3" class="products__categories-link">Canastas</a></li>
+        </ul>
+      </div>
+      <div class="products">
+        <% if (locals.userIsLogged && userLogged.role_id == 1) { %>
+        <div class="crud-btn">
+          <a class="button bg-green text-white" href="products/create"> <i class="fa-solid fa-plus"></i> Crear producto </a>
+        </div>
+        <% } %> 
+
+        <% if (locals.products.length) { %>
+          <% products.forEach(product => { %> 
+            <%- include('./../partials/productCard', {product}) %> 
+          <% }) %>
+        <% } else { %>
+          <div class="not-found text-invalid footer__title">
+            <p>No tenemos productos con ese nombre <i class="fa-solid fa-circle-exclamation"></i></p> 
+          </div>
+        <% } %> 
+      </div>
+    </section>
+
+    <%- include('./../partials/footer') %> 
+    <%- include('./../partials/scripts') %>
+  </body>
+</html>

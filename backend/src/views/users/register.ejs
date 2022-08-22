@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+    
+      <div class="divided-screen">
+        <div class="left-screen bg-light-green">
+          <div class="container-form">
+            
+          <form id="form" class="form" action="users/register" enctype="multipart/form-data" method="POST" data-aos="fade-right">
+            <div class="errores">
+              <ul></ul>
+            </div>
+            <h2 class="form__title text-dark-green">Registrate en Tienda Orgánica</h2>
+            <div class="">
+              <label for="first_name">Nombre</label>
+              <input
+                class="<%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
+                type="text"
+                name="first_name"
+                id="first_name"
+                value="<%= locals.oldData ? oldData.first_name : null %>"
+              />
+              <% if (locals.errors && errors.first_name) { %>
+              <div class="text-danger"><%= errors.first_name.msg %></div>
+              <% } %>
+            </div>
+
+            <div class="">
+              <label for="last_name">Apellido</label>
+              <input
+                class="<%= locals.errors && errors.last_name ? 'is-invalid' : null %>"
+                type="text"
+                name="last_name"
+                id="last_name"
+                value="<%= locals.oldData ? oldData.last_name : null %>"
+              />
+              <% if (locals.errors && errors.last_name) { %>
+              <div class="text-danger"><%= errors.last_name.msg %></div>
+              <% } %>
+            </div>
+
+            <div class="">
+              <label for="email">Email</label>
+              <input
+                class="<%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                type="text"
+                name="email"
+                id="email"
+                value="<%= locals.oldData ? oldData.email : null %>"
+              />
+              <% if (locals.errors && errors.email) { %>
+              <div class="text-danger"><%= errors.email.msg %></div>
+              <% } %>
+            </div>
+
+            <div class="">
+              <label for="password">Contraseña</label>
+              <input
+                class="<%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                type="password"
+                name="password"
+                id="password"
+                value="<%= locals.oldData ? oldData.password : null %>"
+              />
+              <% if (locals.errors && errors.password) { %>
+              <div class="text-danger"><%= errors.password.msg %></div>
+              <% } %>
+            </div>
+
+            <div class="">
+              <label for="mobile">Teléfono</label>
+              <input
+                class="<%= locals.errors && errors.mobile ? 'is-invalid' : null %>"
+                type="text"
+                name="mobile"
+                id="mobile"
+                value="<%= locals.oldData ? oldData.mobile : null %>"
+              />
+              <% if (locals.errors && errors.mobile) { %>
+              <div class="text-danger"><%= errors.mobile.msg %></div>
+              <% } %>
+            </div>
+
+            <div class="">
+              <label for="avatar">Imagen de Perfil</label>
+              <input
+                class="<%= locals.errors && errors.avatar ? 'is-invalid' : null %>"
+                type="file"
+                id="avatar"
+                name="avatar"
+              />
+              <% if (locals.errors && errors.avatar) { %>
+              <span class="text-danger"><%= errors.avatar.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
+              <% } %>
+              </div>
+              <button id="" class="button bg-green" type="submit">Registrarme</button>
+          </form>
+        </div>
+
+        
+      </div>
+      <div class="right-screen bg-dark-green">
+
+      </div>
+      <script type="module" src="/js/register.js"></script>
+      <%- include('./../partials/scripts') %>
+  </body>
+</html>

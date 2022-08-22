@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+    <section>
+      <div class="container-form" >
+        <form
+          class="form"
+          action="/products/delete/<%= product.id %>?_method=DELETE"
+          method="POST"
+          enctype="multipart/form-data"
+          id="eliminar"
+          >
+        <h4>¿Confirma eliminar <%= product.name %>?</h4>
+        <img src="/images/products/<%= product.image %>" alt="foto de producto" />
+        
+          <button class="button-delete" type="submit">ELIMINAR</button>
+        </form>
+        <div class="blank"></div>
+      </div>
+    </section>
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+  </body>
+</html>

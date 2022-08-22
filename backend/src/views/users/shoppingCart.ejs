@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+    <main>
+      <section>
+        <h4 class="titulo-carrito">Carrito de compras</h4>
+        <div class="carrito-compras">
+          
+          <div class="contenedorsecciones" class="contenedor my-5">
+            <table width="100%" id="carrito">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Subtotal</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+            </div>
+              <tbody>
+                <div class="dentrode-carro">
+                <tr>
+                  
+                  <td class="shoppingCartItem">
+                    
+      
+                     <img src="images/products/canasta-de-frutas.jpg" alt="imagenproducto">
+                    <div>
+                      <p></p>
+                      <small>$1200</small>
+                      </div>
+                      </div>
+                    </td>
+                  <td><input value="1" type="number"></td>
+                  <td><p class="subtotalProduct">$ 1200</p></td>
+                  <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                </tr>>
+              </tbody>
+            </table>
+            <div class="finalizar">
+              <div class="seguir">
+                <a href="/products/all" class="">
+                <button type="submit">Seguir comprando</button></a>
+              </div>
+            </div>
+          </div>
+      </section>
+      <section id="abajo-carro" class="contenedor-abajocarro">
+        <div class="tablas-carrito">
+          <div class="cupon">
+            <div>
+              <h5>Cupón</h5>
+              <P>Ingresar codigo de cupón</P>
+              <input type="text" placeholder="codigo de cupón">
+            </div>
+            <div class="confirmar">
+              <button type="submit">Aplicar cupón</button>
+            </div>
+          </div>
+          <div class="total">
+            <div>
+              <h5>Total de carrito</h5>
+              <div class="flex">
+                <p>Subtotal</p>
+                <p class="subtotalProduct">$1200</p>
+              </div>
+              <div class="flex">
+                <p>Descuento</p>
+                <p>$0</p>
+              </div>
+              <hr class="segundo-hr">
+              <div class="flex">
+                <p>Total</p>
+                <p>$1200</p>
+              </div>
+                <div class="confirmar">
+                  <button  class ="buyButton" type="submit">Confirmar pedido</button>
+                </div>
+              </div>
+           
+
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      
+    </main>
+    <%- include('./../partials/footer') %>
+    <%- include('./../partials/scripts') %>
+    <script src="../../swiper/swiper-bundle.min.js"></script>
+    <script src="../../js/carousel.js"></script>
+   
+  </body>
+</html>

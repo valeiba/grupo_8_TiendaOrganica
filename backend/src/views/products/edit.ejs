@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./../partials/head') %>
+  <body>
+    <%- include('./../partials/navbar') %>
+    <section>
+
+      <div class="container-form">
+        <form
+          id="formproduct"
+          class="form"
+          action="/products/edit/<%= product.id %>?_method=PUT"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="errores">
+            <ul></ul>
+          </div>
+
+          <h4>Formulario de edición de <%= product.name %></h4>
+
+          <div class="field">
+            <label>Nombre</label>
+            <input
+              class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="nombre del producto"
+              value="<%= product.name %>"
+            />
+            <% if (locals.errors && errors.name) { %>
+              <div class="text-invalid"><%= errors.name.msg %></div>
+            <% } %>
+          </div>
+          
+          <div class="field">
+            <label>Precio</label>
+            <input
+              class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
+              type="number"
+              name="price"
+              id="price"
+              placeholder="precio"
+              value="<%= product.price %>"
+            />
+            <% if (locals.errors && errors.price) { %>
+              <div class="text-invalid"><%= errors.price.msg %></div>
+            <% } %>
+          </div>
+
+          <div class="field">
+            <label>Stock</label>
+            <input class="<%= locals.errors && errors.stock ? 'is-invalid' : null %>" type="number" name="stock" id="stock" placeholder="stock del producto" value="<%= product.stock %>" />
+            <% if (locals.errors && errors.stock) { %>
+              <div class="text-invalid"><%= errors.stock.msg %></div>
+            <% } %>
+          </div>
+
+          <div class="field">
+            <label>¿Producto en oferta?</label>
+            <select id="on_sale" class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" name="on_sale">
+              <option value="">Seleccionar</option>
+              <%  let options = ['0', '1']; %>
+              
+              <% for (option of options) { %>
+                <option value="<%= product.on_sale %>" selected
+                  ><%= option %></option>
+                <% } %>
+            </select>
+            <label>Seleccione 0 si no esta en oferta ó 1 si esta en oferta el producto</label>
+            <% if (locals.errors && errors.on_sale) { %>
+              <div class="text-invalid"><%= errors.on_sale.msg %></div>
+            <% } %>
+          </div>
+
+          <div class="field">
+            <label>Presentación</label>
+            <select
+              class="<%= locals.errors && errors.presentation ? 'is-invalid' : null %>"
+              name="presentation"
+              id="presentation"
+            >
+              <option value="">Elegí una presentación</option>
+              <% let presentations = ['1kg', 'un atado', 'una unidad', '500gr', '250gr']; %>
+              <% for (const onePresentation of presentations) { %>
+                <option
+                  value="<%= product.presentation %>" selected
+                 
+                > <%= onePresentation %> </option>
+              <% } %>
+             
+            </select>
+            <% if (locals.errors && errors.presentation) { %>
+              <div class="text-invalid"><%= errors.presentation.msg %></div>
+            <% } %>
+          </div>
+       
+          <div class="textbox">
+            <label>Descripción</label>
+            <textarea class="<%= locals.errors && errors.description ? 'is-invalid' : null %> "
+              type="text"
+              name="description"
+              id="description"
+              placeholder="Descripción del producto"
+              value=""
+              maxlength="1000"><%= product.description %></textarea>
+            <% if (locals.errors && errors.description) { %>
+              <div class="text-invalid"><%= errors.description.msg %></div>
+            <% } %>
+          </div>
+          <div class="field">
+          <label for="category_id">Categorías</label>
+          <p>
+              <select name="category_id" id="category_id" required>
+                  <% allCategories.forEach(category => { %>
+                  <option value="<%= category.id %>" 
+                    <% (product.category_id == category.id) ? 'selected' : null %>>
+                    <%= category.name %></option>
+                  <% }); %>
+              </select>
+              <% if (locals.errors && errors.category_id) { %>
+                <div class="text-invalid"><%= errors.category_id.msg %></div>
+    
+                <% } %>
+          </p>
+        </div>
+        <div class="field">
+          <label>Foto de producto</label>
+        </div>
+        <div class="imageproduct">
+          <input class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" type="file" name="image" id="image" />
+          <% if (locals.errors && errors.image) { %>
+            <span class="text-invalid"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
+          <% } %>
+          <div class="confirmar">
+          <button class="button" type="submit">Modificar</button>
+        </div>
+          <div class="agregar">
+          <a href="/products/delete/<%= product.id %>" class="button-delete">Eliminar Producto</a>
+        </div>
+        </form>
+      </div>
+    </section>
+    <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
+    <script type="module" src="/js/edit.js"></script>
+  </body>
+</html>

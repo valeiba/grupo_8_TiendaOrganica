@@ -1100,6 +1100,26 @@ button #create {
   margin-bottom: 20px;
 }
 
+/*BOTON PAGINACION*/
+
+.button-pag {
+  display: flex;
+  justify-content: flex-end;
+}
+.button-pag button {
+  background-color: #2b8652;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 2px;
+  cursor: pointer;
+}
+
 @media (min-width: 480px) {
   #abajo-carro .row {
     flex-direction: row;

@@ -3,7 +3,7 @@ const db = require("../../database/models");
 const getAllUsers = async (req, res) => {
   const count = await db.User.count();
   const users = await db.User.findAll({
-    attributes: {exclude: ["password", "role_id"]},
+    attributes: { exclude: ["password", "role_id"] },
   });
   const detail = users.forEach((user) => {
     user.dataValues.detail = `http://localhost:3001/api/users/${user.id}`;
@@ -27,7 +27,7 @@ const getAllUsers = async (req, res) => {
 
 const getOneUser = async (req, res) => {
   const user = await db.User.findByPk(req.params.id, {
-    attributes: {exclude: ["password", "role_id"]},
+    attributes: { exclude: ["password", "role_id"] },
   });
 
   return res.json({
@@ -36,4 +36,19 @@ const getOneUser = async (req, res) => {
   });
 };
 
-module.exports = {getAllUsers, getOneUser};
+const lastFiveUsers = (req, res) => {
+  db.User.findAll({
+    order: [["id", "DESC"]],
+    limit: 5,
+  }).then(function (users) {
+    res.json({
+      meta: {
+        status: 200,
+        url: "/api/users/lastFiveUsers",
+      },
+      data: users,
+    });
+  });
+};
+
+module.exports = { getAllUsers, getOneUser, lastFiveUsers };

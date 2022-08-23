@@ -6,12 +6,13 @@
 
     <section>
       <div class="container-form">
+        <div class="blank"></div>
         <form id="formproduct" class="form" action="products/create" method="POST" enctype="multipart/form-data">
           <div class="errores">
             <ul></ul>
           </div>
 
-          <h4>Formulario de creación de productos</h4>
+          <h4 class="create-title">Formulario de creación de productos</h4>
 
           <div class="field">
             <label for="name">Nombre</label>
@@ -129,6 +130,7 @@
         </div>
         </form>
       </div>
+      <div class="blank"></div>
     </section>
     <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
     <script type="module" src="/js/create.js"></script>

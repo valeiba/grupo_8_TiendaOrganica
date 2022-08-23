@@ -3,37 +3,6 @@
   <%- include('./../partials/head') %>
   <body>
     <%- include('./../partials/navbar') %>
-     <!-- Slider main container -->
-     <div class="swiper">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <div class="container slide" id="bannercomision">
-            <h1 class="slide__title"></h1>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="container slide" id="banner-frutas">
-            <h1 class="slide__title"></h1>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="container slide " id="banner-vegetales">
-            <h1 class="slide__title"></h1>
-          </div>
-        </div>
-      </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-
-      <!-- If we need scrollbar -->
-      <div class="swiper-scrollbar"></div>
-    </div>
     <section>
       <article class="contenedor-detalleproducto">
         
@@ -53,12 +22,11 @@
       </article>
     
     
-      <div class="swiper">
+      
         <div class="titulo-productos">
           <h2>Productos Relacionados</h2>
         </div>
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
+       
             
         <div class="products">
           <% relatedProducts.forEach(product => { %>
@@ -66,18 +34,8 @@
           <% }) %>
           </div>
       
-      </div>
-      </div>
-          <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-
-      <!-- If we need scrollbar -->
-      <div class="swiper-scrollbar"></div>
-      </div>
+     
+  
     </section>
 
     <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>

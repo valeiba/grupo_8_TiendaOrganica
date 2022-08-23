@@ -5,17 +5,19 @@
     <%- include('./../partials/navbar') %>
     <section>
       <div class="container-form" >
+        <div class="blank"></div>
         <form
+         
           class="form"
           action="/products/delete/<%= product.id %>?_method=DELETE"
           method="POST"
           enctype="multipart/form-data"
           id="eliminar"
           >
-        <h4>¿Confirma eliminar <%= product.name %>?</h4>
+        <h4 class="delete-title">¿Confirma eliminar <%= product.name %>?</h4>
         <img src="/images/products/<%= product.image %>" alt="foto de producto" />
         
-          <button class="button-delete" type="submit">ELIMINAR</button>
+          <button class="button bg-red" type="submit">ELIMINAR</button>
         </form>
         <div class="blank"></div>
       </div>

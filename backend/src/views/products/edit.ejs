@@ -6,6 +6,7 @@
     <section>
 
       <div class="container-form">
+        <div class="blank"></div>
         <form
           id="formproduct"
           class="form"
@@ -17,10 +18,10 @@
             <ul></ul>
           </div>
 
-          <h4>Formulario de edición de <%= product.name %></h4>
+          <h4 class="edit-title">Formulario de edición de <%= product.name %></h4>
 
           <div class="field">
-            <label>Nombre</label>
+            <label for="name">Nombre</label>
             <input
               class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
               type="text"
@@ -35,7 +36,7 @@
           </div>
           
           <div class="field">
-            <label>Precio</label>
+            <label for="price">Precio</label>
             <input
               class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
               type="number"
@@ -50,7 +51,7 @@
           </div>
 
           <div class="field">
-            <label>Stock</label>
+            <label for="stock">Stock</label>
             <input class="<%= locals.errors && errors.stock ? 'is-invalid' : null %>" type="number" name="stock" id="stock" placeholder="stock del producto" value="<%= product.stock %>" />
             <% if (locals.errors && errors.stock) { %>
               <div class="text-invalid"><%= errors.stock.msg %></div>
@@ -58,9 +59,9 @@
           </div>
 
           <div class="field">
-            <label>¿Producto en oferta?</label>
+            <label for="on_sale">¿Producto en oferta?</label>
             <select id="on_sale" class="<%= locals.errors && errors.on_sale ? 'is-invalid' : null %>" name="on_sale">
-              <option value="">Seleccionar</option>
+              <option value="" disabled selected>Seleccionar</option>
               <%  let options = ['0', '1']; %>
               
               <% for (option of options) { %>
@@ -75,13 +76,13 @@
           </div>
 
           <div class="field">
-            <label>Presentación</label>
+            <label for="presentation">Presentación</label>
             <select
               class="<%= locals.errors && errors.presentation ? 'is-invalid' : null %>"
               name="presentation"
               id="presentation"
             >
-              <option value="">Elegí una presentación</option>
+              <option value="" disabled selected>Elegí una presentación</option>
               <% let presentations = ['1kg', 'un atado', 'una unidad', '500gr', '250gr']; %>
               <% for (const onePresentation of presentations) { %>
                 <option
@@ -97,7 +98,7 @@
           </div>
        
           <div class="textbox">
-            <label>Descripción</label>
+            <label for="description">Descripción</label>
             <textarea class="<%= locals.errors && errors.description ? 'is-invalid' : null %> "
               type="text"
               name="description"
@@ -112,7 +113,8 @@
           <div class="field">
           <label for="category_id">Categorías</label>
           <p>
-              <select name="category_id" id="category_id" required>
+              <select name="category_id" id="category_id">
+                
                   <% allCategories.forEach(category => { %>
                   <option value="<%= category.id %>" 
                     <% (product.category_id == category.id) ? 'selected' : null %>>
@@ -126,21 +128,23 @@
           </p>
         </div>
         <div class="field">
-          <label>Foto de producto</label>
+          <label  for="image">Foto de producto</label>
         </div>
         <div class="imageproduct">
           <input class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" type="file" name="image" id="image" />
           <% if (locals.errors && errors.image) { %>
             <span class="text-invalid"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
           <% } %>
-          <div class="confirmar">
-          <button class="button" type="submit">Modificar</button>
         </div>
-          <div class="agregar">
-          <a href="/products/delete/<%= product.id %>" class="button-delete">Eliminar Producto</a>
-        </div>
+          <button  id= "button-delete" class="button bg-dark-green" type="submit">Modificar</button>
+       
+        
+          <a href="/products/delete/<%= product.id %>" class="button bg-red">Eliminar Producto</a>
+       
         </form>
+       
       </div>
+      <div class="blank"></div>
     </section>
     <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>
     <script type="module" src="/js/edit.js"></script>

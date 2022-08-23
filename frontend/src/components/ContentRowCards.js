@@ -1,27 +1,46 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import SmallCard from "./SmallCard";
 
 const ContentRowCards = () => {
-  const [productsTotal, setProductsTotal] = useState(0);
-  const [usersTotal, setUsersTotal] = useState(0);
-  const [categoriesTotal, setCategoriesTotal] = useState(0);
+  // const [productsTotal, setProductsTotal] = useState(0);
+  // const [usersTotal, setUsersTotal] = useState(0);
+  // const [categoriesTotal, setCategoriesTotal] = useState(0);
+  const [dataCards, setDataCards] = useState({
+    productsTotal: 0,
+    usersTotal: 0,
+    categoriesTotal: 0,
+    productsOnSale: 0,
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       try {
-        const resProducts = await fetch("http://localhost:3001/api/products/all");
-        const resUsers = await fetch("http://localhost:3001/api/users");
-        const resCategories = await fetch("http://localhost:3001/api/categories/all");
-        const dataProducts = await resProducts.json();
-        const dataUsers = await resUsers.json();
-        const dataCategories = await resCategories.json();
-        console.log(dataProducts);
-        console.log(dataProducts.data);
-        console.log(dataProducts.data.slice(-5));
-        console.log(dataProducts.data.pop());
-        setProductsTotal(dataProducts.meta.total);
-        setUsersTotal(dataUsers.data.count);
-        setCategoriesTotal(dataCategories.meta.total);
+        const resProducts = fetch("http://localhost:3001/api/products/all");
+        const resUsers = fetch("http://localhost:3001/api/users");
+        const resCategories = fetch("http://localhost:3001/api/categories/all");
+        const resProductsOnSale = fetch(
+          "http://localhost:3001/api/products/onSales"
+        );
+
+        Promise.all([resProducts, resUsers, resCategories, resProductsOnSale])
+          .then(
+            async ([dataProducts, dataUsers, dataCategories, dataOnSales]) => {
+              let products = await dataProducts.json();
+              let users = await dataUsers.json();
+              let categories = await dataCategories.json();
+              let onSales = await dataOnSales.json();
+
+              return [products, users, categories, onSales];
+            }
+          )
+          .then(([dataProducts, dataUsers, dataCategories, dataOnSale]) => {
+            setDataCards({
+              productsTotal: dataProducts.meta.total,
+              usersTotal: dataUsers.data.count,
+              categoriesTotal: dataCategories.meta.total,
+              productsOnSale: dataOnSale.data.totalOnSale,
+            });
+          });
       } catch (error) {
         console.log(error);
       }
@@ -31,9 +50,25 @@ const ContentRowCards = () => {
 
   return (
     <div className="d-sm-flex">
-      <SmallCard quantity={productsTotal} title="Total de productos" />
-      <SmallCard quantity={usersTotal} title="Total de usuarios" color="primary" />
-      <SmallCard quantity={categoriesTotal} title="Total de categorías" color="warning" />
+      <SmallCard
+        quantity={dataCards.productsTotal}
+        title="Total de productos"
+      />
+      <SmallCard
+        quantity={dataCards.usersTotal}
+        title="Total de usuarios"
+        color="primary"
+      />
+      <SmallCard
+        quantity={dataCards.categoriesTotal}
+        title="Total de categorías"
+        color="warning"
+      />
+      <SmallCard
+        quantity={dataCards.productsOnSale}
+        title="Total vendidos"
+        color="danger"
+      />
     </div>
   );
 };

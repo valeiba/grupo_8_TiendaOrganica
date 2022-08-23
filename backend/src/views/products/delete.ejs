@@ -4,19 +4,21 @@
   <body>
     <%- include('./../partials/navbar') %>
     <section>
-      <div class="container-form" >
+      <div class="container-form">
         <div class="blank"></div>
         <form
-         
           class="form"
           action="/products/delete/<%= product.id %>?_method=DELETE"
           method="POST"
           enctype="multipart/form-data"
           id="eliminar"
-          >
-        <h4 class="delete-title">¿Confirma eliminar <%= product.name %>?</h4>
-        <img src="/images/products/<%= product.image %>" alt="foto de producto" />
-        
+          data-aos="zoom-in"
+          data-aos-duration="600"
+          data-aos-once="true"
+        >
+          <h4 class="delete-title">¿Confirma eliminar <%= product.name %>?</h4>
+          <img src="/images/products/<%= product.image %>" alt="foto de producto" />
+
           <button class="button bg-red" type="submit">ELIMINAR</button>
         </form>
         <div class="blank"></div>

@@ -7,7 +7,7 @@
     <section>
       <div class="container-form">
         <div class="blank"></div>
-        <form id="formproduct" class="form" action="products/create" method="POST" enctype="multipart/form-data">
+        <form id="formproduct"  class="form" action="products/create" method="POST" enctype="multipart/form-data" data-aos="zoom-in" data-aos-once="true">
           <div class="errores">
             <ul></ul>
           </div>
@@ -125,9 +125,9 @@
               <span class="text-invalid"><%= errors.image.msg %> <i class="fa-solid fa-circle-exclamation"></i></span>
             <% } %>
           </div>
-        <div class="agregar">
-          <button class="button" id="create" type="submit">Agregar</button>
-        </div>
+        
+          <button class="button bg-green" id="create" type="submit">Agregar</button>
+       
         </form>
       </div>
       <div class="blank"></div>

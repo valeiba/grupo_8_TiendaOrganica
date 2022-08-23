@@ -5,12 +5,12 @@
     <%- include('./../partials/navbar') %>
     <section>
       <article class="contenedor-detalleproducto">
-        
-        <div class="fotoproducto">
+        <div class="fotoproducto" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
           <img src="/images/products/<%= product.image %>" width="100%" alt="foto de producto" />
         </div>
-          <div class="detalle-producto">
-          <a href="/products/all">Productos/</a><a href="/products/category/<%= product.category_id%>">Categoria/</a><%= product.name %>
+        <div class="detalle-producto" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
+          <a href="/products/all">Productos/</a><a href="/products/category/<%= product.category_id%>">Categoria/</a><%=
+          product.name %>
           <h3><%= product.name %></h3>
           <h3>Precio</h3>
           <h2>$<%= product.price %></h2>
@@ -20,22 +20,16 @@
           <span class="description"><%= product.description %></span>
         </div>
       </article>
-    
-    
-      
-        <div class="titulo-productos">
-          <h2>Productos Relacionados</h2>
-        </div>
-       
-            
-        <div class="products">
-          <% relatedProducts.forEach(product => { %>
-          <div><%- include('./../partials/productCard', {product}) %></div>
-          <% }) %>
-          </div>
-      
-     
-  
+
+      <div class="titulo-productos">
+        <h2>Productos Relacionados</h2>
+      </div>
+
+      <div class="products">
+        <% relatedProducts.forEach(product => { %>
+        <div><%- include('./../partials/productCard', {product}) %></div>
+        <% }) %>
+      </div>
     </section>
 
     <%- include('./../partials/footer') %> <%- include('./../partials/scripts') %>

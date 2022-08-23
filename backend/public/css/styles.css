@@ -18,6 +18,15 @@ body {
   min-height: 100vh;
 }
 
+.p-4 {
+  padding-top: 1rem;
+}
+
+.py-20 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
 a {
   text-decoration: none;
   color: var(--black);
@@ -614,23 +623,23 @@ label {
 }
 
 .is-invalid {
-  border: 2px solid red;
+  border: 2px solid red !important;
 }
 
 .text-invalid {
-  color: red;
+  color: red !important;
 }
 
 .is-valid {
-  border: 2px solid green;
+  border: 2px solid green !important;
 }
 
 .text-valid {
-  color: green;
+  color: green !important;
 }
 
 .animation-shake {
-  animation: shake .8s ease-in-out;
+  animation: shake .8s ease-in-out !important;
 }
 
 @keyframes shake {

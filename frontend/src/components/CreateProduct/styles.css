@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h1 {
+  padding: 10px;
+  color: rgba(1, 186, 90, 0.915);
+}
+
+.form-group {
+  padding: 5px;
+}
+.form label,
+.form input {
+  display: block;
+  box-sizing: border-box;
+}
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.form-submit {
+  padding: 10px;
+  background-color: rgba(1, 186, 90, 0.915);
+  color: white;
+  border-radius: 4px;
+  border: 1px solid rgb(0, 190, 130);
+}
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-actions {
+  padding: 50px 20px 10px 20px;
+}
+
+.btn-table {
+  padding: 2px 6px;
+  margin: 2px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-table:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #9e9e9e;
+}
+
+.btn-edit {
+  background-color: #44a944;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #d55151;
+  color: white;
+}

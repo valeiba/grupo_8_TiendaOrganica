@@ -1,5 +1,5 @@
 const bcryptjs = require("bcryptjs");
-const {validationResult} = require("express-validator");
+const { validationResult } = require("express-validator");
 const db = require("../database/models");
 
 const register = (req, res) => {
@@ -44,7 +44,7 @@ const processRegister = async (req, res) => {
     };
 
     await db.User.create(data, {
-      include: ["roles"]
+      include: ["roles"],
     });
 
     return res.redirect("/users/login");
@@ -60,21 +60,26 @@ const login = async (req, res) => {
     return console.log(error);
   }
 };
-
+//? LOGIN *****************************************************************
 const processLogin = async (req, res) => {
   try {
-    const userToLogin = await db.User.findOne({where: {email: req.body.email}});
+    const userToLogin = await db.User.findOne({
+      where: { email: req.body.email },
+    });
     if (userToLogin) {
-      let passwordIsCorrect = bcryptjs.compareSync(req.body.password, userToLogin.password);
+      let passwordIsCorrect = bcryptjs.compareSync(
+        req.body.password,
+        userToLogin.password
+      );
 
       if (passwordIsCorrect) {
         delete userToLogin.password;
-        req.session.userLogged = userToLogin;
+        req.session.userLogged = userToLogin; // ? GUARDAR USUARIO
 
         // if user checks "Remember me", store Email in cookies
         // used in userLoggedMiddleware
         if (req.body.remember_user) {
-          res.cookie("userEmail", req.body.email, {maxAge: 1000 * 30});
+          res.cookie("userEmail", req.body.email, { maxAge: 1000 * 30 });
         }
 
         return res.redirect("/");
@@ -114,6 +119,7 @@ const processLogin = async (req, res) => {
   }
 };
 
+//? ruta profile el cual le mandamos el usuario logueado
 const profile = async (req, res) => {
   try {
     return res.render("users/profile", {
@@ -157,20 +163,20 @@ const logout = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-}
-  const admin = async (req, res) => {
-    return res.render("users/admin");
-  };
+};
+const admin = async (req, res) => {
+  return res.render("users/admin");
+};
 
-  module.exports = {
-    register,
-    processRegister,
-    login,
-    processLogin,
-    profile,
-    edit,
-    editProfile,
-    shoppingCart,
-    logout,
-    admin,
-  }
+module.exports = {
+  register,
+  processRegister,
+  login,
+  processLogin,
+  profile,
+  edit,
+  editProfile,
+  shoppingCart,
+  logout,
+  admin,
+};

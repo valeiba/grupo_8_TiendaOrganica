@@ -107,5 +107,63 @@ const productsApiController = {
       });
     });
   },
+  create: function (req, res) {
+    db.Product.create({
+      name: req.body.name,
+      price: req.body.price,
+      presentation: req.body.presentation,
+      description: req.body.description,
+      stock: req.body.stock,
+      on_sale: req.body.on_sale,
+      category_id: req.body.category_id,
+      image: req.body.image,
+    })
+      .then(() => {
+        return res.status(200).json({
+          message: "producto creado con exito",
+          error: false,
+        });
+      })
+      .catch((error) => res.send(error));
+  },
+  edit: function (req, res) {
+    db.Product.update(
+      {
+        name: req.body.name,
+        price: req.body.price,
+        presentation: req.body.presentation,
+        description: req.body.description,
+        stock: req.body.stock,
+        on_sale: req.body.on_sale,
+        category_id: req.body.category_id,
+        image: req.body.image,
+      },
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    )
+      .then(() => {
+        return res.status(200).json({
+          message: "producto editado con exito",
+          error: false,
+        });
+      })
+      .catch((error) => res.send(error));
+  },
+  delete: function (req, res) {
+    db.Product.destroy({
+      where: { id: req.params.id },
+      force: true,
+    })
+      .then(() => {
+        return res.status(200).json({
+          message: "producto eliminado con exito",
+          error: false,
+        });
+      })
+      .catch((error) => res.send(error));
+  },
 };
 module.exports = productsApiController;

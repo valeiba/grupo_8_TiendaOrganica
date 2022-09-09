@@ -24,8 +24,8 @@ app.set("views", path.join(__dirname, "/src/views"));
 app.use(express.static("public"));
 app.use(express.static("node_modules"));
 app.use(cors());
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(
   session({

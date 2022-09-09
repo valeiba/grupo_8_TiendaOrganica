@@ -4,6 +4,9 @@ const productsApiController = require("../../controllers/api/productsApiControll
 
 router.get("/", productsApiController.products);
 router.get("/all", productsApiController.getAllProducts);
+router.post("/create", productsApiController.create);
+router.post("/edit", productsApiController.edit);
+router.delete("/delete/:id", productsApiController.delete);
 // total productos vendidos
 router.get("/onSales", productsApiController.productsOnSales);
 // top 5 productos vendidos
